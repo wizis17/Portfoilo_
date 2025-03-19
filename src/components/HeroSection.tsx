@@ -20,7 +20,7 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // State for tracking draggable element positions instead of AnimationControls
+  // Automatic animation positions for skill blocks
   const [positions, setPositions] = useState({
     pos1: { x: 0, y: 0 },
     pos2: { x: 0, y: 0 },
@@ -29,6 +29,40 @@ const HeroSection = () => {
     pos5: { x: 0, y: 0 },
     pos6: { x: 0, y: 0 },
   });
+
+  // Update positions randomly to create puzzle-like movement
+  useEffect(() => {
+    const moveInterval = setInterval(() => {
+      setPositions({
+        pos1: { 
+          x: Math.sin(Date.now() * 0.001) * 20, 
+          y: Math.cos(Date.now() * 0.002) * 15 
+        },
+        pos2: { 
+          x: Math.cos(Date.now() * 0.001) * 15, 
+          y: Math.sin(Date.now() * 0.0015) * 20 
+        },
+        pos3: { 
+          x: Math.sin(Date.now() * 0.002) * 10, 
+          y: Math.cos(Date.now() * 0.001) * 10 
+        },
+        pos4: { 
+          x: Math.cos(Date.now() * 0.0015) * 12, 
+          y: Math.sin(Date.now() * 0.001) * 8 
+        },
+        pos5: { 
+          x: Math.sin(Date.now() * 0.0012) * 18, 
+          y: Math.cos(Date.now() * 0.002) * 12 
+        },
+        pos6: { 
+          x: Math.cos(Date.now() * 0.001) * 10, 
+          y: Math.sin(Date.now() * 0.0018) * 15 
+        },
+      });
+    }, 50);
+
+    return () => clearInterval(moveInterval);
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
@@ -121,24 +155,14 @@ const HeroSection = () => {
             <div className="relative w-full h-[500px] rounded-lg overflow-hidden glass-panel p-6">
               <div className="absolute inset-0 bg-gradient-to-br from-teal-500/20 to-transparent"></div>
               <div className="relative h-full w-full grid grid-cols-6 grid-rows-6 gap-4">
-                {/* Programming language cards - now draggable */}
+                {/* Programming language cards - now with automatic motion */}
                 <motion.div 
-                  className="col-span-3 row-span-3 glass-panel p-6 flex flex-col justify-center cursor-move"
-                  drag
-                  dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                  dragElastic={0.1}
+                  className="col-span-3 row-span-3 glass-panel p-6 flex flex-col justify-center"
                   whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 1.05 }}
-                  initial={{ x: positions.pos1.x, y: positions.pos1.y }}
-                  animate={{ x: positions.pos1.x, y: positions.pos1.y }}
-                  onDragEnd={(e, info) => {
-                    setPositions(prev => ({
-                      ...prev,
-                      pos1: {
-                        x: prev.pos1.x + info.offset.x,
-                        y: prev.pos1.y + info.offset.y
-                      }
-                    }));
+                  animate={{ 
+                    x: positions.pos1.x, 
+                    y: positions.pos1.y,
+                    transition: { type: "spring", stiffness: 50 }
                   }}
                 >
                   <h3 className="text-xl font-semibold mb-2">Python</h3>
@@ -146,22 +170,12 @@ const HeroSection = () => {
                 </motion.div>
                 
                 <motion.div 
-                  className="col-span-3 row-span-2 glass-panel p-6 flex flex-col justify-center cursor-move"
-                  drag
-                  dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                  dragElastic={0.1}
+                  className="col-span-3 row-span-2 glass-panel p-6 flex flex-col justify-center"
                   whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 1.05 }}
-                  initial={{ x: positions.pos2.x, y: positions.pos2.y }}
-                  animate={{ x: positions.pos2.x, y: positions.pos2.y }}
-                  onDragEnd={(e, info) => {
-                    setPositions(prev => ({
-                      ...prev,
-                      pos2: {
-                        x: prev.pos2.x + info.offset.x,
-                        y: prev.pos2.y + info.offset.y
-                      }
-                    }));
+                  animate={{ 
+                    x: positions.pos2.x, 
+                    y: positions.pos2.y,
+                    transition: { type: "spring", stiffness: 50, delay: 0.1 }
                   }}
                 >
                   <h3 className="text-xl font-semibold mb-2">JavaScript</h3>
@@ -169,66 +183,36 @@ const HeroSection = () => {
                 </motion.div>
                 
                 <motion.div 
-                  className="col-span-2 row-span-1 glass-panel p-4 flex items-center justify-center cursor-move"
-                  drag
-                  dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                  dragElastic={0.1}
+                  className="col-span-2 row-span-1 glass-panel p-4 flex items-center justify-center"
                   whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 1.1 }}
-                  initial={{ x: positions.pos3.x, y: positions.pos3.y }}
-                  animate={{ x: positions.pos3.x, y: positions.pos3.y }}
-                  onDragEnd={(e, info) => {
-                    setPositions(prev => ({
-                      ...prev,
-                      pos3: {
-                        x: prev.pos3.x + info.offset.x,
-                        y: prev.pos3.y + info.offset.y
-                      }
-                    }));
+                  animate={{ 
+                    x: positions.pos3.x, 
+                    y: positions.pos3.y,
+                    transition: { type: "spring", stiffness: 50, delay: 0.2 }
                   }}
                 >
                   <h3 className="text-md font-semibold">React.js</h3>
                 </motion.div>
                 
                 <motion.div 
-                  className="col-span-1 row-span-1 glass-panel p-4 flex items-center justify-center cursor-move"
-                  drag
-                  dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                  dragElastic={0.1}
+                  className="col-span-1 row-span-1 glass-panel p-4 flex items-center justify-center"
                   whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 1.1 }}
-                  initial={{ x: positions.pos4.x, y: positions.pos4.y }}
-                  animate={{ x: positions.pos4.x, y: positions.pos4.y }}
-                  onDragEnd={(e, info) => {
-                    setPositions(prev => ({
-                      ...prev,
-                      pos4: {
-                        x: prev.pos4.x + info.offset.x,
-                        y: prev.pos4.y + info.offset.y
-                      }
-                    }));
+                  animate={{ 
+                    x: positions.pos4.x, 
+                    y: positions.pos4.y,
+                    transition: { type: "spring", stiffness: 50, delay: 0.15 }
                   }}
                 >
                   <h3 className="text-md font-semibold">C++</h3>
                 </motion.div>
                 
                 <motion.div 
-                  className="col-span-2 row-span-3 glass-panel p-6 flex flex-col justify-center cursor-move"
-                  drag
-                  dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                  dragElastic={0.1}
+                  className="col-span-2 row-span-3 glass-panel p-6 flex flex-col justify-center"
                   whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 1.05 }}
-                  initial={{ x: positions.pos5.x, y: positions.pos5.y }}
-                  animate={{ x: positions.pos5.x, y: positions.pos5.y }}
-                  onDragEnd={(e, info) => {
-                    setPositions(prev => ({
-                      ...prev,
-                      pos5: {
-                        x: prev.pos5.x + info.offset.x,
-                        y: prev.pos5.y + info.offset.y
-                      }
-                    }));
+                  animate={{ 
+                    x: positions.pos5.x, 
+                    y: positions.pos5.y,
+                    transition: { type: "spring", stiffness: 50, delay: 0.25 }
                   }}
                 >
                   <h3 className="text-xl font-semibold mb-2">Node.js</h3>
@@ -236,22 +220,12 @@ const HeroSection = () => {
                 </motion.div>
                 
                 <motion.div 
-                  className="col-span-4 row-span-1 glass-panel p-4 flex items-center justify-center cursor-move"
-                  drag
-                  dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                  dragElastic={0.1}
+                  className="col-span-4 row-span-1 glass-panel p-4 flex items-center justify-center"
                   whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 1.05 }}
-                  initial={{ x: positions.pos6.x, y: positions.pos6.y }}
-                  animate={{ x: positions.pos6.x, y: positions.pos6.y }}
-                  onDragEnd={(e, info) => {
-                    setPositions(prev => ({
-                      ...prev,
-                      pos6: {
-                        x: prev.pos6.x + info.offset.x,
-                        y: prev.pos6.y + info.offset.y
-                      }
-                    }));
+                  animate={{ 
+                    x: positions.pos6.x, 
+                    y: positions.pos6.y,
+                    transition: { type: "spring", stiffness: 50, delay: 0.3 }
                   }}
                 >
                   <h3 className="text-md font-semibold">AI & Machine Learning</h3>
