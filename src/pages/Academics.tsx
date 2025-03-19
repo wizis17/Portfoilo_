@@ -18,11 +18,11 @@ const Academics = () => {
       field: "Computer Science & Engineering (Specialization in AI & ML)",
       duration: "2021 - Present",
       location: "Bengaluru, Karnataka",
+      cgpa: "In Progress",
       details: [
         "Specializing in Artificial Intelligence and Machine Learning",
         "Key courses include Data Structures, Algorithms, Machine Learning",
-        "Actively participating in research projects related to AI/ML",
-        "Maintaining excellent academic standing"
+        "Actively participating in research projects related to AI/ML"
       ]
     },
     {
@@ -32,11 +32,24 @@ const Academics = () => {
       field: "Science Stream",
       duration: "2019 - 2021",
       location: "Bengaluru, Karnataka",
+      cgpa: "8.5",
       details: [
-        "CGPA: 85",
         "Major subjects included Physics, Mathematics, Chemistry, Computer Science",
-        "Participated in various technical competitions and events",
+        "Highlights: Advanced Mathematics & Computer Science",
         "Developed strong foundation in scientific principles and programming"
+      ]
+    },
+    {
+      id: 3,
+      institution: "Nelamangala, Bengaluru",
+      degree: "Secondary High School",
+      field: "NCERT-based Curriculum",
+      duration: "2012 - 2019",
+      location: "Bengaluru, Karnataka",
+      cgpa: "9.09",
+      details: [
+        "Strong foundation in Science",
+        "Participated in various academic competitions and extracurricular activities"
       ]
     }
   ];
@@ -95,7 +108,7 @@ const Academics = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <span className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-brand-purple/10 text-brand-purple mb-4">
+            <span className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-teal-500/10 text-teal-400 mb-4">
               Academics
             </span>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -108,7 +121,7 @@ const Academics = () => {
             </div>
           </motion.div>
 
-          {/* Education Timeline */}
+          {/* Education Cards */}
           <div className="mb-24">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -119,63 +132,52 @@ const Academics = () => {
               Education
             </motion.h2>
 
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-brand-purple/30" />
-
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {education.map((edu, index) => (
                 <motion.div
                   key={edu.id}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.2 }}
-                  className={`flex flex-col md:flex-row mb-16 relative ${
-                    index % 2 === 0 ? "md:flex-row-reverse" : ""
-                  }`}
                 >
-                  {/* Timeline dot */}
-                  <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brand-purple z-10" />
-
-                  {/* Content */}
-                  <div className={`w-full md:w-5/12 ${index % 2 === 0 ? "md:pl-12" : "md:pr-12"}`}>
-                    <motion.div
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                      className="glass-panel p-8 rounded-lg"
-                    >
-                      <div className="flex items-center mb-4">
-                        <div className="bg-brand-purple/10 p-3 rounded-lg mr-4">
-                          <GraduationCap className="h-6 w-6 text-brand-purple" />
-                        </div>
-                        <h3 className="text-xl font-semibold">{edu.degree}</h3>
+                  <motion.div
+                    whileHover={{ scale: 1.02, y: -5 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    className="glass-panel p-8 rounded-lg h-full"
+                  >
+                    <div className="flex items-center mb-4">
+                      <div className="bg-teal-500/10 p-3 rounded-lg mr-4">
+                        <GraduationCap className="h-6 w-6 text-teal-400" />
                       </div>
+                      <h3 className="text-xl font-semibold">{edu.degree}</h3>
+                    </div>
+                    
+                    <div className="mb-4">
+                      <div className="font-medium text-lg mb-1">{edu.institution}</div>
+                      <p className="text-muted-foreground">{edu.field}</p>
                       
-                      <div className="mb-4">
-                        <div className="font-medium text-lg mb-1">{edu.institution}</div>
-                        <p className="text-muted-foreground">{edu.field}</p>
-                        
-                        <div className="flex flex-wrap gap-x-4 mt-2 text-sm text-muted-foreground">
-                          <div className="flex items-center">
-                            <Calendar className="h-4 w-4 mr-1" />
-                            {edu.duration}
-                          </div>
-                          <div className="flex items-center">
-                            <MapPin className="h-4 w-4 mr-1" />
-                            {edu.location}
-                          </div>
+                      <div className="flex flex-wrap gap-y-2 gap-x-4 mt-2 text-sm text-muted-foreground">
+                        <div className="flex items-center">
+                          <Calendar className="h-4 w-4 mr-1" />
+                          {edu.duration}
+                        </div>
+                        <div className="flex items-center">
+                          <MapPin className="h-4 w-4 mr-1" />
+                          {edu.location}
+                        </div>
+                        <div className="flex items-center">
+                          <Award className="h-4 w-4 mr-1" />
+                          CGPA: {edu.cgpa}
                         </div>
                       </div>
-                      
-                      <ul className="space-y-2 pl-6 list-disc text-muted-foreground">
-                        {edu.details.map((detail, i) => (
-                          <li key={i}>{detail}</li>
-                        ))}
-                      </ul>
-                    </motion.div>
-                  </div>
-                  
-                  {/* Empty space for timeline alignment */}
-                  <div className="hidden md:block w-full md:w-5/12" />
+                    </div>
+                    
+                    <ul className="space-y-2 pl-6 list-disc text-muted-foreground">
+                      {edu.details.map((detail, i) => (
+                        <li key={i}>{detail}</li>
+                      ))}
+                    </ul>
+                  </motion.div>
                 </motion.div>
               ))}
             </div>
@@ -192,8 +194,8 @@ const Academics = () => {
             
             <div className="glass-panel p-10 rounded-lg">
               <div className="flex items-center justify-center mb-8">
-                <div className="bg-brand-purple/10 p-4 rounded-full">
-                  <BookOpen className="h-8 w-8 text-brand-purple" />
+                <div className="bg-teal-500/10 p-4 rounded-full">
+                  <BookOpen className="h-8 w-8 text-teal-400" />
                 </div>
               </div>
               
@@ -206,7 +208,7 @@ const Academics = () => {
                     transition={{ duration: 0.3, delay: 0.8 + index * 0.05 }}
                     className="flex items-center p-4 bg-secondary/50 rounded-lg"
                   >
-                    <div className="h-2 w-2 rounded-full bg-brand-purple mr-3" />
+                    <div className="h-2 w-2 rounded-full bg-teal-400 mr-3" />
                     <span>{course}</span>
                   </motion.div>
                 ))}
@@ -233,8 +235,8 @@ const Academics = () => {
                   className="glass-panel p-6 rounded-lg"
                 >
                   <div className="flex items-start">
-                    <div className="bg-brand-purple/10 p-3 rounded-lg mr-4 mt-1">
-                      <Award className="h-6 w-6 text-brand-purple" />
+                    <div className="bg-teal-500/10 p-3 rounded-lg mr-4 mt-1">
+                      <Award className="h-6 w-6 text-teal-400" />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold mb-1">{cert.name}</h3>
