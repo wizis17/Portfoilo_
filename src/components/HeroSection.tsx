@@ -20,13 +20,15 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Controls for draggable elements
-  const controls1 = useAnimation();
-  const controls2 = useAnimation();
-  const controls3 = useAnimation();
-  const controls4 = useAnimation();
-  const controls5 = useAnimation();
-  const controls6 = useAnimation();
+  // State for tracking draggable element positions instead of AnimationControls
+  const [positions, setPositions] = useState({
+    pos1: { x: 0, y: 0 },
+    pos2: { x: 0, y: 0 },
+    pos3: { x: 0, y: 0 },
+    pos4: { x: 0, y: 0 },
+    pos5: { x: 0, y: 0 },
+    pos6: { x: 0, y: 0 },
+  });
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
@@ -127,13 +129,16 @@ const HeroSection = () => {
                   dragElastic={0.1}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 1.05 }}
-                  animate={controls1}
+                  initial={{ x: positions.pos1.x, y: positions.pos1.y }}
+                  animate={{ x: positions.pos1.x, y: positions.pos1.y }}
                   onDragEnd={(e, info) => {
-                    controls1.start({
-                      x: controls1.get("x") + info.offset.x,
-                      y: controls1.get("y") + info.offset.y,
-                      transition: { type: "spring", damping: 10 }
-                    });
+                    setPositions(prev => ({
+                      ...prev,
+                      pos1: {
+                        x: prev.pos1.x + info.offset.x,
+                        y: prev.pos1.y + info.offset.y
+                      }
+                    }));
                   }}
                 >
                   <h3 className="text-xl font-semibold mb-2">Python</h3>
@@ -147,13 +152,16 @@ const HeroSection = () => {
                   dragElastic={0.1}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 1.05 }}
-                  animate={controls2}
+                  initial={{ x: positions.pos2.x, y: positions.pos2.y }}
+                  animate={{ x: positions.pos2.x, y: positions.pos2.y }}
                   onDragEnd={(e, info) => {
-                    controls2.start({
-                      x: controls2.get("x") + info.offset.x,
-                      y: controls2.get("y") + info.offset.y,
-                      transition: { type: "spring", damping: 10 }
-                    });
+                    setPositions(prev => ({
+                      ...prev,
+                      pos2: {
+                        x: prev.pos2.x + info.offset.x,
+                        y: prev.pos2.y + info.offset.y
+                      }
+                    }));
                   }}
                 >
                   <h3 className="text-xl font-semibold mb-2">JavaScript</h3>
@@ -167,13 +175,16 @@ const HeroSection = () => {
                   dragElastic={0.1}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 1.1 }}
-                  animate={controls3}
+                  initial={{ x: positions.pos3.x, y: positions.pos3.y }}
+                  animate={{ x: positions.pos3.x, y: positions.pos3.y }}
                   onDragEnd={(e, info) => {
-                    controls3.start({
-                      x: controls3.get("x") + info.offset.x,
-                      y: controls3.get("y") + info.offset.y,
-                      transition: { type: "spring", damping: 10 }
-                    });
+                    setPositions(prev => ({
+                      ...prev,
+                      pos3: {
+                        x: prev.pos3.x + info.offset.x,
+                        y: prev.pos3.y + info.offset.y
+                      }
+                    }));
                   }}
                 >
                   <h3 className="text-md font-semibold">React.js</h3>
@@ -186,13 +197,16 @@ const HeroSection = () => {
                   dragElastic={0.1}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 1.1 }}
-                  animate={controls4}
+                  initial={{ x: positions.pos4.x, y: positions.pos4.y }}
+                  animate={{ x: positions.pos4.x, y: positions.pos4.y }}
                   onDragEnd={(e, info) => {
-                    controls4.start({
-                      x: controls4.get("x") + info.offset.x,
-                      y: controls4.get("y") + info.offset.y,
-                      transition: { type: "spring", damping: 10 }
-                    });
+                    setPositions(prev => ({
+                      ...prev,
+                      pos4: {
+                        x: prev.pos4.x + info.offset.x,
+                        y: prev.pos4.y + info.offset.y
+                      }
+                    }));
                   }}
                 >
                   <h3 className="text-md font-semibold">C++</h3>
@@ -205,13 +219,16 @@ const HeroSection = () => {
                   dragElastic={0.1}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 1.05 }}
-                  animate={controls5}
+                  initial={{ x: positions.pos5.x, y: positions.pos5.y }}
+                  animate={{ x: positions.pos5.x, y: positions.pos5.y }}
                   onDragEnd={(e, info) => {
-                    controls5.start({
-                      x: controls5.get("x") + info.offset.x,
-                      y: controls5.get("y") + info.offset.y,
-                      transition: { type: "spring", damping: 10 }
-                    });
+                    setPositions(prev => ({
+                      ...prev,
+                      pos5: {
+                        x: prev.pos5.x + info.offset.x,
+                        y: prev.pos5.y + info.offset.y
+                      }
+                    }));
                   }}
                 >
                   <h3 className="text-xl font-semibold mb-2">Node.js</h3>
@@ -225,13 +242,16 @@ const HeroSection = () => {
                   dragElastic={0.1}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 1.05 }}
-                  animate={controls6}
+                  initial={{ x: positions.pos6.x, y: positions.pos6.y }}
+                  animate={{ x: positions.pos6.x, y: positions.pos6.y }}
                   onDragEnd={(e, info) => {
-                    controls6.start({
-                      x: controls6.get("x") + info.offset.x,
-                      y: controls6.get("y") + info.offset.y,
-                      transition: { type: "spring", damping: 10 }
-                    });
+                    setPositions(prev => ({
+                      ...prev,
+                      pos6: {
+                        x: prev.pos6.x + info.offset.x,
+                        y: prev.pos6.y + info.offset.y
+                      }
+                    }));
                   }}
                 >
                   <h3 className="text-md font-semibold">AI & Machine Learning</h3>
