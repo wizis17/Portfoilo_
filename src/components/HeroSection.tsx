@@ -1,7 +1,7 @@
 
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Code, Database, FileCode, Server, Terminal, GitBranch, Globe, Cloud } from "lucide-react";
 import AnimatedText from "./AnimatedText";
 
 const phrases = [
@@ -18,50 +18,6 @@ const HeroSection = () => {
       setIndex((prevIndex) => (prevIndex + 1) % phrases.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
-
-  // Automatic animation positions for skill blocks
-  const [positions, setPositions] = useState({
-    pos1: { x: 0, y: 0 },
-    pos2: { x: 0, y: 0 },
-    pos3: { x: 0, y: 0 },
-    pos4: { x: 0, y: 0 },
-    pos5: { x: 0, y: 0 },
-    pos6: { x: 0, y: 0 },
-  });
-
-  // Update positions randomly to create puzzle-like movement
-  useEffect(() => {
-    const moveInterval = setInterval(() => {
-      setPositions({
-        pos1: { 
-          x: Math.sin(Date.now() * 0.001) * 20, 
-          y: Math.cos(Date.now() * 0.002) * 15 
-        },
-        pos2: { 
-          x: Math.cos(Date.now() * 0.001) * 15, 
-          y: Math.sin(Date.now() * 0.0015) * 20 
-        },
-        pos3: { 
-          x: Math.sin(Date.now() * 0.002) * 10, 
-          y: Math.cos(Date.now() * 0.001) * 10 
-        },
-        pos4: { 
-          x: Math.cos(Date.now() * 0.0015) * 12, 
-          y: Math.sin(Date.now() * 0.001) * 8 
-        },
-        pos5: { 
-          x: Math.sin(Date.now() * 0.0012) * 18, 
-          y: Math.cos(Date.now() * 0.002) * 12 
-        },
-        pos6: { 
-          x: Math.cos(Date.now() * 0.001) * 10, 
-          y: Math.sin(Date.now() * 0.0018) * 15 
-        },
-      });
-    }, 50);
-
-    return () => clearInterval(moveInterval);
   }, []);
 
   return (
@@ -155,80 +111,105 @@ const HeroSection = () => {
             <div className="relative w-full h-[500px] rounded-lg overflow-hidden glass-panel p-6">
               <div className="absolute inset-0 bg-gradient-to-br from-teal-500/20 to-transparent"></div>
               <div className="relative h-full w-full grid grid-cols-6 grid-rows-6 gap-4">
-                {/* Programming language cards - now with automatic motion */}
+                
+                {/* Static skill blocks */}
                 <motion.div 
-                  className="col-span-3 row-span-3 glass-panel p-6 flex flex-col justify-center"
+                  className="col-span-3 row-span-2 glass-panel p-6 flex flex-col justify-center"
                   whileHover={{ scale: 1.02 }}
-                  animate={{ 
-                    x: positions.pos1.x, 
-                    y: positions.pos1.y,
-                    transition: { type: "spring", stiffness: 50 }
-                  }}
                 >
-                  <h3 className="text-xl font-semibold mb-2">Python</h3>
+                  <div className="flex items-center mb-2">
+                    <Code className="w-5 h-5 mr-2 text-teal-400" />
+                    <h3 className="text-xl font-semibold">Python</h3>
+                  </div>
                   <p className="text-sm text-muted-foreground">Expert level proficiency</p>
                 </motion.div>
                 
                 <motion.div 
                   className="col-span-3 row-span-2 glass-panel p-6 flex flex-col justify-center"
                   whileHover={{ scale: 1.02 }}
-                  animate={{ 
-                    x: positions.pos2.x, 
-                    y: positions.pos2.y,
-                    transition: { type: "spring", stiffness: 50, delay: 0.1 }
-                  }}
                 >
-                  <h3 className="text-xl font-semibold mb-2">JavaScript</h3>
+                  <div className="flex items-center mb-2">
+                    <FileCode className="w-5 h-5 mr-2 text-teal-400" />
+                    <h3 className="text-xl font-semibold">JavaScript</h3>
+                  </div>
                   <p className="text-sm text-muted-foreground">Frontend & backend development</p>
                 </motion.div>
                 
                 <motion.div 
-                  className="col-span-2 row-span-1 glass-panel p-4 flex items-center justify-center"
+                  className="col-span-2 row-span-2 glass-panel p-4 flex flex-col justify-center"
                   whileHover={{ scale: 1.05 }}
-                  animate={{ 
-                    x: positions.pos3.x, 
-                    y: positions.pos3.y,
-                    transition: { type: "spring", stiffness: 50, delay: 0.2 }
-                  }}
                 >
-                  <h3 className="text-md font-semibold">React.js</h3>
+                  <div className="flex items-center mb-1">
+                    <Globe className="w-4 h-4 mr-2 text-teal-400" />
+                    <h3 className="text-md font-semibold">React.js</h3>
+                  </div>
+                  <p className="text-xs text-muted-foreground">UI Library</p>
                 </motion.div>
                 
                 <motion.div 
-                  className="col-span-1 row-span-1 glass-panel p-4 flex items-center justify-center"
+                  className="col-span-2 row-span-2 glass-panel p-4 flex flex-col justify-center"
                   whileHover={{ scale: 1.05 }}
-                  animate={{ 
-                    x: positions.pos4.x, 
-                    y: positions.pos4.y,
-                    transition: { type: "spring", stiffness: 50, delay: 0.15 }
-                  }}
                 >
-                  <h3 className="text-md font-semibold">C++</h3>
+                  <div className="flex items-center mb-1">
+                    <Database className="w-4 h-4 mr-2 text-teal-400" />
+                    <h3 className="text-md font-semibold">SQL</h3>
+                  </div>
+                  <p className="text-xs text-muted-foreground">Database</p>
                 </motion.div>
                 
                 <motion.div 
-                  className="col-span-2 row-span-3 glass-panel p-6 flex flex-col justify-center"
+                  className="col-span-2 row-span-2 glass-panel p-4 flex flex-col justify-center"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="flex items-center mb-1">
+                    <Terminal className="w-4 h-4 mr-2 text-teal-400" />
+                    <h3 className="text-md font-semibold">C++</h3>
+                  </div>
+                  <p className="text-xs text-muted-foreground">Systems programming</p>
+                </motion.div>
+                
+                <motion.div 
+                  className="col-span-3 row-span-2 glass-panel p-6 flex flex-col justify-center"
                   whileHover={{ scale: 1.02 }}
-                  animate={{ 
-                    x: positions.pos5.x, 
-                    y: positions.pos5.y,
-                    transition: { type: "spring", stiffness: 50, delay: 0.25 }
-                  }}
                 >
-                  <h3 className="text-xl font-semibold mb-2">Node.js</h3>
+                  <div className="flex items-center mb-2">
+                    <Server className="w-5 h-5 mr-2 text-teal-400" />
+                    <h3 className="text-xl font-semibold">Node.js</h3>
+                  </div>
                   <p className="text-sm text-muted-foreground">Backend development</p>
                 </motion.div>
                 
                 <motion.div 
-                  className="col-span-4 row-span-1 glass-panel p-4 flex items-center justify-center"
+                  className="col-span-3 row-span-2 glass-panel p-6 flex flex-col justify-center"
                   whileHover={{ scale: 1.02 }}
-                  animate={{ 
-                    x: positions.pos6.x, 
-                    y: positions.pos6.y,
-                    transition: { type: "spring", stiffness: 50, delay: 0.3 }
-                  }}
                 >
-                  <h3 className="text-md font-semibold">AI & Machine Learning</h3>
+                  <div className="flex items-center mb-2">
+                    <Cloud className="w-5 h-5 mr-2 text-teal-400" />
+                    <h3 className="text-xl font-semibold">AWS</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Cloud infrastructure</p>
+                </motion.div>
+                
+                <motion.div 
+                  className="col-span-3 row-span-2 glass-panel p-4 flex flex-col justify-center"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <div className="flex items-center mb-1">
+                    <GitBranch className="w-4 h-4 mr-2 text-teal-400" />
+                    <h3 className="text-md font-semibold">AI & Machine Learning</h3>
+                  </div>
+                  <p className="text-xs text-muted-foreground">Model development & deployment</p>
+                </motion.div>
+                
+                <motion.div 
+                  className="col-span-3 row-span-2 glass-panel p-4 flex flex-col justify-center"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <div className="flex items-center mb-1">
+                    <Code className="w-4 h-4 mr-2 text-teal-400" />
+                    <h3 className="text-md font-semibold">Next.js</h3>
+                  </div>
+                  <p className="text-xs text-muted-foreground">React framework</p>
                 </motion.div>
               </div>
             </div>
