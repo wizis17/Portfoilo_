@@ -49,7 +49,7 @@ const Academics = () => {
       cgpa: "9.09",
       details: [
         "Strong foundation in Science",
-        "Participated in various academic competitions and extracurricular activities"
+        "Studied foundations of Mathematics"
       ]
     }
   ];
