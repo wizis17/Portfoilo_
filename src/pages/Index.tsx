@@ -13,21 +13,21 @@ const Index = () => {
 
   const featuredProjects = [
     {
-      title: "AI-Powered Web App",
-      description: "A machine learning application built with Python and React.js.",
-      tags: ["Python", "React", "Machine Learning"],
+      title: "Income Tax Fraud Detection",
+      description: "A system to detect fraudulent activities in income tax filings using AI and machine learning.",
+      tags: ["Python", "Machine Learning", "AI"],
       link: "/projects",
     },
     {
-      title: "Blockchain Explorer",
-      description: "Web interface for blockchain data visualization.",
-      tags: ["JavaScript", "Node.js", "Blockchain"],
+      title: "Oral Cancer Detection",
+      description: "Machine learning model to detect and classify oral cancer levels from images.",
+      tags: ["Python", "TensorFlow", "Neural Networks"],
       link: "/projects",
     },
     {
-      title: "Portfolio Website",
-      description: "Personal portfolio website built with modern web technologies.",
-      tags: ["React", "TypeScript", "Tailwind CSS"],
+      title: "Credit Card Fraud Detection",
+      description: "Machine learning model to analyze whether a credit card transaction is fraudulent or not.",
+      tags: ["Python", "ML", "Data Science"],
       link: "/projects",
     },
   ];
@@ -60,7 +60,7 @@ const Index = () => {
             </span>
             <h2 className="text-4xl font-bold mb-6">Who I Am</h2>
             <p className="max-w-3xl mx-auto text-muted-foreground">
-              I'm a Computer Science student specializing in AI & ML. Passionate about programming and building innovative web applications.
+              I'm a Computer Science student specializing in AI & ML. Passionate about programming, AI integration, and building innovative web applications.
             </p>
           </motion.div>
 
@@ -187,7 +187,7 @@ const Index = () => {
       </section>
 
       {/* Featured Projects */}
-      <section className="py-24 bg-secondary/50">
+      <section className="py-24 bg-secondary/50" id="projects">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -257,7 +257,7 @@ const Index = () => {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-24">
+      <section className="py-24" id="contact">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { ArrowRight, Code, Database, FileCode, Server, Terminal, GitBranch, Globe, Cloud, Tv, Smartphone, Laptop } from "lucide-react";
 import AnimatedText from "./AnimatedText";
+import { Link } from "react-router-dom";
 
 const phrases = [
   "Full Stack Developer",
@@ -72,7 +73,7 @@ const HeroSection = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
             >
               Passionate about programming and software development with expertise in Python, JavaScript, and C++.
-              Building modern web applications using Node.js, React.js, and Next.js.
+              Building modern web applications using Node.js, React.js, and Next.js. Freelancer specializing in AI-powered solutions.
             </motion.p>
             
             <motion.div 
@@ -87,17 +88,20 @@ const HeroSection = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Get in Touch
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <Link to="/contact">
+                  Get in Touch
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </motion.a>
               
               <motion.a
-                href="#projects"
                 className="inline-flex items-center bg-secondary text-foreground px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                View Projects
+                <Link to="/projects">
+                  View Projects
+                </Link>
               </motion.a>
             </motion.div>
           </div>

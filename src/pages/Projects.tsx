@@ -12,7 +12,10 @@ import {
   Bot,
   Cpu,
   Filter,
-  Search
+  Search,
+  FileCode,
+  BarChart,
+  Brain
 } from "lucide-react";
 
 const Projects = () => {
@@ -26,16 +29,46 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "AI Image Generator",
-      description: "A web application that uses machine learning to generate images from text descriptions.",
+      title: "Income Tax Fraud Detection",
+      description: "Developed a system to detect fraudulent activities in income tax filings using AI and machine learning techniques. Implemented data preprocessing, feature engineering, and model training.",
       image: "/placeholder.svg",
-      tags: ["Python", "React", "AI", "Machine Learning"],
+      tags: ["Python", "Machine Learning", "AI"],
       demo: "#",
       code: "#",
       category: "ai"
     },
     {
       id: 2,
+      title: "Oral Cancer Detection using Neural Networks",
+      description: "Developing a machine learning model to detect and classify oral cancer levels from images. It involves data collection, preprocessing, feature extraction, and model evaluation.",
+      image: "/placeholder.svg",
+      tags: ["Python", "TensorFlow", "Neural Networks"],
+      demo: "#",
+      code: "#",
+      category: "ai"
+    },
+    {
+      id: 3,
+      title: "Credit Card Fraud Detection",
+      description: "A simple machine learning model which analyzes whether a credit card transaction is fraudulent or not. The dataset is downloaded from Kaggle and processed for analysis.",
+      image: "/placeholder.svg",
+      tags: ["Python", "Machine Learning", "Data Science"],
+      demo: "#",
+      code: "#",
+      category: "ai"
+    },
+    {
+      id: 4,
+      title: "Contextualized Topic Modeling",
+      description: "A python package to run contextualized topic modeling. CTMs combine contextualized embeddings (e.g., BERT) with topic models to get coherent topics and document classification.",
+      image: "/placeholder.svg",
+      tags: ["Python", "NLP", "Machine Learning"],
+      demo: "#",
+      code: "#",
+      category: "ai"
+    },
+    {
+      id: 5,
       title: "E-commerce Platform",
       description: "A full-stack e-commerce platform with user authentication, product catalog, and payment processing.",
       image: "/placeholder.svg",
@@ -45,7 +78,7 @@ const Projects = () => {
       category: "web"
     },
     {
-      id: 3,
+      id: 6,
       title: "Personal Portfolio",
       description: "A responsive personal portfolio website showcasing projects and skills.",
       image: "/placeholder.svg",
@@ -55,7 +88,7 @@ const Projects = () => {
       category: "web"
     },
     {
-      id: 4,
+      id: 7,
       title: "Blockchain Explorer",
       description: "A web interface for exploring blockchain data and transactions.",
       image: "/placeholder.svg",
@@ -65,7 +98,7 @@ const Projects = () => {
       category: "blockchain"
     },
     {
-      id: 5,
+      id: 8,
       title: "Smart Home Dashboard",
       description: "A dashboard for monitoring and controlling smart home devices.",
       image: "/placeholder.svg",
@@ -73,16 +106,6 @@ const Projects = () => {
       demo: "#",
       code: "#",
       category: "iot"
-    },
-    {
-      id: 6,
-      title: "ML Stock Predictor",
-      description: "A machine learning model for predicting stock market trends.",
-      image: "/placeholder.svg",
-      tags: ["Python", "Machine Learning", "TensorFlow", "Data Analysis"],
-      demo: "#",
-      code: "#",
-      category: "ai"
     }
   ];
 
@@ -96,6 +119,10 @@ const Projects = () => {
         return <Database className="w-5 h-5" />;
       case "iot":
         return <Cpu className="w-5 h-5" />;
+      case "ml":
+        return <Brain className="w-5 h-5" />;
+      case "data":
+        return <BarChart className="w-5 h-5" />;
       default:
         return <Code className="w-5 h-5" />;
     }

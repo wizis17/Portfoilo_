@@ -2,12 +2,14 @@
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Star, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { useTheme } from "./ThemeProvider";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { theme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,12 +65,14 @@ const Navbar = () => {
     },
   };
 
+  const bgClass = theme === "dark" 
+    ? (isScrolled ? "py-3 bg-brand-dark/90 backdrop-blur-md shadow-md" : "py-5") 
+    : (isScrolled ? "py-3 bg-white/90 backdrop-blur-md shadow-md" : "py-5");
+
   return (
     <header>
       <motion.nav
-        className={`fixed w-full z-50 transition-all duration-300 ${
-          isScrolled ? "py-3 bg-brand-dark/90 backdrop-blur-md shadow-md" : "py-5"
-        }`}
+        className={`fixed w-full z-50 transition-all duration-300 ${bgClass}`}
         initial="hidden"
         animate="visible"
         variants={navbarVariants}
@@ -105,17 +109,6 @@ const Navbar = () => {
                 </NavLink>
               </motion.div>
             ))}
-            <motion.div
-              className="ml-4"
-              initial={{ opacity: 0, x: 10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.7, duration: 0.5 }}
-            >
-              <button className="flex items-center bg-brand-purple text-white px-4 py-2 rounded-md transition-transform hover:scale-105">
-                <Star className="w-4 h-4 mr-2" />
-                <span>Hire Me</span>
-              </button>
-            </motion.div>
           </div>
 
           {/* Mobile Navigation Toggle */}
@@ -124,7 +117,7 @@ const Navbar = () => {
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Menu"
-              className="p-2 text-white"
+              className="p-2 text-foreground"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </motion.button>
@@ -154,10 +147,6 @@ const Navbar = () => {
                 </NavLink>
               ))}
             </div>
-            <button className="mt-auto w-full flex justify-center items-center bg-brand-purple text-white px-4 py-3 rounded-md">
-              <Star className="w-4 h-4 mr-2" />
-              <span>Hire Me</span>
-            </button>
           </div>
         </motion.div>
       </motion.nav>

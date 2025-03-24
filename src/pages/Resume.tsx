@@ -10,7 +10,8 @@ import {
   Code, 
   Award,
   ArrowUpRight,
-  CheckCircle2
+  CheckCircle2,
+  Bot
 } from "lucide-react";
 
 const Resume = () => {
@@ -39,8 +40,8 @@ const Resume = () => {
       { name: "Git/GitHub", level: 85 },
       { name: "VS Code", level: 90 },
       { name: "Docker", level: 65 },
-      { name: "AWS", level: 60 },
       { name: "MongoDB", level: 70 },
+      { name: "AI Tools", level: 80 },
     ],
   };
 
@@ -62,6 +63,18 @@ const Resume = () => {
   ];
 
   const experience = [
+    {
+      position: "Freelance Developer",
+      company: "Self-employed",
+      duration: "January 2023 - Present",
+      description: "Working as a freelance developer on various projects, specializing in web development and AI solutions.",
+      responsibilities: [
+        "Developed full-stack web applications for clients using React, Node.js, and MongoDB",
+        "Created AI-powered solutions for data analysis and automation",
+        "Managed project timelines and client communication",
+        "Integrated AI tools into development workflows for improved efficiency"
+      ]
+    },
     {
       position: "Web Developer Intern",
       company: "TechStart Solutions",
@@ -90,45 +103,62 @@ const Resume = () => {
 
   const projects = [
     {
-      title: "AI Image Generator",
-      description: "A web application that uses machine learning to generate images from text descriptions.",
-      technologies: ["Python", "TensorFlow", "React", "Node.js"],
-      link: "#"
+      title: "Income Tax Fraud Detection",
+      description: "A system to detect fraudulent activities in income tax filings using AI and machine learning techniques.",
+      technologies: ["Python", "Machine Learning", "AI", "Data Analysis"],
+      link: "/projects"
     },
     {
-      title: "E-commerce Platform",
-      description: "A full-stack e-commerce platform with user authentication, product catalog, and payment processing.",
-      technologies: ["JavaScript", "Node.js", "React", "MongoDB"],
-      link: "#"
+      title: "Oral Cancer Detection",
+      description: "A machine learning model to detect and classify oral cancer levels from images.",
+      technologies: ["Python", "TensorFlow", "Neural Networks", "Computer Vision"],
+      link: "/projects"
     },
     {
-      title: "Blockchain Explorer",
-      description: "A web interface for exploring blockchain data and transactions.",
-      technologies: ["JavaScript", "React", "Web3.js"],
-      link: "#"
+      title: "Credit Card Fraud Detection",
+      description: "A machine learning model to analyze whether a credit card transaction is fraudulent or not.",
+      technologies: ["Python", "Machine Learning", "Data Science"],
+      link: "/projects"
+    },
+    {
+      title: "Contextualized Topic Modeling",
+      description: "A python package to run contextualized topic modeling with BERT embeddings.",
+      technologies: ["Python", "NLP", "Machine Learning"],
+      link: "/projects"
     },
   ];
 
   const certifications = [
     {
-      name: "Python Programming",
-      issuer: "Coursera",
-      date: "2022",
+      name: "API Prototyping Learning Path",
+      issuer: "Postman",
+      date: "December 2024",
+      skills: "API Prototyping"
     },
     {
-      name: "Web Development with JavaScript",
+      name: "Career Essentials in Generative AI",
+      issuer: "Microsoft and LinkedIn",
+      date: "November 2024",
+      skills: "Generative AI"
+    },
+    {
+      name: "Learning Microsoft Power BI",
+      issuer: "Infosys Springboard",
+      date: "November 2024",
+      skills: "Microsoft Power BI"
+    },
+    {
+      name: "Neural Networks and Deep Learning",
+      issuer: "Great Learning",
+      date: "January 2024",
+      skills: "Neural Networks, Deep Learning"
+    },
+    {
+      name: "Real Life Machine Learning and Data Science Projects",
       issuer: "Udemy",
-      date: "2022",
-    },
-    {
-      name: "Machine Learning Fundamentals",
-      issuer: "edX",
-      date: "2023",
-    },
-    {
-      name: "React.js Development",
-      issuer: "freeCodeCamp",
-      date: "2023",
+      date: "November 2022",
+      skills: "Machine Learning, Data Science",
+      credential: "UC-e1c70903-b810-4b6b-8749-eebd3345715"
     },
   ];
 
@@ -352,15 +382,23 @@ const Resume = () => {
             transition={{ duration: 0.4, delay: index * 0.1 }}
             className="glass-panel p-6 rounded-lg"
           >
-            <div className="flex items-center mb-4">
-              <div className="bg-brand-purple/10 p-2 rounded-full mr-4">
+            <div className="flex items-start mb-4">
+              <div className="bg-brand-purple/10 p-2 rounded-full mr-4 flex-shrink-0">
                 <Award className="h-5 w-5 text-brand-purple" />
               </div>
               <div>
                 <h3 className="font-semibold">{cert.name}</h3>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-muted-foreground mb-2">
                   {cert.issuer} • {cert.date}
                 </div>
+                <div className="text-xs px-2 py-1 bg-secondary inline-block rounded-full">
+                  {cert.skills}
+                </div>
+                {cert.credential && (
+                  <div className="mt-2 text-xs text-muted-foreground">
+                    Credential ID: {cert.credential}
+                  </div>
+                )}
               </div>
             </div>
           </motion.div>
@@ -399,7 +437,8 @@ const Resume = () => {
             className="flex justify-center mb-12"
           >
             <motion.a
-              href="#download"
+              href="/resume.pdf"
+              download
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center bg-brand-purple text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition-all"
