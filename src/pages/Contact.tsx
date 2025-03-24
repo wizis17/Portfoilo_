@@ -59,14 +59,14 @@ const Contact = () => {
     {
       icon: <Mail className="h-6 w-6 text-brand-purple" />,
       title: "Email",
-      details: "udayg@example.com",
+      details: "ud4yg@yandex.com",
       link: "mailto:udayg@example.com",
     },
     {
       icon: <Phone className="h-6 w-6 text-brand-purple" />,
       title: "Phone",
-      details: "+91 9876543210",
-      link: "tel:+919876543210",
+      details: "+91 0000000000",
+      link: "tel:+910000000000",
     },
     {
       icon: <MapPin className="h-6 w-6 text-brand-purple" />,
@@ -80,17 +80,17 @@ const Contact = () => {
     {
       icon: <Github className="h-6 w-6" />,
       name: "GitHub",
-      url: "https://github.com",
+      url: "https://github.com/oxBinaryBrain/",
     },
     {
       icon: <Linkedin className="h-6 w-6" />,
       name: "LinkedIn",
-      url: "https://linkedin.com",
+      url: "https://www.linkedin.com/in/uday-g-601ba9266/",
     },
     {
       icon: <Twitter className="h-6 w-6" />,
       name: "Twitter",
-      url: "https://twitter.com",
+      url: "https://x.com/UdayG6389896490",
     },
   ];
 
