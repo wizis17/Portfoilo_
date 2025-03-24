@@ -34,7 +34,7 @@ const Projects = () => {
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
       tags: ["Python", "Machine Learning", "AI"],
       demo: "#",
-      code: "#",
+      code: "https://github.com/oxBinaryBrain/An_Income_Tax_Fraud_Detection_Using_AI-ML",
       category: "ai"
     },
     {
@@ -44,7 +44,7 @@ const Projects = () => {
       image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
       tags: ["Python", "TensorFlow", "Neural Networks"],
       demo: "#",
-      code: "#",
+      code: "https://github.com/oxBinaryBrain/Oral_Cancer_Classification",
       category: "ai"
     },
     {
@@ -54,7 +54,7 @@ const Projects = () => {
       image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
       tags: ["Python", "Machine Learning", "Data Science"],
       demo: "#",
-      code: "#",
+      code: "https://github.com/oxBinaryBrain/CC-Fraud-Detection",
       category: "ai"
     },
     {
@@ -64,7 +64,7 @@ const Projects = () => {
       image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
       tags: ["Python", "NLP", "Machine Learning"],
       demo: "#",
-      code: "#",
+      code: "https://github.com/oxBinaryBrain/contextualized-topic-models",
       category: "ai"
     },
     {
@@ -82,9 +82,9 @@ const Projects = () => {
       title: "Personal Portfolio",
       description: "A responsive personal portfolio website showcasing projects and skills.",
       image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
-      tags: ["React", "Tailwind CSS", "Framer Motion"],
+      tags: ["React", "Node", "HTML","CSS"],
       demo: "#",
-      code: "#",
+      code: "https://github.com/oxBinaryBrain/Portfolio_V1",
       category: "web"
     },
     {
