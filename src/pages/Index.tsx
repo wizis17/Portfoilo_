@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Layout from "@/components/Layout";
 import HeroSection from "@/components/HeroSection";
 import { motion } from "framer-motion";
-import { ArrowRight, Code, GraduationCap, Briefcase, Star, ExternalLink } from "lucide-react";
+import { ArrowRight, Code, GraduationCap, Briefcase, Star, ExternalLink, Github } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Index = () => {
@@ -15,14 +15,18 @@ const Index = () => {
     {
       title: "Income Tax Fraud Detection",
       description: "A system to detect fraudulent activities in income tax filings using AI and machine learning.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
       tags: ["Python", "Machine Learning", "AI"],
       link: "/projects",
+      code: "https://github.com/oxBinaryBrain/An_Income_Tax_Fraud_Detection_Using_AI-ML"
     },
     {
       title: "Oral Cancer Detection",
       description: "Machine learning model to detect and classify oral cancer levels from images.",
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
       tags: ["Python", "TensorFlow", "Neural Networks"],
       link: "/projects",
+      code: "https://github.com/oxBinaryBrain/Oral_Cancer_Classification"
     },
     {
       title: "Credit Card Fraud Detection",
@@ -30,6 +34,7 @@ const Index = () => {
       image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
       tags: ["Python", "ML", "Data Science"],
       link: "/projects",
+      code: "https://github.com/oxBinaryBrain/CC-Fraud-Detection"
     },
   ];
 
@@ -216,7 +221,13 @@ const Index = () => {
                 viewport={{ once: true }}
                 className="glass-panel rounded-lg overflow-hidden"
               >
-                <div className="h-40 bg-gradient-to-br from-teal-500/30 to-amber-500/30" />
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  />
+                </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                   <p className="text-muted-foreground mb-4">{project.description}</p>
@@ -227,13 +238,24 @@ const Index = () => {
                       </span>
                     ))}
                   </div>
-                  <Link
-                    to={project.link}
-                    className="inline-flex items-center text-teal-400 hover:text-teal-300 transition-colors"
-                  >
-                    View Project
-                    <ExternalLink className="ml-2 h-4 w-4" />
-                  </Link>
+                  <div className="flex justify-between">
+                    <Link
+                      to={project.link}
+                      className="inline-flex items-center text-teal-400 hover:text-teal-300 transition-colors"
+                    >
+                      View Details
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                    <a
+                      href={project.code}
+                      className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="mr-1.5 h-4 w-4" />
+                      Source Code
+                    </a>
+                  </div>
                 </div>
               </motion.div>
             ))}

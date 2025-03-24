@@ -1,10 +1,8 @@
-
 import { useEffect, useState } from "react";
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 import { AnimatedText } from "@/components/AnimatedText";
 import { 
-  ExternalLink, 
   Github, 
   Code, 
   MonitorSmartphone,
@@ -240,17 +238,7 @@ const Projects = () => {
                       ))}
                     </div>
                     
-                    <div className="flex justify-between">
-                      <motion.a
-                        href={project.demo}
-                        className="inline-flex items-center text-brand-purple hover:text-brand-purple/80 transition-colors"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <ExternalLink className="mr-1.5 h-4 w-4" />
-                        Live Demo
-                      </motion.a>
-                      
+                    <div className="flex justify-center">
                       <motion.a
                         href={project.code}
                         className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors"
