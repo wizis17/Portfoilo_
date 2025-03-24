@@ -27,6 +27,7 @@ const Index = () => {
     {
       title: "Credit Card Fraud Detection",
       description: "Machine learning model to analyze whether a credit card transaction is fraudulent or not.",
+      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
       tags: ["Python", "ML", "Data Science"],
       link: "/projects",
     },
