@@ -31,7 +31,7 @@ const Projects = () => {
       id: 1,
       title: "Income Tax Fraud Detection",
       description: "Developed a system to detect fraudulent activities in income tax filings using AI and machine learning techniques. Implemented data preprocessing, feature engineering, and model training.",
-      image: "/placeholder.svg",
+      image: "/lovable-uploads/b35a82bf-7628-4506-9cd1-1eeee675d595.png",
       tags: ["Python", "Machine Learning", "AI"],
       demo: "#",
       code: "#",
@@ -41,7 +41,7 @@ const Projects = () => {
       id: 2,
       title: "Oral Cancer Detection using Neural Networks",
       description: "Developing a machine learning model to detect and classify oral cancer levels from images. It involves data collection, preprocessing, feature extraction, and model evaluation.",
-      image: "/placeholder.svg",
+      image: "/lovable-uploads/291e2457-4b79-4fb6-a2e8-b213982ccff6.png",
       tags: ["Python", "TensorFlow", "Neural Networks"],
       demo: "#",
       code: "#",
@@ -51,7 +51,7 @@ const Projects = () => {
       id: 3,
       title: "Credit Card Fraud Detection",
       description: "A simple machine learning model which analyzes whether a credit card transaction is fraudulent or not. The dataset is downloaded from Kaggle and processed for analysis.",
-      image: "/placeholder.svg",
+      image: "/lovable-uploads/1c658bdb-ba78-4c39-b869-8387646303e5.png",
       tags: ["Python", "Machine Learning", "Data Science"],
       demo: "#",
       code: "#",
@@ -61,7 +61,7 @@ const Projects = () => {
       id: 4,
       title: "Contextualized Topic Modeling",
       description: "A python package to run contextualized topic modeling. CTMs combine contextualized embeddings (e.g., BERT) with topic models to get coherent topics and document classification.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80",
       tags: ["Python", "NLP", "Machine Learning"],
       demo: "#",
       code: "#",
@@ -71,7 +71,7 @@ const Projects = () => {
       id: 5,
       title: "E-commerce Platform",
       description: "A full-stack e-commerce platform with user authentication, product catalog, and payment processing.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
       tags: ["JavaScript", "Node.js", "React", "MongoDB"],
       demo: "#",
       code: "#",
@@ -81,7 +81,7 @@ const Projects = () => {
       id: 6,
       title: "Personal Portfolio",
       description: "A responsive personal portfolio website showcasing projects and skills.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
       tags: ["React", "Tailwind CSS", "Framer Motion"],
       demo: "#",
       code: "#",
@@ -91,7 +91,7 @@ const Projects = () => {
       id: 7,
       title: "Blockchain Explorer",
       description: "A web interface for exploring blockchain data and transactions.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
       tags: ["JavaScript", "React", "Blockchain", "Web3.js"],
       demo: "#",
       code: "#",
@@ -101,7 +101,7 @@ const Projects = () => {
       id: 8,
       title: "Smart Home Dashboard",
       description: "A dashboard for monitoring and controlling smart home devices.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=800&q=80",
       tags: ["React", "IoT", "Node.js", "MQTT"],
       demo: "#",
       code: "#",
@@ -224,11 +224,16 @@ const Projects = () => {
                   whileHover={{ y: -5 }}
                   className="glass-panel rounded-lg overflow-hidden flex flex-col"
                 >
-                  <div className="relative h-48 bg-gradient-to-br from-brand-purple/30 to-blue-500/30 overflow-hidden">
-                    <div className="absolute top-3 left-3 bg-secondary/80 backdrop-blur-sm px-3 py-1 rounded-full flex items-center text-xs font-medium">
+                  <div className="relative h-48 overflow-hidden">
+                    <div className="absolute top-3 left-3 bg-secondary/80 backdrop-blur-sm px-3 py-1 rounded-full flex items-center text-xs font-medium z-10">
                       {getIcon(project.category)}
                       <span className="ml-1.5 capitalize">{project.category === "iot" ? "IoT" : project.category === "ai" ? "AI & ML" : project.category}</span>
                     </div>
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
                   </div>
                   
                   <div className="p-6 flex-grow">

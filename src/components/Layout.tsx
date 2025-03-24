@@ -3,6 +3,8 @@ import { ReactNode, useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
+import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import ScrollToTop from "./ScrollToTop";
 
 interface LayoutProps {
   children: ReactNode;
@@ -48,47 +50,69 @@ export const Layout = ({ children }: LayoutProps) => {
           </AnimatePresence>
         )}
       </main>
-      <footer className="w-full py-4 border-t border-muted">
+      <footer className="w-full py-8 border-t border-muted">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-muted-foreground text-sm mb-4 md:mb-0">
-              © {new Date().getFullYear()} Uday G. All rights reserved.
+            <div className="mb-6 md:mb-0">
+              <div className="text-2xl font-bold text-brand-purple mb-2">UG.</div>
+              <p className="text-muted-foreground text-sm max-w-md">
+                Building innovative digital solutions with a focus on clean, efficient code and exceptional user experiences.
+              </p>
             </div>
-            <div className="flex space-x-4">
-              <motion.a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-brand-purple transition-colors"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                GitHub
-              </motion.a>
-              <motion.a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-brand-purple transition-colors"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                LinkedIn
-              </motion.a>
-              <motion.a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-brand-purple transition-colors"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Twitter
-              </motion.a>
+            <div className="flex flex-col items-center md:items-end">
+              <p className="text-foreground font-medium mb-3">Connect with me</p>
+              <div className="flex space-x-4">
+                <motion.a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-brand-purple transition-colors bg-secondary p-3 rounded-full"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label="GitHub"
+                >
+                  <Github className="h-5 w-5" />
+                </motion.a>
+                <motion.a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-brand-purple transition-colors bg-secondary p-3 rounded-full"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </motion.a>
+                <motion.a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-brand-purple transition-colors bg-secondary p-3 rounded-full"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label="Twitter"
+                >
+                  <Twitter className="h-5 w-5" />
+                </motion.a>
+                <motion.a
+                  href="mailto:contact@example.com"
+                  className="text-muted-foreground hover:text-brand-purple transition-colors bg-secondary p-3 rounded-full"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label="Email"
+                >
+                  <Mail className="h-5 w-5" />
+                </motion.a>
+              </div>
             </div>
+          </div>
+          <div className="text-muted-foreground text-sm text-center mt-8">
+            © {new Date().getFullYear()} Uday G. All rights reserved.
           </div>
         </div>
       </footer>
+      <ScrollToTop />
     </div>
   );
 };
