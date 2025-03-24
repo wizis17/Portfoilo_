@@ -5,7 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { ThemeProvider, ThemeToggle } from "./components/ThemeProvider";
+import { ThemeProvider } from "./components/ThemeProvider";
 
 // Pages
 import Index from "./pages/Index";
@@ -24,7 +24,6 @@ const App = () => (
       <ThemeProvider>
         <Toaster />
         <Sonner />
-        <ThemeToggle />
         <BrowserRouter>
           <AnimatePresence mode="wait">
             <Routes>
