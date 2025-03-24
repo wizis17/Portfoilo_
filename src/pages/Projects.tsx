@@ -31,7 +31,7 @@ const Projects = () => {
       id: 1,
       title: "Income Tax Fraud Detection",
       description: "Developed a system to detect fraudulent activities in income tax filings using AI and machine learning techniques. Implemented data preprocessing, feature engineering, and model training.",
-      image: "/lovable-uploads/b35a82bf-7628-4506-9cd1-1eeee675d595.png",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
       tags: ["Python", "Machine Learning", "AI"],
       demo: "#",
       code: "#",
