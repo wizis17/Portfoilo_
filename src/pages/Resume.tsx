@@ -91,8 +91,8 @@ const Resume = () => {
     },
     {
       position: "Web Developer Intern",
-      company: "TechStart Solutions",
-      duration: "May 2023 - August 2023",
+      company: "SkillCraft Technologies",
+      duration: "November 2024 - December 2024",
       description: "Developed and maintained web applications using React.js and Node.js. Collaborated with senior developers to implement new features and fix bugs.",
       responsibilities: [
         "Developed responsive front-end interfaces using React.js",
