@@ -63,7 +63,7 @@ const Resume = () => {
       degree: "Bachelor of Technology (B.Tech)",
       field: "Computer Science & Engineering (AI & ML)",
       duration: "2021 - 2025",
-      gpa: "3.8/4.0",
+      cgpa: "7.5",
       location: "Bengaluru, India",
     },
     {
