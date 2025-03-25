@@ -84,12 +84,8 @@ Contributions are welcome! If you find a bug or have an idea for an improvement,
 5.  Push your changes to your forked repository.
 6.  Submit a pull request.
 
-## License
 
-[Choose a license, e.g., MIT License] - See the `LICENSE` file for details.  (You can add a LICENSE file to your repository).
 
-## Contact
 
-Uday - [ud4yg@yandex.com] - [(https://www.linkedin.com/in/uday-g-601ba9266/)] 
 
 
