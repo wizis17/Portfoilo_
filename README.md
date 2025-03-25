@@ -1,4 +1,4 @@
-# Uday - Creative Connect Portfolio Website
+# Personal Portfolio Website
 
 ## Overview
 
