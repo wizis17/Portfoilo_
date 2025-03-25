@@ -85,7 +85,7 @@ const Projects = () => {
       description: "A web interface for exploring blockchain data and transactions.",
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
       tags: ["JavaScript", "React", "Blockchain", "Web3.js"],
-      code: "#",
+      code: "https://github.com/oxBinaryBrain/Software-solution-to-identify-the-end-receiver-of-a-cryptocurrency-transaction",
       category: "blockchain"
     },
     {
@@ -94,7 +94,7 @@ const Projects = () => {
       description: "A dashboard for monitoring and controlling smart home devices.",
       image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=800&q=80",
       tags: ["C", "IoT", "NArdiuno"],
-      code: "#",
+      code: "https://github.com/oxBinaryBrain/Ardiuno",
       category: "iot"
     }
   ];
