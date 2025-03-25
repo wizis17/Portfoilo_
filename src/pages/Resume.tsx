@@ -41,25 +41,19 @@ const Resume = () => {
       { name: "Node.js", level: 80 },
       { name: "Next.js", level: 75 },
       { name: "Express.js", level: 70 },
-      { name: "TensorFlow", level: 65 },
-      { name: "OpenCV", level: 70 },
     ],
     tools: [
       { name: "Git/GitHub", level: 85 },
       { name: "VS Code", level: 90 },
-      { name: "Docker", level: 65 },
       { name: "MongoDB", level: 70 },
       { name: "Postman", level: 80 },
-      { name: "Power BI", level: 75 },
       { name: "AI Tools", level: 80 },
     ],
     areas: [
       { name: "Machine Learning", level: 80 },
-      { name: "Computer Vision", level: 75 },
       { name: "Web Development", level: 85 },
-      { name: "Data Science", level: 75 },
-      { name: "API Development", level: 70 },
-      { name: "Neural Networks", level: 65 },
+      { name: "API Development", level: 65 },
+      { name: "Neural Networks", level: 75 },
     ]
   };
 
