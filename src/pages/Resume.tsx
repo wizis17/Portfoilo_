@@ -237,12 +237,12 @@ const Resume = () => {
       icon: <Code className="h-8 w-8 text-brand-purple" />
     },
     { 
-      title: "Computer Vision Developer", 
-      description: "Experienced in building computer vision applications using OpenCV and deep learning",
+      title: "Web Developer", 
+      description: "Experienced in building web applications using react framework and plain HTML and CSS",
       icon: <Cpu className="h-8 w-8 text-brand-purple" />
     },
     { 
-      title: "Data Scientist", 
+      title: "Data Analyst", 
       description: "Skilled in data analysis, visualization, and extracting actionable insights",
       icon: <Database className="h-8 w-8 text-brand-purple" />
     },
