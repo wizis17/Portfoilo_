@@ -1,8 +1,8 @@
-
 import { useEffect, useState } from "react";
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 import { AnimatedText } from "@/components/AnimatedText";
+import PrintableResume from "@/components/PrintableResume";
 import { 
   Download, 
   Briefcase, 
@@ -684,16 +684,7 @@ const Resume = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="flex justify-center mb-12"
           >
-            <motion.a
-              href="/resume.pdf"
-              download
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center bg-brand-purple text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition-all"
-            >
-              <Download className="mr-2 h-5 w-5" />
-              Download Resume
-            </motion.a>
+            <PrintableResume />
           </motion.div>
 
           <div className="mb-8">
