@@ -36,7 +36,7 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: "Oral Cancer Detection using Neural Networks",
+      title: "Oral Cancer Classification using Neural Networks",
       description: "Developing a machine learning model to detect and classify oral cancer levels from images. It involves data collection, preprocessing, feature extraction, and model evaluation.",
       image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
       tags: ["Python", "TensorFlow", "Neural Networks"],
