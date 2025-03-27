@@ -94,7 +94,7 @@ const About = () => {
                   My journey in programming began with an interest in solving complex problems. This led me to explore various programming languages and technologies, with a focus on web development and artificial intelligence.
                 </p>
                 <p>
-                  I'm passionate about building software that is not only functional but also intuitive and user-friendly. I believe in continuous learning and staying updated with the latest technologies.
+                  I'm passionate about building web applications and software that is not only functional but also intuitive and user-friendly. I believe in continuous learning and staying updated with the latest technologies.
                 </p>
                 <p>
                   When I'm not coding, I enjoy exploring new technologies, solving algorithmic problems, and contributing to open-source projects.
