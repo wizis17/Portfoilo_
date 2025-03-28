@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { AnimatedText } from "@/components/AnimatedText";
 import { Mail, Phone, MapPin, Send, Linkedin, Github, Twitter, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 import { useNavigate } from "react-router-dom";
 import { contactService, ContactMessageInsert } from "@/services/contactService";
 
@@ -34,16 +33,13 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Get current user if authenticated
-      const { data: { user } } = await supabase.auth.getUser();
-      
-      // Save message to Supabase using our service
+      // Save message using our mock service
       const messageData: ContactMessageInsert = {
         name: formData.name,
         email: formData.email,
         subject: formData.subject,
         message: formData.message,
-        user_id: user?.id || null
+        user_id: null // No user authentication
       };
       
       const { error } = await contactService.insertMessage(messageData);
