@@ -10,6 +10,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Eye, EyeOff, Clock } from "lucide-react";
 
+// Define the contact message type locally since we can't modify the types.ts file
 interface ContactMessage {
   id: string;
   name: string;
@@ -54,13 +55,13 @@ const Admin = () => {
     try {
       setLoading(true);
       const { data, error } = await supabase
-        .from('contact_messages')
+        .from('contact_messages' as any)
         .select('*')
         .order('created_at', { ascending: false });
       
       if (error) throw error;
       
-      setMessages(data || []);
+      setMessages(data as ContactMessage[] || []);
     } catch (err: any) {
       setError(err.message);
       toast({
@@ -76,7 +77,7 @@ const Admin = () => {
   const toggleReadStatus = async (message: ContactMessage) => {
     try {
       const { error } = await supabase
-        .from('contact_messages')
+        .from('contact_messages' as any)
         .update({ is_read: !message.is_read })
         .eq('id', message.id);
       
