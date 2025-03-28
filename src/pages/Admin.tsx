@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
@@ -9,18 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Eye, EyeOff, Clock } from "lucide-react";
-
-// Define the contact message type locally since we can't modify the types.ts file
-interface ContactMessage {
-  id: string;
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-  created_at: string;
-  is_read: boolean;
-  user_id: string | null;
-}
+import { contactService, ContactMessage } from "@/services/contactService";
 
 const Admin = () => {
   const [messages, setMessages] = useState<ContactMessage[]>([]);
@@ -54,14 +42,11 @@ const Admin = () => {
   const fetchMessages = async () => {
     try {
       setLoading(true);
-      const { data, error } = await supabase
-        .from('contact_messages' as any)
-        .select('*')
-        .order('created_at', { ascending: false });
+      const { data, error } = await contactService.getMessages();
       
       if (error) throw error;
       
-      setMessages(data as ContactMessage[] || []);
+      setMessages(data || []);
     } catch (err: any) {
       setError(err.message);
       toast({
@@ -76,10 +61,7 @@ const Admin = () => {
 
   const toggleReadStatus = async (message: ContactMessage) => {
     try {
-      const { error } = await supabase
-        .from('contact_messages' as any)
-        .update({ is_read: !message.is_read })
-        .eq('id', message.id);
+      const { error } = await contactService.updateReadStatus(message.id, !message.is_read);
       
       if (error) throw error;
       

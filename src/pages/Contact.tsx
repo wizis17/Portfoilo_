@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
@@ -7,15 +6,7 @@ import { Mail, Phone, MapPin, Send, Linkedin, Github, Twitter, CheckCircle } fro
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { useNavigate } from "react-router-dom";
-
-// Define the contact message type locally since we can't modify the types.ts file
-interface ContactMessageInsert {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-  user_id: string | null;
-}
+import { contactService, ContactMessageInsert } from "@/services/contactService";
 
 const Contact = () => {
   useEffect(() => {
@@ -46,16 +37,16 @@ const Contact = () => {
       // Get current user if authenticated
       const { data: { user } } = await supabase.auth.getUser();
       
-      // Save message to Supabase with type assertion
-      const { error } = await supabase
-        .from('contact_messages' as any)
-        .insert({
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          user_id: user?.id || null
-        } as ContactMessageInsert);
+      // Save message to Supabase using our service
+      const messageData: ContactMessageInsert = {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        user_id: user?.id || null
+      };
+      
+      const { error } = await contactService.insertMessage(messageData);
       
       if (error) {
         console.error("Error submitting message:", error);
@@ -156,7 +147,6 @@ const Contact = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-            {/* Contact Info */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -218,7 +208,6 @@ const Contact = () => {
               </div>
             </motion.div>
             
-            {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
