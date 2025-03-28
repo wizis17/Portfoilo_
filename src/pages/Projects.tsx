@@ -67,7 +67,7 @@ const Projects = () => {
       description: "A full-stack e-commerce platform with user authentication, product catalog, and payment processing.",
       image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
       tags: ["JavaScript", "Node.js", "React", "MongoDB"],
-      code: "#",
+      code: "https://github.com/oxBinaryBrain/E-commerce",
       category: "web"
     },
     {
