@@ -17,7 +17,7 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-brand-dark p-4">
-      <div className="glass-panel p-12 rounded-lg text-center max-w-md">
+      <div className="glass-panel p-8 md:p-12 rounded-lg text-center max-w-md w-full">
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -27,8 +27,8 @@ const NotFound = () => {
             stiffness: 120 
           }}
         >
-          <h1 className="text-9xl font-bold text-brand-purple mb-4">404</h1>
-          <h2 className="text-2xl font-bold mb-6">Page Not Found</h2>
+          <h1 className="text-8xl md:text-9xl font-bold text-brand-purple mb-4">404</h1>
+          <h2 className="text-xl md:text-2xl font-bold mb-6">Page Not Found</h2>
           <p className="text-muted-foreground mb-8">
             The page you are looking for doesn't exist or has been moved.
           </p>
