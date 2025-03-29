@@ -73,4 +73,20 @@ vercel --prod
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+## 📜 License
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## 🙏 Acknowledgments
+- React Community
+- Vite.js Team
+- Tailwind CSS
+- Framer Motion
+- TypeScript Team
+
+---
+
+**Created with by Uday**
+
+**📌 Note**: This portfolio template is open-source. While free to use, attribution is appreciated.
+
 
