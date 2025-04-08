@@ -2,18 +2,17 @@ import { useEffect, useState } from "react";
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 import { AnimatedText } from "@/components/AnimatedText";
+import ProjectCard from "@/components/ProjectCard";
 import { 
-  Github, 
-  Code, 
+  Bot, 
   MonitorSmartphone,
   Database,
-  Bot,
   Cpu,
   Filter,
   Search,
-  FileCode,
-  BarChart,
-  Brain
+  Code,
+  Brain,
+  BarChart
 } from "lucide-react";
 
 const Projects = () => {
@@ -102,19 +101,19 @@ const Projects = () => {
   const getIcon = (category: string) => {
     switch (category) {
       case "ai":
-        return <Bot className="w-5 h-5" />;
+        return Bot;
       case "web":
-        return <MonitorSmartphone className="w-5 h-5" />;
+        return MonitorSmartphone;
       case "blockchain":
-        return <Database className="w-5 h-5" />;
+        return Database;
       case "iot":
-        return <Cpu className="w-5 h-5" />;
+        return Cpu;
       case "ml":
-        return <Brain className="w-5 h-5" />;
+        return Brain;
       case "data":
-        return <BarChart className="w-5 h-5" />;
+        return BarChart;
       default:
-        return <Code className="w-5 h-5" />;
+        return Code;
     }
   };
 
@@ -162,6 +161,7 @@ const Projects = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
+            whileHover={{ boxShadow: "0 10px 25px -5px rgba(155, 135, 245, 0.1)" }}
             className="mb-12"
           >
             <div className="flex flex-col md:flex-row gap-6 items-center justify-between glass-panel p-6 rounded-lg">
@@ -171,9 +171,11 @@ const Projects = () => {
                 <span className="mr-4 text-sm font-medium">Filter:</span>
                 <div className="flex flex-wrap gap-2">
                   {categories.map(category => (
-                    <button
+                    <motion.button
                       key={category.id}
                       onClick={() => setFilter(category.id)}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                       className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
                         filter === category.id 
                           ? "bg-brand-purple text-white" 
@@ -181,7 +183,7 @@ const Projects = () => {
                       }`}
                     >
                       {category.name}
-                    </button>
+                    </motion.button>
                   ))}
                 </div>
               </div>
@@ -191,12 +193,13 @@ const Projects = () => {
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                   <Search className="w-4 h-4 text-muted-foreground" />
                 </div>
-                <input
+                <motion.input
                   type="text"
                   className="w-full py-2 pl-10 pr-4 bg-secondary rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple"
                   placeholder="Search projects..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
+                  whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
                 />
               </div>
             </div>
@@ -205,52 +208,17 @@ const Projects = () => {
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.length > 0 ? (
-              filteredProjects.map((project, index) => (
-                <motion.div
+              filteredProjects.map((project) => (
+                <ProjectCard
                   key={project.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                  whileHover={{ y: -5 }}
-                  className="glass-panel rounded-lg overflow-hidden flex flex-col"
-                >
-                  <div className="relative h-48 overflow-hidden">
-                    <div className="absolute top-3 left-3 bg-secondary/80 backdrop-blur-sm px-3 py-1 rounded-full flex items-center text-xs font-medium z-10">
-                      {getIcon(project.category)}
-                      <span className="ml-1.5 capitalize">{project.category === "iot" ? "IoT" : project.category === "ai" ? "AI & ML" : project.category}</span>
-                    </div>
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    />
-                  </div>
-                  
-                  <div className="p-6 flex-grow">
-                    <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                    <p className="text-muted-foreground mb-4">{project.description}</p>
-                    
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tags.map(tag => (
-                        <span key={tag} className="text-xs py-1 px-3 bg-secondary rounded-full">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    
-                    <div className="flex justify-center">
-                      <motion.a
-                        href={project.code}
-                        className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <Github className="mr-1.5 h-4 w-4" />
-                        Source Code
-                      </motion.a>
-                    </div>
-                  </div>
-                </motion.div>
+                  title={project.title}
+                  description={project.description}
+                  image={project.image}
+                  tags={project.tags}
+                  code={project.code}
+                  category={project.category}
+                  icon={getIcon(project.category)}
+                />
               ))
             ) : (
               <motion.div
@@ -259,15 +227,17 @@ const Projects = () => {
                 className="col-span-1 md:col-span-2 lg:col-span-3 text-center py-16 glass-panel rounded-lg"
               >
                 <p className="text-xl text-muted-foreground">No projects found matching your criteria.</p>
-                <button
+                <motion.button
                   onClick={() => {
                     setFilter("all");
                     setSearchTerm("");
                   }}
+                  whileHover={{ scale: 1.05, backgroundColor: "#8B5CF6" }}
+                  whileTap={{ scale: 0.95 }}
                   className="mt-4 inline-flex items-center px-4 py-2 bg-brand-purple text-white rounded-lg text-sm font-medium hover:bg-opacity-90 transition-all"
                 >
                   Clear Filters
-                </button>
+                </motion.button>
               </motion.div>
             )}
           </div>

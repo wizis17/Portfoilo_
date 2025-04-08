@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 import { AnimatedText } from "@/components/AnimatedText";
 import { Code, GraduationCap, BookOpen, Coffee, User, Heart } from "lucide-react";
+import InfoCard from "@/components/InfoCard";
 
 const About = () => {
   useEffect(() => {
@@ -51,28 +52,24 @@ const About = () => {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{ boxShadow: "0 20px 25px -5px rgba(155, 135, 245, 0.15)" }}
             >
               <div className="glass-panel h-full p-8 rounded-lg">
                 <div className="bg-gradient-to-br from-brand-purple/20 to-blue-500/20 w-full h-80 rounded-lg mb-8"></div>
                 <div className="flex flex-wrap gap-4 justify-center">
-                  <span className="inline-block py-1 px-4 rounded-full bg-brand-purple/10 text-brand-purple text-sm">
-                    Python
-                  </span>
-                  <span className="inline-block py-1 px-4 rounded-full bg-brand-purple/10 text-brand-purple text-sm">
-                    JavaScript
-                  </span>
-                  <span className="inline-block py-1 px-4 rounded-full bg-brand-purple/10 text-brand-purple text-sm">
-                    C++
-                  </span>
-                  <span className="inline-block py-1 px-4 rounded-full bg-brand-purple/10 text-brand-purple text-sm">
-                    React.js
-                  </span>
-                  <span className="inline-block py-1 px-4 rounded-full bg-brand-purple/10 text-brand-purple text-sm">
-                    Node.js
-                  </span>
-                  <span className="inline-block py-1 px-4 rounded-full bg-brand-purple/10 text-brand-purple text-sm">
-                    Next.js
-                  </span>
+                  {["Python", "JavaScript", "C++", "React.js", "Node.js", "Next.js"].map((skill) => (
+                    <motion.span 
+                      key={skill}
+                      whileHover={{ 
+                        scale: 1.1, 
+                        backgroundColor: "rgba(155, 135, 245, 0.3)",
+                        color: "#ffffff" 
+                      }}
+                      className="inline-block py-1 px-4 rounded-full bg-brand-purple/10 text-brand-purple text-sm"
+                    >
+                      {skill}
+                    </motion.span>
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -88,7 +85,10 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  I'm <span className="text-brand-purple font-semibold">Uday G</span>, a Computer Science student specializing in AI & Machine Learning at Presidency University, Bengaluru.
+                  I'm <motion.span 
+                    className="text-brand-purple font-semibold"
+                    whileHover={{ color: "#8B5CF6" }}
+                  >Uday G</motion.span>, a Computer Science student specializing in AI & Machine Learning at Presidency University, Bengaluru.
                 </p>
                 <p>
                   My journey in programming began with an interest in solving complex problems. This led me to explore various programming languages and technologies, with a focus on web development and artificial intelligence.
@@ -123,9 +123,17 @@ const About = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.1 * index }}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    boxShadow: "0 10px 25px -5px rgba(155, 135, 245, 0.2)",
+                    y: -5
+                  }}
                   className="glass-panel p-6 rounded-lg text-center"
                 >
-                  <h3 className="font-semibold mb-2">{skill.name}</h3>
+                  <motion.h3 
+                    className="font-semibold mb-2"
+                    whileHover={{ color: "#9b87f5" }}
+                  >{skill.name}</motion.h3>
                   <span className={`text-xs py-1 px-3 rounded-full ${
                     skill.level === 'Advanced' ? 'bg-brand-purple/20 text-brand-purple' :
                     skill.level === 'Intermediate' ? 'bg-blue-500/20 text-blue-400' :
@@ -148,129 +156,69 @@ const About = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="glass-panel p-8 rounded-lg"
-              >
-                <div className="flex items-center mb-4">
-                  <div className="bg-brand-purple/10 p-3 rounded-lg mr-4">
-                    <User className="h-6 w-6 text-brand-purple" />
-                  </div>
-                  <h3 className="text-xl font-semibold">Personal Interests</h3>
-                </div>
+              <InfoCard icon={User} title="Personal Interests">
                 <ul className="space-y-2 text-muted-foreground">
-                  <li className="flex items-center">
-                    <Heart className="h-4 w-4 text-brand-purple mr-2" />
-                    Exploring new technologies
-                  </li>
-                  <li className="flex items-center">
-                    <Heart className="h-4 w-4 text-brand-purple mr-2" />
-                    Solving algorithmic challenges
-                  </li>
-                  <li className="flex items-center">
-                    <Heart className="h-4 w-4 text-brand-purple mr-2" />
-                    Open-source contributions
-                  </li>
-                  <li className="flex items-center">
-                    <Heart className="h-4 w-4 text-brand-purple mr-2" />
-                    Web development projects
-                  </li>
+                  {["Exploring new technologies", "Solving algorithmic challenges", 
+                    "Open-source contributions", "Web development projects"].map((interest, i) => (
+                    <motion.li 
+                      key={i} 
+                      className="flex items-center"
+                      whileHover={{ x: 5, color: "#9b87f5" }}
+                    >
+                      <Heart className="h-4 w-4 text-brand-purple mr-2" />
+                      {interest}
+                    </motion.li>
+                  ))}
                 </ul>
-              </motion.div>
+              </InfoCard>
 
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="glass-panel p-8 rounded-lg"
-              >
-                <div className="flex items-center mb-4">
-                  <div className="bg-brand-purple/10 p-3 rounded-lg mr-4">
-                    <Code className="h-6 w-6 text-brand-purple" />
-                  </div>
-                  <h3 className="text-xl font-semibold">Coding Philosophy</h3>
-                </div>
+              <InfoCard icon={Code} title="Coding Philosophy">
                 <ul className="space-y-2 text-muted-foreground">
-                  <li className="flex items-center">
-                    <Coffee className="h-4 w-4 text-brand-purple mr-2" />
-                    Clean and maintainable code
-                  </li>
-                  <li className="flex items-center">
-                    <Coffee className="h-4 w-4 text-brand-purple mr-2" />
-                    Focus on user experience
-                  </li>
-                  <li className="flex items-center">
-                    <Coffee className="h-4 w-4 text-brand-purple mr-2" />
-                    Continuous learning and improvement
-                  </li>
-                  <li className="flex items-center">
-                    <Coffee className="h-4 w-4 text-brand-purple mr-2" />
-                    Building with scalability in mind
-                  </li>
+                  {["Clean and maintainable code", "Focus on user experience", 
+                    "Continuous learning and improvement", "Building with scalability in mind"].map((philosophy, i) => (
+                    <motion.li 
+                      key={i} 
+                      className="flex items-center"
+                      whileHover={{ x: 5, color: "#9b87f5" }}
+                    >
+                      <Coffee className="h-4 w-4 text-brand-purple mr-2" />
+                      {philosophy}
+                    </motion.li>
+                  ))}
                 </ul>
-              </motion.div>
+              </InfoCard>
 
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="glass-panel p-8 rounded-lg"
-              >
-                <div className="flex items-center mb-4">
-                  <div className="bg-brand-purple/10 p-3 rounded-lg mr-4">
-                    <GraduationCap className="h-6 w-6 text-brand-purple" />
-                  </div>
-                  <h3 className="text-xl font-semibold">Education Journey</h3>
-                </div>
+              <InfoCard icon={GraduationCap} title="Education Journey">
                 <ul className="space-y-2 text-muted-foreground">
-                  <li className="flex items-center">
-                    <BookOpen className="h-4 w-4 text-brand-purple mr-2" />
-                    Computer Science fundamentals
-                  </li>
-                  <li className="flex items-center">
-                    <BookOpen className="h-4 w-4 text-brand-purple mr-2" />
-                    Data structures and algorithms
-                  </li>
-                  <li className="flex items-center">
-                    <BookOpen className="h-4 w-4 text-brand-purple mr-2" />
-                    Machine learning and AI
-                  </li>
-                  <li className="flex items-center">
-                    <BookOpen className="h-4 w-4 text-brand-purple mr-2" />
-                    Self-taught web development
-                  </li>
+                  {["Computer Science fundamentals", "Data structures and algorithms", 
+                    "Machine learning and AI", "Self-taught web development"].map((journey, i) => (
+                    <motion.li 
+                      key={i} 
+                      className="flex items-center"
+                      whileHover={{ x: 5, color: "#9b87f5" }}
+                    >
+                      <BookOpen className="h-4 w-4 text-brand-purple mr-2" />
+                      {journey}
+                    </motion.li>
+                  ))}
                 </ul>
-              </motion.div>
+              </InfoCard>
 
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="glass-panel p-8 rounded-lg"
-              >
-                <div className="flex items-center mb-4">
-                  <div className="bg-brand-purple/10 p-3 rounded-lg mr-4">
-                    <BookOpen className="h-6 w-6 text-brand-purple" />
-                  </div>
-                  <h3 className="text-xl font-semibold">Future Goals</h3>
-                </div>
+              <InfoCard icon={BookOpen} title="Future Goals">
                 <ul className="space-y-2 text-muted-foreground">
-                  <li className="flex items-center">
-                    <GraduationCap className="h-4 w-4 text-brand-purple mr-2" />
-                    Mastering advanced AI techniques
-                  </li>
-                  <li className="flex items-center">
-                    <GraduationCap className="h-4 w-4 text-brand-purple mr-2" />
-                    Building impactful web applications
-                  </li>
-                  <li className="flex items-center">
-                    <GraduationCap className="h-4 w-4 text-brand-purple mr-2" />
-                    Contributing to open-source projects
-                  </li>
-                  <li className="flex items-center">
-                    <GraduationCap className="h-4 w-4 text-brand-purple mr-2" />
-                    Exploring blockchain development
-                  </li>
+                  {["Mastering advanced AI techniques", "Building impactful web applications", 
+                    "Contributing to open-source projects", "Exploring blockchain development"].map((goal, i) => (
+                    <motion.li 
+                      key={i} 
+                      className="flex items-center"
+                      whileHover={{ x: 5, color: "#9b87f5" }}
+                    >
+                      <GraduationCap className="h-4 w-4 text-brand-purple mr-2" />
+                      {goal}
+                    </motion.li>
+                  ))}
                 </ul>
-              </motion.div>
+              </InfoCard>
             </div>
           </motion.div>
         </div>

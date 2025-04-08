@@ -1,9 +1,10 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { ArrowRight, Code, Database, FileCode, Server, Terminal, GitBranch, Globe, Cloud, Tv, Smartphone, Laptop } from "lucide-react";
+import { ArrowRight, Code, Database, FileCode, Server, Terminal, GitBranch, Globe, Tv } from "lucide-react";
 import AnimatedText from "./AnimatedText";
 import { Link } from "react-router-dom";
+import SkillCard from "./SkillCard";
 
 const phrases = [
   "Full Stack Developer",
@@ -82,27 +83,24 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              <motion.a
-                href="#contact"
-                className="inline-flex items-center bg-teal-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition-all"
-                whileHover={{ scale: 1.05 }}
+              <motion.div
+                whileHover={{ scale: 1.05, backgroundColor: "#7E69AB" }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link to="/contact">
+                <Link to="/contact" className="inline-flex items-center bg-teal-500 text-white px-6 py-3 rounded-lg font-medium transition-all">
                   Get in Touch
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
-              </motion.a>
+              </motion.div>
               
-              <motion.a
-                className="inline-flex items-center bg-secondary text-foreground px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition-all"
-                whileHover={{ scale: 1.05 }}
+              <motion.div
+                whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link to="/projects">
+                <Link to="/projects" className="inline-flex items-center bg-secondary text-foreground px-6 py-3 rounded-lg font-medium transition-all">
                   View Projects
                 </Link>
-              </motion.a>
+              </motion.div>
             </motion.div>
           </div>
           
@@ -116,105 +114,69 @@ const HeroSection = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-teal-500/20 to-transparent"></div>
               <div className="relative h-full w-full grid grid-cols-6 grid-rows-6 gap-4">
                 
-                {/* Static skill blocks */}
-                <motion.div 
-                  className="col-span-3 row-span-2 glass-panel p-6 flex flex-col justify-center"
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <div className="flex items-center mb-2">
-                    <Code className="w-5 h-5 mr-2 text-teal-400" />
-                    <h3 className="text-xl font-semibold">Python</h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground">Expert level proficiency</p>
-                </motion.div>
+                {/* Skills grid */}
+                <SkillCard 
+                  icon={Code}
+                  title="Python"
+                  description="Expert level proficiency"
+                  className="col-span-3 row-span-2"
+                />
                 
-                <motion.div 
-                  className="col-span-3 row-span-2 glass-panel p-6 flex flex-col justify-center"
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <div className="flex items-center mb-2">
-                    <FileCode className="w-5 h-5 mr-2 text-teal-400" />
-                    <h3 className="text-xl font-semibold">JavaScript</h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground">Frontend & backend development</p>
-                </motion.div>
+                <SkillCard 
+                  icon={FileCode}
+                  title="JavaScript"
+                  description="Frontend & backend development"
+                  className="col-span-3 row-span-2"
+                />
                 
-                <motion.div 
-                  className="col-span-2 row-span-2 glass-panel p-4 flex flex-col justify-center"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <div className="flex items-center mb-1">
-                    <Globe className="w-4 h-4 mr-2 text-teal-400" />
-                    <h3 className="text-md font-semibold">React.js</h3>
-                  </div>
-                  <p className="text-xs text-muted-foreground">UI Library</p>
-                </motion.div>
+                <SkillCard 
+                  icon={Globe}
+                  title="React.js"
+                  description="UI Library"
+                  className="col-span-2 row-span-2"
+                />
                 
-                <motion.div 
-                  className="col-span-2 row-span-2 glass-panel p-4 flex flex-col justify-center"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <div className="flex items-center mb-1">
-                    <Database className="w-4 h-4 mr-2 text-teal-400" />
-                    <h3 className="text-md font-semibold">SQL</h3>
-                  </div>
-                  <p className="text-xs text-muted-foreground">Database</p>
-                </motion.div>
+                <SkillCard 
+                  icon={Database}
+                  title="SQL"
+                  description="Database"
+                  className="col-span-2 row-span-2"
+                />
                 
-                <motion.div 
-                  className="col-span-2 row-span-2 glass-panel p-4 flex flex-col justify-center"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <div className="flex items-center mb-1">
-                    <Terminal className="w-4 h-4 mr-2 text-teal-400" />
-                    <h3 className="text-md font-semibold">C++</h3>
-                  </div>
-                  <p className="text-xs text-muted-foreground">Systems programming</p>
-                </motion.div>
+                <SkillCard 
+                  icon={Terminal}
+                  title="C++"
+                  description="Systems programming"
+                  className="col-span-2 row-span-2"
+                />
                 
-                <motion.div 
-                  className="col-span-3 row-span-2 glass-panel p-6 flex flex-col justify-center"
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <div className="flex items-center mb-2">
-                    <Server className="w-5 h-5 mr-2 text-teal-400" />
-                    <h3 className="text-xl font-semibold">Node.js</h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground">Backend development</p>
-                </motion.div>
+                <SkillCard 
+                  icon={Server}
+                  title="Node.js"
+                  description="Backend development"
+                  className="col-span-3 row-span-2"
+                />
                 
-                <motion.div 
-                  className="col-span-3 row-span-2 glass-panel p-6 flex flex-col justify-center"
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <div className="flex items-center mb-2">
-                    <Tv className="w-5 h-5 mr-2 text-teal-400" />
-                    <h3 className="text-xl font-semibold">UI/UX Design</h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground">Interface design & prototyping</p>
-                </motion.div>
+                <SkillCard 
+                  icon={Tv}
+                  title="UI/UX Design"
+                  description="Interface design & prototyping"
+                  className="col-span-3 row-span-2"
+                />
                 
-                <motion.div 
-                  className="col-span-3 row-span-2 glass-panel p-4 flex flex-col justify-center"
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <div className="flex items-center mb-1">
-                    <GitBranch className="w-4 h-4 mr-2 text-teal-400" />
-                    <h3 className="text-md font-semibold">AI & Machine Learning</h3>
-                  </div>
-                  <p className="text-xs text-muted-foreground">Model development & deployment</p>
-                </motion.div>
+                <SkillCard 
+                  icon={GitBranch}
+                  title="AI & Machine Learning"
+                  description="Model development & deployment"
+                  className="col-span-3 row-span-2"
+                />
                 
-                <motion.div 
-                  className="col-span-3 row-span-2 glass-panel p-4 flex flex-col justify-center"
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <div className="flex items-center mb-1">
-                    <Code className="w-4 h-4 mr-2 text-teal-400" />
-                    <h3 className="text-md font-semibold">Next.js</h3>
-                  </div>
-                  <p className="text-xs text-muted-foreground">React framework</p>
-                </motion.div>
+                <SkillCard 
+                  icon={Code}
+                  title="Next.js"
+                  description="React framework"
+                  className="col-span-3 row-span-2"
+                />
               </div>
             </div>
           </motion.div>

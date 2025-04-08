@@ -1,83 +1,88 @@
 
-// Since we don't want to rely on Supabase backend, we'll create a mock service
-// using localStorage to temporarily store the contact messages
-
-// Define contact message types
 export interface ContactMessage {
   id: string;
   name: string;
   email: string;
   subject: string;
   message: string;
+  user_id: string | null;
   created_at: string;
   is_read: boolean;
-  user_id: string | null;
 }
 
-export interface ContactMessageInsert {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-  user_id: string | null;
-}
+export type ContactMessageInsert = Omit<ContactMessage, 'id' | 'created_at' | 'is_read'>;
 
-// Create a service with mock operations using localStorage
+const STORAGE_KEY = 'contact_messages';
+
+const getMessages = (): ContactMessage[] => {
+  const storedMessages = localStorage.getItem(STORAGE_KEY);
+  return storedMessages ? JSON.parse(storedMessages) : [];
+};
+
+const saveMessages = (messages: ContactMessage[]): void => {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+};
+
 export const contactService = {
-  // Get all messages
-  async getMessages(): Promise<{ data: ContactMessage[] | null; error: any }> {
+  async getAllMessages(): Promise<{ data: ContactMessage[] | null; error: Error | null }> {
     try {
-      const messagesJson = localStorage.getItem('contact_messages');
-      const messages = messagesJson ? JSON.parse(messagesJson) : [];
-      return {
-        data: messages,
-        error: null
-      };
+      const messages = getMessages();
+      return { data: messages, error: null };
     } catch (error) {
-      return {
-        data: null,
-        error
-      };
+      console.error('Error fetching messages:', error);
+      return { data: null, error: error as Error };
     }
   },
 
-  // Insert a new message
-  async insertMessage(message: ContactMessageInsert): Promise<{ error: any }> {
+  async insertMessage(message: ContactMessageInsert): Promise<{ data: ContactMessage | null; error: Error | null }> {
     try {
-      const messagesJson = localStorage.getItem('contact_messages');
-      const messages = messagesJson ? JSON.parse(messagesJson) : [];
-      
+      const messages = getMessages();
       const newMessage: ContactMessage = {
-        id: `${Date.now()}-${Math.random().toString(36).substring(2, 9)}`,
+        ...message,
+        id: Date.now().toString(),
         created_at: new Date().toISOString(),
-        is_read: false,
-        ...message
+        is_read: false
       };
-      
+
       messages.push(newMessage);
-      localStorage.setItem('contact_messages', JSON.stringify(messages));
-      
-      return { error: null };
+      saveMessages(messages);
+
+      return { data: newMessage, error: null };
     } catch (error) {
-      return { error };
+      console.error('Error inserting message:', error);
+      return { data: null, error: error as Error };
     }
   },
 
-  // Update message read status
-  async updateReadStatus(messageId: string, isRead: boolean): Promise<{ error: any }> {
+  async markAsRead(id: string): Promise<{ data: ContactMessage | null; error: Error | null }> {
     try {
-      const messagesJson = localStorage.getItem('contact_messages');
-      const messages: ContactMessage[] = messagesJson ? JSON.parse(messagesJson) : [];
+      const messages = getMessages();
+      const messageIndex = messages.findIndex(msg => msg.id === id);
       
-      const updatedMessages = messages.map(message => 
-        message.id === messageId ? { ...message, is_read: isRead } : message
-      );
-      
-      localStorage.setItem('contact_messages', JSON.stringify(updatedMessages));
-      
+      if (messageIndex === -1) {
+        throw new Error('Message not found');
+      }
+
+      messages[messageIndex].is_read = true;
+      saveMessages(messages);
+
+      return { data: messages[messageIndex], error: null };
+    } catch (error) {
+      console.error('Error marking message as read:', error);
+      return { data: null, error: error as Error };
+    }
+  },
+
+  async deleteMessage(id: string): Promise<{ error: Error | null }> {
+    try {
+      const messages = getMessages();
+      const updatedMessages = messages.filter(msg => msg.id !== id);
+      saveMessages(updatedMessages);
+
       return { error: null };
     } catch (error) {
-      return { error };
+      console.error('Error deleting message:', error);
+      return { error: error as Error };
     }
   }
 };

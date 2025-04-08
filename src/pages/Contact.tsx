@@ -1,10 +1,10 @@
+
 import { useEffect, useState } from "react";
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 import { AnimatedText } from "@/components/AnimatedText";
 import { Mail, Phone, MapPin, Send, Linkedin, Github, Twitter, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { useNavigate } from "react-router-dom";
 import { contactService, ContactMessageInsert } from "@/services/contactService";
 
 const Contact = () => {
@@ -12,7 +12,6 @@ const Contact = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const navigate = useNavigate();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -33,13 +32,13 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Save message using our mock service
+      // Save message using our localStorage service
       const messageData: ContactMessageInsert = {
         name: formData.name,
         email: formData.email,
         subject: formData.subject,
         message: formData.message,
-        user_id: null // No user authentication
+        user_id: null
       };
       
       const { error } = await contactService.insertMessage(messageData);
@@ -84,7 +83,7 @@ const Contact = () => {
       icon: <Mail className="h-6 w-6 text-brand-purple" />,
       title: "Email",
       details: "ud4yg@yandex.com",
-      link: "mailto:udayg@example.com",
+      link: "mailto:ud4yg@yandex.com",
     },
     {
       icon: <Phone className="h-6 w-6 text-brand-purple" />,
@@ -163,6 +162,11 @@ const Contact = () => {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3, delay: 0.3 + (index * 0.1) }}
+                      whileHover={{ 
+                        scale: 1.02, 
+                        backgroundColor: "rgba(155, 135, 245, 0.15)",
+                        y: -5 
+                      }}
                       className="flex items-start p-4 bg-secondary/40 rounded-lg hover:bg-secondary transition-colors"
                     >
                       <div className="flex-shrink-0 bg-brand-purple/10 p-3 rounded-full mr-4">
@@ -193,6 +197,12 @@ const Contact = () => {
                           type: "spring", 
                           stiffness: 300
                         }}
+                        whileHover={{ 
+                          scale: 1.2, 
+                          backgroundColor: "#9b87f5",
+                          rotate: 5
+                        }}
+                        whileTap={{ scale: 0.9 }}
                         className="flex items-center justify-center w-12 h-12 bg-secondary rounded-full hover:bg-brand-purple hover:text-white transition-colors"
                         aria-label={social.name}
                       >
@@ -220,7 +230,7 @@ const Contact = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label htmlFor="name" className="block font-medium">Name</label>
-                      <input
+                      <motion.input
                         type="text"
                         id="name"
                         name="name"
@@ -229,12 +239,13 @@ const Contact = () => {
                         required
                         className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple"
                         placeholder="Your name"
+                        whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
                       />
                     </div>
                     
                     <div className="space-y-2">
                       <label htmlFor="email" className="block font-medium">Email</label>
-                      <input
+                      <motion.input
                         type="email"
                         id="email"
                         name="email"
@@ -243,13 +254,14 @@ const Contact = () => {
                         required
                         className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple"
                         placeholder="Your email"
+                        whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
                       />
                     </div>
                   </div>
                   
                   <div className="space-y-2">
                     <label htmlFor="subject" className="block font-medium">Subject</label>
-                    <input
+                    <motion.input
                       type="text"
                       id="subject"
                       name="subject"
@@ -258,12 +270,13 @@ const Contact = () => {
                       required
                       className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple"
                       placeholder="Subject of your message"
+                      whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
                     />
                   </div>
                   
                   <div className="space-y-2">
                     <label htmlFor="message" className="block font-medium">Message</label>
-                    <textarea
+                    <motion.textarea
                       id="message"
                       name="message"
                       value={formData.message}
@@ -272,14 +285,15 @@ const Contact = () => {
                       rows={5}
                       className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple resize-none"
                       placeholder="Write your message here..."
-                    ></textarea>
+                      whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
+                    ></motion.textarea>
                   </div>
                   
                   <div>
                     <motion.button
                       type="submit"
                       disabled={isSubmitting || isSubmitted}
-                      whileHover={{ scale: 1.05 }}
+                      whileHover={{ scale: 1.05, backgroundColor: isSubmitted ? "#16a34a" : "#8B5CF6" }}
                       whileTap={{ scale: 0.95 }}
                       className={`flex items-center justify-center w-full md:w-auto px-8 py-3 rounded-lg font-medium transition-colors ${
                         isSubmitted 
