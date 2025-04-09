@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
@@ -29,7 +30,7 @@ const Admin = () => {
   const fetchMessages = async () => {
     try {
       setLoading(true);
-      const { data, error } = await contactService.getMessages();
+      const { data, error } = await contactService.getAllMessages();
       
       if (error) throw error;
       
@@ -48,7 +49,7 @@ const Admin = () => {
 
   const toggleReadStatus = async (message: ContactMessage) => {
     try {
-      const { error } = await contactService.updateReadStatus(message.id, !message.is_read);
+      const { error } = await contactService.markAsRead(message.id);
       
       if (error) throw error;
       
