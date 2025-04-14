@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import SkillCard from "./SkillCard";
 
 const phrases = [
-  "Full Stack Developer",
+  "Frontend Developer",
   "AI & ML Enthusiast",
   "Web Developer"
 ];
