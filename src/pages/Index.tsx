@@ -21,7 +21,7 @@ const Index = () => {
       code: "https://github.com/oxBinaryBrain/An_Income_Tax_Fraud_Detection_Using_AI-ML"
     },
     {
-      title: "Oral Cancer Detection",
+      title: "Oral Cancer Classification using Neural Networks",
       description: "Machine learning model to detect and classify oral cancer levels from images.",
       image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
       tags: ["Python", "TensorFlow", "Neural Networks"],
