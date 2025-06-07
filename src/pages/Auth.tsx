@@ -3,7 +3,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 import Layout from "@/components/Layout";
 import { AnimatedText } from "@/components/AnimatedText";
 import { Button } from "@/components/ui/button";
@@ -42,66 +41,32 @@ const Auth = () => {
     e.preventDefault();
     setIsLoading(true);
     
-    try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: loginData.email,
-        password: loginData.password
-      });
-      
-      if (error) throw error;
-      
+    // Simulate loading for demo purposes
+    setTimeout(() => {
       toast({
-        title: "Login successful",
-        description: "Welcome back!",
+        title: "Demo Mode",
+        description: "Authentication is not implemented yet. This is just a UI demo.",
         variant: "default",
       });
-      
-      navigate("/");
-    } catch (error: any) {
-      toast({
-        title: "Login failed",
-        description: error.message,
-        variant: "destructive",
-      });
-    } finally {
       setIsLoading(false);
-    }
+    }, 1000);
   };
   
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     
-    try {
-      const { data, error } = await supabase.auth.signUp({
-        email: signupData.email,
-        password: signupData.password,
-        options: {
-          data: {
-            full_name: signupData.fullName,
-          }
-        }
-      });
-      
-      if (error) throw error;
-      
+    // Simulate loading for demo purposes
+    setTimeout(() => {
       toast({
-        title: "Registration successful",
-        description: "Please check your email to confirm your account.",
+        title: "Demo Mode",
+        description: "Registration is not implemented yet. This is just a UI demo.",
         variant: "default",
       });
-      
+      setIsLoading(false);
       // Switch to login tab
       setActiveTab("login");
-    } catch (error: any) {
-      toast({
-        title: "Registration failed",
-        description: error.message,
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
-    }
+    }, 1000);
   };
   
   return (
