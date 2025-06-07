@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
@@ -29,26 +28,40 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate form data
+    if (!formData.name.trim() || !formData.email.trim() || !formData.subject.trim() || !formData.message.trim()) {
+      toast({
+        title: "Validation Error",
+        description: "Please fill in all fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
     
     try {
-      // Save message using our localStorage service
+      console.log("Submitting form data:", formData);
+      
+      // Save message using Firebase service
       const messageData: ContactMessageInsert = {
-        name: formData.name,
-        email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        subject: formData.subject.trim(),
+        message: formData.message.trim(),
         user_id: null
       };
       
-      const { error } = await contactService.insertMessage(messageData);
+      const result = await contactService.insertMessage(messageData);
+      console.log("Form submission result:", result);
       
-      if (error) {
-        console.error("Error submitting message:", error);
-        throw error;
+      if (result.error) {
+        console.error("Error submitting message:", result.error);
+        throw new Error(result.error.message || "Failed to send message");
       }
       
-      setIsSubmitting(false);
+      // Success handling
       setIsSubmitted(true);
       
       toast({
@@ -57,6 +70,7 @@ const Contact = () => {
         variant: "default",
       });
       
+      // Clear form data
       setFormData({
         name: "",
         email: "",
@@ -64,17 +78,20 @@ const Contact = () => {
         message: "",
       });
       
-      // Reset submitted state after 5 seconds
+      // Reset submitted state after 3 seconds
       setTimeout(() => {
         setIsSubmitted(false);
-      }, 5000);
+      }, 3000);
+      
     } catch (error: any) {
-      setIsSubmitting(false);
+      console.error("Form submission error:", error);
       toast({
         title: "Failed to send message",
         description: error.message || "An unexpected error occurred. Please try again.",
         variant: "destructive",
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -237,7 +254,8 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple"
+                        disabled={isSubmitting}
+                        className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple disabled:opacity-50"
                         placeholder="Your name"
                         whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
                       />
@@ -252,7 +270,8 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple"
+                        disabled={isSubmitting}
+                        className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple disabled:opacity-50"
                         placeholder="Your email"
                         whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
                       />
@@ -268,7 +287,8 @@ const Contact = () => {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple"
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple disabled:opacity-50"
                       placeholder="Subject of your message"
                       whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
                     />
@@ -282,8 +302,9 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleChange}
                       required
+                      disabled={isSubmitting}
                       rows={5}
-                      className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple resize-none"
+                      className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple resize-none disabled:opacity-50"
                       placeholder="Write your message here..."
                       whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
                     ></motion.textarea>
@@ -293,11 +314,16 @@ const Contact = () => {
                     <motion.button
                       type="submit"
                       disabled={isSubmitting || isSubmitted}
-                      whileHover={{ scale: 1.05, backgroundColor: isSubmitted ? "#16a34a" : "#8B5CF6" }}
-                      whileTap={{ scale: 0.95 }}
+                      whileHover={{ 
+                        scale: isSubmitting || isSubmitted ? 1 : 1.05, 
+                        backgroundColor: isSubmitted ? "#16a34a" : isSubmitting ? "#9b87f5" : "#8B5CF6" 
+                      }}
+                      whileTap={{ scale: isSubmitting || isSubmitted ? 1 : 0.95 }}
                       className={`flex items-center justify-center w-full md:w-auto px-8 py-3 rounded-lg font-medium transition-colors ${
                         isSubmitted 
-                          ? "bg-green-600 text-white" 
+                          ? "bg-green-600 text-white cursor-not-allowed" 
+                          : isSubmitting
+                          ? "bg-brand-purple/70 text-white cursor-not-allowed"
                           : "bg-brand-purple text-white hover:bg-opacity-90"
                       }`}
                     >
@@ -309,7 +335,7 @@ const Contact = () => {
                       ) : isSubmitted ? (
                         <div className="flex items-center">
                           <CheckCircle className="mr-2 h-5 w-5" />
-                          <span>Sent Successfully</span>
+                          <span>Message Sent!</span>
                         </div>
                       ) : (
                         <div className="flex items-center">
