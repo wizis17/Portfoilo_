@@ -4,61 +4,30 @@ import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 import { AnimatedText } from "@/components/AnimatedText";
 import { useToast } from "@/hooks/use-toast";
-import { useNavigate } from "react-router-dom";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Eye, EyeOff, Clock } from "lucide-react";
-import { contactService, ContactMessage } from "@/services/contactService";
+import { ContactMessage } from "@/services/contactService";
+import { useContactMessages } from "@/hooks/useFirebase";
 
 const Admin = () => {
-  const [messages, setMessages] = useState<ContactMessage[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [selectedMessage, setSelectedMessage] = useState<ContactMessage | null>(null);
   const { toast } = useToast();
-  const navigate = useNavigate();
+  const { messages, loading, error, markAsRead, deleteMessage } = useContactMessages();
 
   useEffect(() => {
     const isAdmin = localStorage.getItem('isAdmin') === 'true';
     if (!isAdmin) {
       localStorage.setItem('isAdmin', 'true');
     }
-    
-    fetchMessages();
   }, []);
 
-  const fetchMessages = async () => {
+  const handleMarkAsRead = async (message: ContactMessage) => {
     try {
-      setLoading(true);
-      const { data, error } = await contactService.getAllMessages();
-      
-      if (error) throw error;
-      
-      setMessages(data || []);
-    } catch (err: any) {
-      setError(err.message);
-      toast({
-        title: "Error fetching messages",
-        description: err.message,
-        variant: "destructive",
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const toggleReadStatus = async (message: ContactMessage) => {
-    try {
-      const { error } = await contactService.markAsRead(message.id);
-      
-      if (error) throw error;
-      
-      setMessages(prev => 
-        prev.map(m => m.id === message.id ? { ...m, is_read: !m.is_read } : m)
-      );
+      await markAsRead(message.id);
       
       if (selectedMessage?.id === message.id) {
-        setSelectedMessage({ ...selectedMessage, is_read: !selectedMessage.is_read });
+        setSelectedMessage({ ...selectedMessage, is_read: true });
       }
       
       toast({
@@ -78,7 +47,7 @@ const Admin = () => {
     setSelectedMessage(message);
     
     if (!message.is_read) {
-      toggleReadStatus(message);
+      handleMarkAsRead(message);
     }
   };
 
@@ -166,7 +135,7 @@ const Admin = () => {
                               <Button
                                 variant="ghost"
                                 size="sm"
-                                onClick={() => toggleReadStatus(message)}
+                                onClick={() => handleMarkAsRead(message)}
                               >
                                 {message.is_read ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                               </Button>

@@ -1,4 +1,18 @@
 
+import { 
+  collection, 
+  addDoc, 
+  getDocs, 
+  doc, 
+  updateDoc, 
+  deleteDoc, 
+  query, 
+  orderBy, 
+  serverTimestamp,
+  Timestamp 
+} from 'firebase/firestore';
+import { db } from '@/firebase/config';
+
 export interface ContactMessage {
   id: string;
   name: string;
@@ -12,21 +26,30 @@ export interface ContactMessage {
 
 export type ContactMessageInsert = Omit<ContactMessage, 'id' | 'created_at' | 'is_read'>;
 
-const STORAGE_KEY = 'contact_messages';
-
-const getMessages = (): ContactMessage[] => {
-  const storedMessages = localStorage.getItem(STORAGE_KEY);
-  return storedMessages ? JSON.parse(storedMessages) : [];
-};
-
-const saveMessages = (messages: ContactMessage[]): void => {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
-};
+const COLLECTION_NAME = 'contact_messages';
 
 export const contactService = {
   async getAllMessages(): Promise<{ data: ContactMessage[] | null; error: Error | null }> {
     try {
-      const messages = getMessages();
+      const q = query(collection(db, COLLECTION_NAME), orderBy('created_at', 'desc'));
+      const querySnapshot = await getDocs(q);
+      
+      const messages: ContactMessage[] = querySnapshot.docs.map(doc => {
+        const data = doc.data();
+        return {
+          id: doc.id,
+          name: data.name,
+          email: data.email,
+          subject: data.subject,
+          message: data.message,
+          user_id: data.user_id || null,
+          created_at: data.created_at instanceof Timestamp 
+            ? data.created_at.toDate().toISOString() 
+            : data.created_at,
+          is_read: data.is_read || false
+        } as ContactMessage;
+      });
+
       return { data: messages, error: null };
     } catch (error) {
       console.error('Error fetching messages:', error);
@@ -36,16 +59,18 @@ export const contactService = {
 
   async insertMessage(message: ContactMessageInsert): Promise<{ data: ContactMessage | null; error: Error | null }> {
     try {
-      const messages = getMessages();
+      const docRef = await addDoc(collection(db, COLLECTION_NAME), {
+        ...message,
+        created_at: serverTimestamp(),
+        is_read: false
+      });
+
       const newMessage: ContactMessage = {
         ...message,
-        id: Date.now().toString(),
+        id: docRef.id,
         created_at: new Date().toISOString(),
         is_read: false
       };
-
-      messages.push(newMessage);
-      saveMessages(messages);
 
       return { data: newMessage, error: null };
     } catch (error) {
@@ -56,17 +81,24 @@ export const contactService = {
 
   async markAsRead(id: string): Promise<{ data: ContactMessage | null; error: Error | null }> {
     try {
-      const messages = getMessages();
-      const messageIndex = messages.findIndex(msg => msg.id === id);
-      
-      if (messageIndex === -1) {
-        throw new Error('Message not found');
-      }
+      const messageRef = doc(db, COLLECTION_NAME, id);
+      await updateDoc(messageRef, {
+        is_read: true
+      });
 
-      messages[messageIndex].is_read = true;
-      saveMessages(messages);
+      // Return a placeholder message since we don't fetch the updated document
+      const updatedMessage: ContactMessage = {
+        id,
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+        user_id: null,
+        created_at: new Date().toISOString(),
+        is_read: true
+      };
 
-      return { data: messages[messageIndex], error: null };
+      return { data: updatedMessage, error: null };
     } catch (error) {
       console.error('Error marking message as read:', error);
       return { data: null, error: error as Error };
@@ -75,10 +107,7 @@ export const contactService = {
 
   async deleteMessage(id: string): Promise<{ error: Error | null }> {
     try {
-      const messages = getMessages();
-      const updatedMessages = messages.filter(msg => msg.id !== id);
-      saveMessages(updatedMessages);
-
+      await deleteDoc(doc(db, COLLECTION_NAME, id));
       return { error: null };
     } catch (error) {
       console.error('Error deleting message:', error);
