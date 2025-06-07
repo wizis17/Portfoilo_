@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
@@ -41,11 +40,11 @@ const Auth = () => {
     e.preventDefault();
     setIsLoading(true);
     
-    // Simulate loading for demo purposes
+    // TODO: Implement Firebase Authentication
     setTimeout(() => {
       toast({
-        title: "Demo Mode",
-        description: "Authentication is not implemented yet. This is just a UI demo.",
+        title: "Firebase Backend Ready",
+        description: "Authentication can be implemented with Firebase Auth. Contact form is already using Firebase Firestore.",
         variant: "default",
       });
       setIsLoading(false);
@@ -56,15 +55,14 @@ const Auth = () => {
     e.preventDefault();
     setIsLoading(true);
     
-    // Simulate loading for demo purposes
+    // TODO: Implement Firebase Authentication
     setTimeout(() => {
       toast({
-        title: "Demo Mode",
-        description: "Registration is not implemented yet. This is just a UI demo.",
+        title: "Firebase Backend Ready",
+        description: "Registration can be implemented with Firebase Auth. Contact form is already using Firebase Firestore.",
         variant: "default",
       });
       setIsLoading(false);
-      // Switch to login tab
       setActiveTab("login");
     }, 1000);
   };
