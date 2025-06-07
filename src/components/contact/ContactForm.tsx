@@ -1,0 +1,214 @@
+
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Send, CheckCircle } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { contactService, ContactMessageInsert } from "@/services/contactService";
+
+const ContactForm = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validate form data
+    if (!formData.name.trim() || !formData.email.trim() || !formData.subject.trim() || !formData.message.trim()) {
+      toast({
+        title: "Validation Error",
+        description: "Please fill in all fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    try {
+      console.log("Submitting form data:", formData);
+      
+      // Save message using Firebase service
+      const messageData: ContactMessageInsert = {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        subject: formData.subject.trim(),
+        message: formData.message.trim(),
+        user_id: null
+      };
+      
+      const result = await contactService.insertMessage(messageData);
+      console.log("Form submission result:", result);
+      
+      if (result.error) {
+        console.error("Error submitting message:", result.error);
+        throw new Error(result.error.message || "Failed to send message");
+      }
+      
+      // Success handling
+      setIsSubmitted(true);
+      
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+        variant: "default",
+      });
+      
+      // Clear form data
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+      
+      // Reset submitted state after 3 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 3000);
+      
+    } catch (error: any) {
+      console.error("Form submission error:", error);
+      toast({
+        title: "Failed to send message",
+        description: error.message || "An unexpected error occurred. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+      className="lg:col-span-3"
+    >
+      <div className="glass-panel p-8 rounded-lg">
+        <h2 className="text-2xl font-bold mb-6">Send Me a Message</h2>
+        <p className="text-muted-foreground mb-8">
+          Let's start a conversation. Fill out the form below and I'll get back to you as soon as possible.
+        </p>
+        
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <label htmlFor="name" className="block font-medium">Name</label>
+              <motion.input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                disabled={isSubmitting}
+                className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple disabled:opacity-50"
+                placeholder="Your name"
+                whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <label htmlFor="email" className="block font-medium">Email</label>
+              <motion.input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                disabled={isSubmitting}
+                className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple disabled:opacity-50"
+                placeholder="Your email"
+                whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
+              />
+            </div>
+          </div>
+          
+          <div className="space-y-2">
+            <label htmlFor="subject" className="block font-medium">Subject</label>
+            <motion.input
+              type="text"
+              id="subject"
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              required
+              disabled={isSubmitting}
+              className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple disabled:opacity-50"
+              placeholder="Subject of your message"
+              whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
+            />
+          </div>
+          
+          <div className="space-y-2">
+            <label htmlFor="message" className="block font-medium">Message</label>
+            <motion.textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              disabled={isSubmitting}
+              rows={5}
+              className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple resize-none disabled:opacity-50"
+              placeholder="Write your message here..."
+              whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
+            ></motion.textarea>
+          </div>
+          
+          <div>
+            <motion.button
+              type="submit"
+              disabled={isSubmitting || isSubmitted}
+              whileHover={{ 
+                scale: isSubmitting || isSubmitted ? 1 : 1.05, 
+                backgroundColor: isSubmitted ? "#16a34a" : isSubmitting ? "#9b87f5" : "#8B5CF6" 
+              }}
+              whileTap={{ scale: isSubmitting || isSubmitted ? 1 : 0.95 }}
+              className={`flex items-center justify-center w-full md:w-auto px-8 py-3 rounded-lg font-medium transition-colors ${
+                isSubmitted 
+                  ? "bg-green-600 text-white cursor-not-allowed" 
+                  : isSubmitting
+                  ? "bg-brand-purple/70 text-white cursor-not-allowed"
+                  : "bg-brand-purple text-white hover:bg-opacity-90"
+              }`}
+            >
+              {isSubmitting ? (
+                <div className="flex items-center">
+                  <div className="animate-spin mr-2 h-5 w-5 border-2 border-white border-t-transparent rounded-full"></div>
+                  <span>Sending...</span>
+                </div>
+              ) : isSubmitted ? (
+                <div className="flex items-center">
+                  <CheckCircle className="mr-2 h-5 w-5" />
+                  <span>Message Sent!</span>
+                </div>
+              ) : (
+                <div className="flex items-center">
+                  <Send className="mr-2 h-5 w-5" />
+                  <span>Send Message</span>
+                </div>
+              )}
+            </motion.button>
+          </div>
+        </form>
+      </div>
+    </motion.div>
+  );
+};
+
+export default ContactForm;
