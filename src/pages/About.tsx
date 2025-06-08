@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
@@ -55,7 +54,14 @@ const About = () => {
               whileHover={{ boxShadow: "0 20px 25px -5px rgba(155, 135, 245, 0.15)" }}
             >
               <div className="glass-panel h-full p-8 rounded-lg">
-                <div className="bg-gradient-to-br from-brand-purple/20 to-blue-500/20 w-full h-80 rounded-lg mb-8"></div>
+                <div className="relative w-full h-80 rounded-lg mb-8 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/20 to-blue-500/20"></div>
+                  <img 
+                    src="/lovable-uploads/5cb28c92-1a06-4cfe-a730-1e229e2c89e0.png" 
+                    alt="Profile" 
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
                 <div className="flex flex-wrap gap-4 justify-center">
                   {["Python", "JavaScript", "C++", "React.js", "Node.js", "Next.js"].map((skill) => (
                     <motion.span 
