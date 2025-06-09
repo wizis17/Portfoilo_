@@ -24,8 +24,12 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    console.log("=== FORM SUBMISSION STARTED ===");
+    console.log("Form data:", formData);
+    
     // Validate form data
     if (!formData.name.trim() || !formData.email.trim() || !formData.subject.trim() || !formData.message.trim()) {
+      console.log("Validation failed - missing fields");
       toast({
         title: "Validation Error",
         description: "Please fill in all fields.",
@@ -35,11 +39,12 @@ const ContactForm = () => {
     }
 
     setIsSubmitting(true);
+    console.log("Setting isSubmitting to true");
     
     try {
-      console.log("Submitting form data:", formData);
+      // Test Firebase connection first
+      console.log("Testing Firebase connection...");
       
-      // Save message using Firebase service
       const messageData: ContactMessageInsert = {
         name: formData.name.trim(),
         email: formData.email.trim(),
@@ -48,15 +53,16 @@ const ContactForm = () => {
         user_id: null
       };
       
+      console.log("Calling contactService.insertMessage with:", messageData);
       const result = await contactService.insertMessage(messageData);
-      console.log("Form submission result:", result);
+      console.log("Service response:", result);
       
       if (result.error) {
-        console.error("Error submitting message:", result.error);
+        console.error("Service returned error:", result.error);
         throw new Error(result.error.message || "Failed to send message");
       }
       
-      // Success handling
+      console.log("Message sent successfully!");
       setIsSubmitted(true);
       
       toast({
@@ -79,14 +85,20 @@ const ContactForm = () => {
       }, 3000);
       
     } catch (error: any) {
-      console.error("Form submission error:", error);
+      console.error("=== ERROR OCCURRED ===");
+      console.error("Error details:", error);
+      console.error("Error message:", error.message);
+      console.error("Error stack:", error.stack);
+      
       toast({
         title: "Failed to send message",
         description: error.message || "An unexpected error occurred. Please try again.",
         variant: "destructive",
       });
     } finally {
+      console.log("Setting isSubmitting to false");
       setIsSubmitting(false);
+      console.log("=== FORM SUBMISSION ENDED ===");
     }
   };
 
