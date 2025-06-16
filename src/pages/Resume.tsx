@@ -13,7 +13,13 @@ import {
   CheckCircle2,
   Brain,
   Cpu,
-  Database
+  Database,
+  Globe,
+  GitBranch,
+  Palette,
+  Wrench,
+  Target,
+  Bot
 } from "lucide-react";
 
 const Resume = () => {
@@ -22,81 +28,6 @@ const Resume = () => {
   }, []);
 
   const [activeTab, setActiveTab] = useState("skills");
-
-  const skillCategories = [
-    {
-      title: "Programming Languages",
-      id: "programming",
-      skills: [
-        { name: "JavaScript", icon: Code, color: "text-yellow-400", bgColor: "bg-yellow-500/20", level: 88, image: true },
-        { name: "Python", icon: Code, color: "text-blue-400", bgColor: "bg-blue-500/20", level: 90, image: true },
-        { name: "HTML", icon: Code, color: "text-orange-400", bgColor: "bg-orange-500/20", level: 85, image: true },
-        { name: "CSS", icon: Palette, color: "text-blue-300", bgColor: "bg-blue-400/20", level: 85, image: true },
-        { name: "Java", icon: Code, color: "text-red-400", bgColor: "bg-red-500/20", level: 80 },
-        { name: "C#", icon: Code, color: "text-purple-400", bgColor: "bg-purple-500/20", level: 75 },
-        { name: "C++", icon: Code, color: "text-blue-500", bgColor: "bg-blue-600/20", level: 70 },
-        { name: "SQL", icon: Database, color: "text-green-400", bgColor: "bg-green-500/20", level: 70 },
-      ]
-    },
-    {
-      title: "Frameworks & Libraries",
-      id: "frameworks",
-      skills: [
-        { name: "React.js", icon: Globe, color: "text-cyan-400", bgColor: "bg-cyan-500/20", level: 85, image: true },
-        { name: "Node.js", icon: Cpu, color: "text-green-500", bgColor: "bg-green-600/20", level: 80, image: true },
-        { name: "Next.js", icon: Globe, color: "text-gray-300", bgColor: "bg-gray-500/20", level: 75 },
-        { name: "Express.js", icon: Cpu, color: "text-gray-400", bgColor: "bg-gray-600/20", level: 70 },
-        { name: "TailwindCSS", icon: Palette, color: "text-teal-400", bgColor: "bg-teal-500/20", level: 85, image: true },
-        { name: "Bootstrap", icon: Palette, color: "text-purple-500", bgColor: "bg-purple-600/20", level: 75, image: true },
-      ]
-    },
-    {
-      title: "Tools & Technologies",
-      id: "tools",
-      skills: [
-        { name: "Git/GitHub", icon: GitBranch, color: "text-orange-500", bgColor: "bg-orange-600/20", level: 85, image: true },
-        { name: "VS Code", icon: Code, color: "text-blue-600", bgColor: "bg-blue-700/20", level: 90 },
-        { name: "MongoDB", icon: Database, color: "text-green-600", bgColor: "bg-green-700/20", level: 70, image: true },
-        { name: "Postman", icon: Wrench, color: "text-orange-400", bgColor: "bg-orange-500/20", level: 80 },
-        { name: "Figma", icon: Palette, color: "text-pink-400", bgColor: "bg-pink-500/20", level: 65, image: true },
-        { name: "MySQL", icon: Database, color: "text-blue-500", bgColor: "bg-blue-600/20", level: 75, image: true },
-      ]
-    },
-    {
-      title: "AI & Machine Learning",
-      id: "ai",
-      skills: [
-        { name: "TensorFlow", icon: Brain, color: "text-orange-500", bgColor: "bg-orange-600/20", level: 75, image: true },
-        { name: "OpenCV", icon: Bot, color: "text-green-500", bgColor: "bg-green-600/20", level: 70, image: true },
-        { name: "Pandas", icon: Database, color: "text-blue-400", bgColor: "bg-blue-500/20", level: 80 },
-        { name: "NumPy", icon: Target, color: "text-cyan-500", bgColor: "bg-cyan-600/20", level: 75 },
-        { name: "Matplotlib", icon: Target, color: "text-purple-500", bgColor: "bg-purple-600/20", level: 70 },
-        { name: "Neural Networks", icon: Brain, color: "text-pink-500", bgColor: "bg-pink-600/20", level: 75 },
-        { name: "Deep Learning", icon: Brain, color: "text-indigo-500", bgColor: "bg-indigo-600/20", level: 75 },
-        { name: "Computer Vision", icon: Bot, color: "text-teal-500", bgColor: "bg-teal-600/20", level: 70 },
-      ]
-    }
-  ];
-
-  const toggleSkillCategory = (category: string) => {
-    setActiveSkillCategories(prev => 
-      prev.includes(category)
-        ? prev.filter(c => c !== category)
-        : [...prev, category]
-    );
-  };
-
-  const toggleExpandAll = () => {
-    if (allExpanded) {
-      // Collapse all - show only programming by default
-      setActiveSkillCategories(["programming"]);
-      setAllExpanded(false);
-    } else {
-      // Expand all
-      setActiveSkillCategories(skillCategories.map(cat => cat.id));
-      setAllExpanded(true);
-    }
-  };
 
   const education = [
     {
