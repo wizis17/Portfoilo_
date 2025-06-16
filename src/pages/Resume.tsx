@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { AnimatedText } from "@/components/AnimatedText";
 import PrintableResume from "@/components/PrintableResume";
 import SkillCategory from "@/components/SkillCategory";
+import ParticleBackground from "@/components/ParticleBackground";
 import { 
   Download, 
   Briefcase, 
@@ -31,24 +32,17 @@ const Resume = () => {
 
   const [activeTab, setActiveTab] = useState("skills");
   const [activeSkillCategories, setActiveSkillCategories] = useState<string[]>(["programming"]);
-
-  const toggleSkillCategory = (category: string) => {
-    setActiveSkillCategories(prev => 
-      prev.includes(category)
-        ? prev.filter(c => c !== category)
-        : [...prev, category]
-    );
-  };
+  const [allExpanded, setAllExpanded] = useState(false);
 
   const skillCategories = [
     {
       title: "Programming Languages",
       id: "programming",
       skills: [
-        { name: "JavaScript", icon: Code, color: "text-yellow-400", bgColor: "bg-yellow-500/20", level: 88 },
-        { name: "Python", icon: Code, color: "text-blue-400", bgColor: "bg-blue-500/20", level: 90 },
-        { name: "HTML", icon: Code, color: "text-orange-400", bgColor: "bg-orange-500/20", level: 85 },
-        { name: "CSS", icon: Palette, color: "text-blue-300", bgColor: "bg-blue-400/20", level: 85 },
+        { name: "JavaScript", icon: Code, color: "text-yellow-400", bgColor: "bg-yellow-500/20", level: 88, image: true },
+        { name: "Python", icon: Code, color: "text-blue-400", bgColor: "bg-blue-500/20", level: 90, image: true },
+        { name: "HTML", icon: Code, color: "text-orange-400", bgColor: "bg-orange-500/20", level: 85, image: true },
+        { name: "CSS", icon: Palette, color: "text-blue-300", bgColor: "bg-blue-400/20", level: 85, image: true },
         { name: "Java", icon: Code, color: "text-red-400", bgColor: "bg-red-500/20", level: 80 },
         { name: "C#", icon: Code, color: "text-purple-400", bgColor: "bg-purple-500/20", level: 75 },
         { name: "C++", icon: Code, color: "text-blue-500", bgColor: "bg-blue-600/20", level: 70 },
@@ -59,32 +53,32 @@ const Resume = () => {
       title: "Frameworks & Libraries",
       id: "frameworks",
       skills: [
-        { name: "React.js", icon: Globe, color: "text-cyan-400", bgColor: "bg-cyan-500/20", level: 85 },
-        { name: "Node.js", icon: Cpu, color: "text-green-500", bgColor: "bg-green-600/20", level: 80 },
+        { name: "React.js", icon: Globe, color: "text-cyan-400", bgColor: "bg-cyan-500/20", level: 85, image: true },
+        { name: "Node.js", icon: Cpu, color: "text-green-500", bgColor: "bg-green-600/20", level: 80, image: true },
         { name: "Next.js", icon: Globe, color: "text-gray-300", bgColor: "bg-gray-500/20", level: 75 },
         { name: "Express.js", icon: Cpu, color: "text-gray-400", bgColor: "bg-gray-600/20", level: 70 },
-        { name: "TailwindCSS", icon: Palette, color: "text-teal-400", bgColor: "bg-teal-500/20", level: 85 },
-        { name: "Bootstrap", icon: Palette, color: "text-purple-500", bgColor: "bg-purple-600/20", level: 75 },
+        { name: "TailwindCSS", icon: Palette, color: "text-teal-400", bgColor: "bg-teal-500/20", level: 85, image: true },
+        { name: "Bootstrap", icon: Palette, color: "text-purple-500", bgColor: "bg-purple-600/20", level: 75, image: true },
       ]
     },
     {
       title: "Tools & Technologies",
       id: "tools",
       skills: [
-        { name: "Git/GitHub", icon: GitBranch, color: "text-orange-500", bgColor: "bg-orange-600/20", level: 85 },
+        { name: "Git/GitHub", icon: GitBranch, color: "text-orange-500", bgColor: "bg-orange-600/20", level: 85, image: true },
         { name: "VS Code", icon: Code, color: "text-blue-600", bgColor: "bg-blue-700/20", level: 90 },
-        { name: "MongoDB", icon: Database, color: "text-green-600", bgColor: "bg-green-700/20", level: 70 },
+        { name: "MongoDB", icon: Database, color: "text-green-600", bgColor: "bg-green-700/20", level: 70, image: true },
         { name: "Postman", icon: Wrench, color: "text-orange-400", bgColor: "bg-orange-500/20", level: 80 },
-        { name: "Figma", icon: Palette, color: "text-pink-400", bgColor: "bg-pink-500/20", level: 65 },
-        { name: "MySQL", icon: Database, color: "text-blue-500", bgColor: "bg-blue-600/20", level: 75 },
+        { name: "Figma", icon: Palette, color: "text-pink-400", bgColor: "bg-pink-500/20", level: 65, image: true },
+        { name: "MySQL", icon: Database, color: "text-blue-500", bgColor: "bg-blue-600/20", level: 75, image: true },
       ]
     },
     {
       title: "AI & Machine Learning",
       id: "ai",
       skills: [
-        { name: "TensorFlow", icon: Brain, color: "text-orange-500", bgColor: "bg-orange-600/20", level: 75 },
-        { name: "OpenCV", icon: Bot, color: "text-green-500", bgColor: "bg-green-600/20", level: 70 },
+        { name: "TensorFlow", icon: Brain, color: "text-orange-500", bgColor: "bg-orange-600/20", level: 75, image: true },
+        { name: "OpenCV", icon: Bot, color: "text-green-500", bgColor: "bg-green-600/20", level: 70, image: true },
         { name: "Pandas", icon: Database, color: "text-blue-400", bgColor: "bg-blue-500/20", level: 80 },
         { name: "NumPy", icon: Target, color: "text-cyan-500", bgColor: "bg-cyan-600/20", level: 75 },
         { name: "Matplotlib", icon: Target, color: "text-purple-500", bgColor: "bg-purple-600/20", level: 70 },
@@ -94,6 +88,26 @@ const Resume = () => {
       ]
     }
   ];
+
+  const toggleSkillCategory = (category: string) => {
+    setActiveSkillCategories(prev => 
+      prev.includes(category)
+        ? prev.filter(c => c !== category)
+        : [...prev, category]
+    );
+  };
+
+  const toggleExpandAll = () => {
+    if (allExpanded) {
+      // Collapse all - show only programming by default
+      setActiveSkillCategories(["programming"]);
+      setAllExpanded(false);
+    } else {
+      // Expand all
+      setActiveSkillCategories(skillCategories.map(cat => cat.id));
+      setAllExpanded(true);
+    }
+  };
 
   const education = [
     {
@@ -321,12 +335,12 @@ const Resume = () => {
               Technical Skills
             </h3>
             <motion.button
-              onClick={() => setActiveSkillCategories(skillCategories.map(cat => cat.id))}
-              className="text-sm text-brand-purple hover:text-brand-purple/80 transition-colors"
+              onClick={toggleExpandAll}
+              className="text-sm text-brand-purple hover:text-brand-purple/80 transition-colors px-4 py-2 rounded-lg bg-brand-purple/10 hover:bg-brand-purple/20"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Expand All
+              {allExpanded ? "Collapse All" : "Expand All"}
             </motion.button>
           </div>
           
@@ -600,69 +614,72 @@ const Resume = () => {
 
   return (
     <Layout>
-      <section className="pt-32 pb-16">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-16"
-          >
-            <span className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-brand-purple/10 text-brand-purple mb-4">
-              Resume
-            </span>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              <AnimatedText text="Professional Experience" once />
-            </h1>
-            <div className="max-w-3xl mx-auto">
-              <p className="text-lg text-muted-foreground">
-                I'm an aspiring developer specializing in web development, AI, and machine learning.
-                My goal is to leverage these technologies to create innovative solutions for real-world problems.
-              </p>
+      <div className="relative min-h-screen">
+        <ParticleBackground />
+        <section className="pt-32 pb-16 relative z-10">
+          <div className="container mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-center mb-16"
+            >
+              <span className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-brand-purple/10 text-brand-purple mb-4">
+                Resume
+              </span>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                <AnimatedText text="Professional Experience" once />
+              </h1>
+              <div className="max-w-3xl mx-auto">
+                <p className="text-lg text-muted-foreground">
+                  I'm an aspiring developer specializing in web development, AI, and machine learning.
+                  My goal is to leverage these technologies to create innovative solutions for real-world problems.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="flex justify-center mb-12"
+            >
+              <PrintableResume />
+            </motion.div>
+
+            <div className="mb-8">
+              <div className="flex flex-wrap justify-center gap-4">
+                {[
+                  { id: "skills", icon: <Code className="h-5 w-5" />, label: "Skills" },
+                  { id: "education", icon: <GraduationCap className="h-5 w-5" />, label: "Education" },
+                  { id: "experience", icon: <Briefcase className="h-5 w-5" />, label: "Experience" },
+                  { id: "projects", icon: <Code className="h-5 w-5" />, label: "Projects" },
+                  { id: "certifications", icon: <Award className="h-5 w-5" />, label: "Certifications" },
+                ].map((tab) => (
+                  <motion.button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`flex items-center px-4 py-2 rounded-lg font-medium transition-colors ${
+                      activeTab === tab.id
+                        ? "bg-brand-purple text-white"
+                        : "bg-secondary text-muted-foreground hover:bg-secondary/80"
+                    }`}
+                  >
+                    {tab.icon}
+                    <span className="ml-2">{tab.label}</span>
+                  </motion.button>
+                ))}
+              </div>
             </div>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex justify-center mb-12"
-          >
-            <PrintableResume />
-          </motion.div>
-
-          <div className="mb-8">
-            <div className="flex flex-wrap justify-center gap-4">
-              {[
-                { id: "skills", icon: <Code className="h-5 w-5" />, label: "Skills" },
-                { id: "education", icon: <GraduationCap className="h-5 w-5" />, label: "Education" },
-                { id: "experience", icon: <Briefcase className="h-5 w-5" />, label: "Experience" },
-                { id: "projects", icon: <Code className="h-5 w-5" />, label: "Projects" },
-                { id: "certifications", icon: <Award className="h-5 w-5" />, label: "Certifications" },
-              ].map((tab) => (
-                <motion.button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`flex items-center px-4 py-2 rounded-lg font-medium transition-colors ${
-                    activeTab === tab.id
-                      ? "bg-brand-purple text-white"
-                      : "bg-secondary text-muted-foreground hover:bg-secondary/80"
-                  }`}
-                >
-                  {tab.icon}
-                  <span className="ml-2">{tab.label}</span>
-                </motion.button>
-              ))}
+            <div className="min-h-[400px]">
+              {tabContent[activeTab as keyof typeof tabContent]}
             </div>
           </div>
-
-          <div className="min-h-[400px]">
-            {tabContent[activeTab as keyof typeof tabContent]}
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </Layout>
   );
 };
