@@ -8,9 +8,10 @@ import ParticleBackground from "./ParticleBackground";
 import FloatingElements from "./FloatingElements";
 
 const phrases = [
-  "Frontend Developer",
+  "Full Stack Developer",
   "AI & ML Enthusiast",
-  "Web Developer"
+  "Web Developer",
+  "Data Analyst"
 ];
 
 const HeroSection = () => {

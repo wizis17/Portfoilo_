@@ -62,21 +62,6 @@ const About = () => {
                     className="w-full h-full object-cover rounded-lg"
                   />
                 </div>
-                <div className="flex flex-wrap gap-4 justify-center">
-                  {["Python", "JavaScript", "C++", "React.js", "Node.js", "Next.js"].map((skill) => (
-                    <motion.span 
-                      key={skill}
-                      whileHover={{ 
-                        scale: 1.1, 
-                        backgroundColor: "rgba(155, 135, 245, 0.3)",
-                        color: "#ffffff" 
-                      }}
-                      className="inline-block py-1 px-4 rounded-full bg-brand-purple/10 text-brand-purple text-sm"
-                    >
-                      {skill}
-                    </motion.span>
-                  ))}
-                </div>
               </div>
             </motion.div>
 
