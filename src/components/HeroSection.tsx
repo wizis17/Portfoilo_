@@ -1,10 +1,11 @@
-
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { ArrowRight, Code, Database, FileCode, Server, Terminal, GitBranch, Globe, Tv } from "lucide-react";
 import AnimatedText from "./AnimatedText";
 import { Link } from "react-router-dom";
 import SkillCard from "./SkillCard";
+import ParticleBackground from "./ParticleBackground";
+import FloatingElements from "./FloatingElements";
 
 const phrases = [
   "Frontend Developer",
@@ -24,11 +25,52 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Background animated elements - updated color scheme */}
+      {/* Particle Background */}
+      <ParticleBackground />
+      
+      {/* Floating Elements */}
+      <FloatingElements />
+
+      {/* Enhanced Background animated elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-20 -right-20 w-72 h-72 bg-teal-500/20 rounded-full filter blur-3xl opacity-30 animate-blob"></div>
-        <div className="absolute top-1/3 -left-20 w-72 h-72 bg-amber-500/20 rounded-full filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 w-72 h-72 bg-rose-500/20 rounded-full filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+        <motion.div 
+          className="absolute -top-20 -right-20 w-72 h-72 bg-teal-500/20 rounded-full filter blur-3xl opacity-30"
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+        <motion.div 
+          className="absolute top-1/3 -left-20 w-72 h-72 bg-amber-500/20 rounded-full filter blur-3xl opacity-30"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            rotate: [360, 180, 0],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "linear",
+            delay: 2
+          }}
+        />
+        <motion.div 
+          className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 w-72 h-72 bg-rose-500/20 rounded-full filter blur-3xl opacity-30"
+          animate={{
+            scale: [1, 1.3, 1],
+            rotate: [0, -180, -360],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear",
+            delay: 4
+          }}
+        />
       </div>
       
       <div className="container mx-auto px-4 z-10">
@@ -40,9 +82,21 @@ const HeroSection = () => {
               transition={{ duration: 0.5 }}
               className="mb-4"
             >
-              <span className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-teal-500/10 text-teal-400 mb-4">
+              <motion.span 
+                className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-teal-500/10 text-teal-400 mb-4"
+                animate={{
+                  boxShadow: [
+                    "0 0 0 0 rgba(20, 184, 166, 0.7)",
+                    "0 0 0 10px rgba(20, 184, 166, 0)",
+                  ],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                }}
+              >
                 Welcome to my portfolio
-              </span>
+              </motion.span>
             </motion.div>
             
             <motion.h1 
@@ -52,7 +106,22 @@ const HeroSection = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <span className="block">Hi, I'm </span>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-amber-400">Uday G</span>
+              <motion.span 
+                className="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-amber-400"
+                animate={{
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+                style={{
+                  backgroundSize: "200% 200%"
+                }}
+              >
+                Uday G
+              </motion.span>
             </motion.h1>
             
             <motion.div 
@@ -84,7 +153,11 @@ const HeroSection = () => {
               transition={{ duration: 0.5, delay: 0.5 }}
             >
               <motion.div
-                whileHover={{ scale: 1.05, backgroundColor: "#7E69AB" }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  backgroundColor: "#7E69AB",
+                  boxShadow: "0 0 20px rgba(20, 184, 166, 0.5)"
+                }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Link to="/contact" className="inline-flex items-center bg-teal-500 text-white px-6 py-3 rounded-lg font-medium transition-all">
@@ -94,7 +167,11 @@ const HeroSection = () => {
               </motion.div>
               
               <motion.div
-                whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  boxShadow: "0 0 20px rgba(155, 135, 245, 0.3)"
+                }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Link to="/projects" className="inline-flex items-center bg-secondary text-foreground px-6 py-3 rounded-lg font-medium transition-all">
@@ -110,7 +187,21 @@ const HeroSection = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <div className="relative w-full h-[500px] rounded-lg overflow-hidden glass-panel p-6">
+            <motion.div 
+              className="relative w-full h-[500px] rounded-lg overflow-hidden glass-panel p-6"
+              animate={{
+                boxShadow: [
+                  "0 0 20px rgba(20, 184, 166, 0.2)",
+                  "0 0 40px rgba(245, 158, 11, 0.2)",
+                  "0 0 20px rgba(20, 184, 166, 0.2)",
+                ],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
               <div className="absolute inset-0 bg-gradient-to-br from-teal-500/20 to-transparent"></div>
               <div className="relative h-full w-full grid grid-cols-6 grid-rows-6 gap-4">
                 
@@ -178,11 +269,12 @@ const HeroSection = () => {
                   className="col-span-3 row-span-2"
                 />
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
       
+      {/* Enhanced scroll indicator */}
       <motion.div 
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0, y: 20 }}
@@ -195,11 +287,22 @@ const HeroSection = () => {
           repeatDelay: 0.5
         }}
       >
-        <div className="w-6 h-10 border-2 border-muted-foreground rounded-full flex justify-center">
+        <motion.div 
+          className="w-6 h-10 border-2 border-muted-foreground rounded-full flex justify-center"
+          animate={{
+            borderColor: ["#94a3b8", "#14b8a6", "#94a3b8"],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
           <motion.div 
             className="w-1.5 h-1.5 bg-muted-foreground rounded-full mt-2"
             animate={{ 
               y: [0, 12, 0],
+              backgroundColor: ["#94a3b8", "#14b8a6", "#94a3b8"],
             }}
             transition={{ 
               duration: 1.5, 
@@ -207,7 +310,7 @@ const HeroSection = () => {
               repeatType: "loop"
             }}
           />
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   );

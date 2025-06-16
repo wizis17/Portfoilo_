@@ -1,10 +1,10 @@
-
 import { ReactNode, useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import { Github, Linkedin, Twitter, Mail } from "lucide-react";
 import ScrollToTop from "./ScrollToTop";
+import ParticleBackground from "./ParticleBackground";
 
 interface LayoutProps {
   children: ReactNode;
@@ -22,9 +22,14 @@ export const Layout = ({ children }: LayoutProps) => {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-brand-dark">
+    <div className="flex flex-col min-h-screen bg-brand-dark relative">
+      {/* Global Particle Background */}
+      <div className="fixed inset-0 z-0">
+        <ParticleBackground />
+      </div>
+      
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex-grow relative z-10">
         {loading ? (
           <div className="flex items-center justify-center h-screen">
             <div className="relative w-24 h-24">
@@ -32,6 +37,11 @@ export const Layout = ({ children }: LayoutProps) => {
                 className="absolute top-0 left-0 w-full h-full rounded-full border-4 border-t-brand-purple border-r-transparent border-b-transparent border-l-transparent"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+              />
+              <motion.div
+                className="absolute top-2 left-2 w-20 h-20 rounded-full border-4 border-l-teal-500 border-r-transparent border-t-transparent border-b-transparent"
+                animate={{ rotate: -360 }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
               />
             </div>
           </div>
@@ -50,7 +60,8 @@ export const Layout = ({ children }: LayoutProps) => {
           </AnimatePresence>
         )}
       </main>
-      <footer className="w-full py-8 border-t border-muted">
+      
+      <footer className="w-full py-8 border-t border-muted relative z-10">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
