@@ -128,7 +128,7 @@ const ContactForm = () => {
                 required
                 disabled={isSubmitting}
                 className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple disabled:opacity-50"
-                placeholder="Your name"
+                placeholder="John Doe"
                 whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
               />
             </div>
@@ -144,7 +144,7 @@ const ContactForm = () => {
                 required
                 disabled={isSubmitting}
                 className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple disabled:opacity-50"
-                placeholder="Your email"
+                placeholder="you@example.com"
                 whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
               />
             </div>
@@ -161,7 +161,7 @@ const ContactForm = () => {
               required
               disabled={isSubmitting}
               className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple disabled:opacity-50"
-              placeholder="Subject of your message"
+              placeholder="Project Inquiry / Job opportunity / General Question"
               whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
             />
           </div>
@@ -177,7 +177,7 @@ const ContactForm = () => {
               disabled={isSubmitting}
               rows={5}
               className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple resize-none disabled:opacity-50"
-              placeholder="Write your message here..."
+              placeholder="Tell me about your project, idea, or question..."
               whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
             ></motion.textarea>
           </div>
