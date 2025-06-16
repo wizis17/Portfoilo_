@@ -24,19 +24,19 @@ const SkillCategory = ({ title, skills, isActive, onToggle }: SkillCategoryProps
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="mb-8"
+      className="mb-6"
     >
       <motion.button
         onClick={onToggle}
-        className={`w-full text-left mb-4 p-3 rounded-lg transition-all duration-300 ${
+        className={`w-full text-left mb-4 p-4 rounded-xl transition-all duration-300 backdrop-blur-sm border ${
           isActive 
-            ? 'bg-brand-purple/20 border border-brand-purple/30' 
-            : 'bg-secondary/50 hover:bg-secondary/70'
+            ? 'bg-brand-purple/20 border-brand-purple/40 shadow-lg shadow-brand-purple/20' 
+            : 'bg-gray-800/30 border-white/10 hover:bg-gray-800/50 hover:border-brand-purple/30'
         }`}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
       >
-        <h3 className="text-lg font-semibold flex items-center justify-between">
+        <h3 className="text-lg font-semibold flex items-center justify-between text-white">
           {title}
           <motion.span
             animate={{ rotate: isActive ? 180 : 0 }}
@@ -58,7 +58,7 @@ const SkillCategory = ({ title, skills, isActive, onToggle }: SkillCategoryProps
         className="overflow-hidden"
       >
         <motion.div
-          className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-6 p-4 bg-secondary/20 rounded-lg"
+          className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-4 p-6 bg-gray-900/20 rounded-xl backdrop-blur-sm border border-white/5"
           variants={{
             hidden: { opacity: 0 },
             visible: {

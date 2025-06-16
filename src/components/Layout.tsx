@@ -23,7 +23,7 @@ export const Layout = ({ children }: LayoutProps) => {
 
   return (
     <div className="flex flex-col min-h-screen bg-brand-dark relative">
-      {/* Global Particle Background */}
+      {/* Global Particle Background - Always present */}
       <div className="fixed inset-0 z-0">
         <ParticleBackground />
       </div>
@@ -31,7 +31,7 @@ export const Layout = ({ children }: LayoutProps) => {
       <Navbar />
       <main className="flex-grow relative z-10">
         {loading ? (
-          <div className="flex items-center justify-center h-screen">
+          <div className="flex items-center justify-center h-screen relative z-20">
             <div className="relative w-24 h-24">
               <motion.div
                 className="absolute top-0 left-0 w-full h-full rounded-full border-4 border-t-brand-purple border-r-transparent border-b-transparent border-l-transparent"
@@ -53,7 +53,7 @@ export const Layout = ({ children }: LayoutProps) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="min-h-screen"
+              className="min-h-screen relative z-10"
             >
               {children}
             </motion.div>
@@ -61,7 +61,7 @@ export const Layout = ({ children }: LayoutProps) => {
         )}
       </main>
       
-      <footer className="w-full py-8 border-t border-muted relative z-10">
+      <footer className="w-full py-8 border-t border-muted relative z-10 backdrop-blur-md bg-black/20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">

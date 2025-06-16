@@ -3,26 +3,17 @@ import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 import { AnimatedText } from "@/components/AnimatedText";
 import PrintableResume from "@/components/PrintableResume";
-import SkillCategory from "@/components/SkillCategory";
+import SkillsSection from "@/components/SkillsSection";
 import ParticleBackground from "@/components/ParticleBackground";
 import { 
-  Download, 
   Briefcase, 
   GraduationCap, 
   Code, 
   Award,
-  ArrowUpRight,
   CheckCircle2,
-  Bot,
   Brain,
   Cpu,
-  Database,
-  Globe,
-  GitBranch,
-  Palette,
-  Wrench,
-  BookOpen,
-  Target
+  Database
 } from "lucide-react";
 
 const Resume = () => {
@@ -31,8 +22,6 @@ const Resume = () => {
   }, []);
 
   const [activeTab, setActiveTab] = useState("skills");
-  const [activeSkillCategories, setActiveSkillCategories] = useState<string[]>(["programming"]);
-  const [allExpanded, setAllExpanded] = useState(false);
 
   const skillCategories = [
     {
@@ -310,58 +299,28 @@ const Resume = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="glass-panel p-6 rounded-lg flex items-start"
+              className="glass-panel p-6 rounded-lg flex items-start backdrop-blur-md border border-white/10"
             >
               <div className="mr-4 bg-brand-purple/10 p-3 rounded-full">
                 {highlight.icon}
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-1">{highlight.title}</h3>
+                <h3 className="text-xl font-semibold mb-1 text-white">{highlight.title}</h3>
                 <p className="text-muted-foreground">{highlight.description}</p>
               </div>
             </motion.div>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.5 }}
-          className="glass-panel p-6 rounded-lg"
-        >
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-2xl font-semibold flex items-center">
-              <Code className="w-6 h-6 mr-3 text-brand-purple" />
-              Technical Skills
-            </h3>
-            <motion.button
-              onClick={toggleExpandAll}
-              className="text-sm text-brand-purple hover:text-brand-purple/80 transition-colors px-4 py-2 rounded-lg bg-brand-purple/10 hover:bg-brand-purple/20"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {allExpanded ? "Collapse All" : "Expand All"}
-            </motion.button>
-          </div>
-          
-          {skillCategories.map((category) => (
-            <SkillCategory
-              key={category.id}
-              title={category.title}
-              skills={category.skills}
-              isActive={activeSkillCategories.includes(category.id)}
-              onToggle={() => toggleSkillCategory(category.id)}
-            />
-          ))}
-        </motion.div>
+        <SkillsSection />
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.8 }}
-          className="glass-panel p-6 rounded-lg"
+          className="glass-panel p-6 rounded-lg backdrop-blur-md border border-white/10"
         >
-          <h3 className="text-xl font-semibold mb-6">Soft Skills</h3>
+          <h3 className="text-xl font-semibold mb-6 text-white">Soft Skills</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {softSkills.map((item, index) => (
               <div key={index} className="bg-secondary/50 p-4 rounded-lg">
@@ -615,7 +574,9 @@ const Resume = () => {
   return (
     <Layout>
       <div className="relative min-h-screen">
-        <ParticleBackground />
+        <div className="fixed inset-0 z-0">
+          <ParticleBackground />
+        </div>
         <section className="pt-32 pb-16 relative z-10">
           <div className="container mx-auto px-4">
             <motion.div
@@ -624,10 +585,10 @@ const Resume = () => {
               transition={{ duration: 0.5 }}
               className="text-center mb-16"
             >
-              <span className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-brand-purple/10 text-brand-purple mb-4">
+              <span className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-brand-purple/10 text-brand-purple mb-4 backdrop-blur-sm border border-brand-purple/20">
                 Resume
               </span>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
                 <AnimatedText text="Professional Experience" once />
               </h1>
               <div className="max-w-3xl mx-auto">
@@ -661,10 +622,10 @@ const Resume = () => {
                     onClick={() => setActiveTab(tab.id)}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`flex items-center px-4 py-2 rounded-lg font-medium transition-colors ${
+                    className={`flex items-center px-4 py-2 rounded-lg font-medium transition-colors backdrop-blur-sm border ${
                       activeTab === tab.id
-                        ? "bg-brand-purple text-white"
-                        : "bg-secondary text-muted-foreground hover:bg-secondary/80"
+                        ? "bg-brand-purple text-white border-brand-purple/50"
+                        : "bg-secondary/20 text-muted-foreground hover:bg-secondary/40 border-white/10"
                     }`}
                   >
                     {tab.icon}
