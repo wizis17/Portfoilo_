@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { AnimatedText } from "@/components/AnimatedText";
 import PrintableResume from "@/components/PrintableResume";
 import SkillsSection from "@/components/SkillsSection";
-import ParticleBackground from "@/components/ParticleBackground";
 import { 
   Briefcase, 
   GraduationCap, 
@@ -504,74 +503,69 @@ const Resume = () => {
 
   return (
     <Layout>
-      <div className="relative min-h-screen">
-        <div className="fixed inset-0 z-0">
-          <ParticleBackground />
-        </div>
-        <section className="pt-32 pb-16 relative z-10">
-          <div className="container mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-16"
-            >
-              <span className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-brand-purple/10 text-brand-purple mb-4 backdrop-blur-sm border border-brand-purple/20">
-                Resume
-              </span>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-                <AnimatedText text="Professional Experience" once />
-              </h1>
-              <div className="max-w-3xl mx-auto">
-                <p className="text-lg text-muted-foreground">
-                  I'm an aspiring developer specializing in web development, AI, and machine learning.
-                  My goal is to leverage these technologies to create innovative solutions for real-world problems.
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex justify-center mb-12"
-            >
-              <PrintableResume />
-            </motion.div>
-
-            <div className="mb-8">
-              <div className="flex flex-wrap justify-center gap-4">
-                {[
-                  { id: "skills", icon: <Code className="h-5 w-5" />, label: "Skills" },
-                  { id: "education", icon: <GraduationCap className="h-5 w-5" />, label: "Education" },
-                  { id: "experience", icon: <Briefcase className="h-5 w-5" />, label: "Experience" },
-                  { id: "projects", icon: <Code className="h-5 w-5" />, label: "Projects" },
-                  { id: "certifications", icon: <Award className="h-5 w-5" />, label: "Certifications" },
-                ].map((tab) => (
-                  <motion.button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`flex items-center px-4 py-2 rounded-lg font-medium transition-colors backdrop-blur-sm border ${
-                      activeTab === tab.id
-                        ? "bg-brand-purple text-white border-brand-purple/50"
-                        : "bg-secondary/20 text-muted-foreground hover:bg-secondary/40 border-white/10"
-                    }`}
-                  >
-                    {tab.icon}
-                    <span className="ml-2">{tab.label}</span>
-                  </motion.button>
-                ))}
-              </div>
+      <section className="pt-32 pb-16 relative z-10">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-16"
+          >
+            <span className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-brand-purple/10 text-brand-purple mb-4 backdrop-blur-sm border border-brand-purple/20">
+              Resume
+            </span>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              <AnimatedText text="Professional Experience" once />
+            </h1>
+            <div className="max-w-3xl mx-auto">
+              <p className="text-lg text-muted-foreground">
+                I'm an aspiring developer specializing in web development, AI, and machine learning.
+                My goal is to leverage these technologies to create innovative solutions for real-world problems.
+              </p>
             </div>
+          </motion.div>
 
-            <div className="min-h-[400px]">
-              {tabContent[activeTab as keyof typeof tabContent]}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="flex justify-center mb-12"
+          >
+            <PrintableResume />
+          </motion.div>
+
+          <div className="mb-8">
+            <div className="flex flex-wrap justify-center gap-4">
+              {[
+                { id: "skills", icon: <Code className="h-5 w-5" />, label: "Skills" },
+                { id: "education", icon: <GraduationCap className="h-5 w-5" />, label: "Education" },
+                { id: "experience", icon: <Briefcase className="h-5 w-5" />, label: "Experience" },
+                { id: "projects", icon: <Code className="h-5 w-5" />, label: "Projects" },
+                { id: "certifications", icon: <Award className="h-5 w-5" />, label: "Certifications" },
+              ].map((tab) => (
+                <motion.button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`flex items-center px-4 py-2 rounded-lg font-medium transition-colors backdrop-blur-sm border ${
+                    activeTab === tab.id
+                      ? "bg-brand-purple text-white border-brand-purple/50"
+                      : "bg-secondary/20 text-muted-foreground hover:bg-secondary/40 border-white/10"
+                  }`}
+                >
+                  {tab.icon}
+                  <span className="ml-2">{tab.label}</span>
+                </motion.button>
+              ))}
             </div>
           </div>
-        </section>
-      </div>
+
+          <div className="min-h-[400px]">
+            {tabContent[activeTab as keyof typeof tabContent]}
+          </div>
+        </div>
+      </section>
     </Layout>
   );
 };
