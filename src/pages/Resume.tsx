@@ -3,6 +3,7 @@ import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 import { AnimatedText } from "@/components/AnimatedText";
 import PrintableResume from "@/components/PrintableResume";
+import SkillCategory from "@/components/SkillCategory";
 import { 
   Download, 
   Briefcase, 
@@ -16,7 +17,11 @@ import {
   Cpu,
   Database,
   Globe,
-  GitBranch
+  GitBranch,
+  Palette,
+  Wrench,
+  BookOpen,
+  Target
 } from "lucide-react";
 
 const Resume = () => {
@@ -25,37 +30,70 @@ const Resume = () => {
   }, []);
 
   const [activeTab, setActiveTab] = useState("skills");
+  const [activeSkillCategories, setActiveSkillCategories] = useState<string[]>(["programming"]);
 
-  const skills = {
-    programming: [
-      { name: "Python", level: 90 },
-      { name: "JavaScript", level: 88 },
-      { name: "HTML/CSS", level: 85 },
-      { name: "Java", level: 80 },
-      { name: "C#", level: 75 },
-      { name: "C++", level: 70 },
-      { name: "SQL", level: 70 },
-    ],
-    frameworks: [
-      { name: "React.js", level: 85 },
-      { name: "Node.js", level: 80 },
-      { name: "Next.js", level: 75 },
-      { name: "Express.js", level: 70 },
-    ],
-    tools: [
-      { name: "Git/GitHub", level: 85 },
-      { name: "VS Code", level: 90 },
-      { name: "MongoDB", level: 70 },
-      { name: "Postman", level: 80 },
-      { name: "AI Tools", level: 80 },
-    ],
-    areas: [
-      { name: "Machine Learning", level: 80 },
-      { name: "Web Development", level: 85 },
-      { name: "API Development", level: 65 },
-      { name: "Neural Networks", level: 75 },
-    ]
+  const toggleSkillCategory = (category: string) => {
+    setActiveSkillCategories(prev => 
+      prev.includes(category)
+        ? prev.filter(c => c !== category)
+        : [...prev, category]
+    );
   };
+
+  const skillCategories = [
+    {
+      title: "Programming Languages",
+      id: "programming",
+      skills: [
+        { name: "JavaScript", icon: Code, color: "text-yellow-400", bgColor: "bg-yellow-500/20", level: 88 },
+        { name: "Python", icon: Code, color: "text-blue-400", bgColor: "bg-blue-500/20", level: 90 },
+        { name: "HTML", icon: Code, color: "text-orange-400", bgColor: "bg-orange-500/20", level: 85 },
+        { name: "CSS", icon: Palette, color: "text-blue-300", bgColor: "bg-blue-400/20", level: 85 },
+        { name: "Java", icon: Code, color: "text-red-400", bgColor: "bg-red-500/20", level: 80 },
+        { name: "C#", icon: Code, color: "text-purple-400", bgColor: "bg-purple-500/20", level: 75 },
+        { name: "C++", icon: Code, color: "text-blue-500", bgColor: "bg-blue-600/20", level: 70 },
+        { name: "SQL", icon: Database, color: "text-green-400", bgColor: "bg-green-500/20", level: 70 },
+      ]
+    },
+    {
+      title: "Frameworks & Libraries",
+      id: "frameworks",
+      skills: [
+        { name: "React.js", icon: Globe, color: "text-cyan-400", bgColor: "bg-cyan-500/20", level: 85 },
+        { name: "Node.js", icon: Cpu, color: "text-green-500", bgColor: "bg-green-600/20", level: 80 },
+        { name: "Next.js", icon: Globe, color: "text-gray-300", bgColor: "bg-gray-500/20", level: 75 },
+        { name: "Express.js", icon: Cpu, color: "text-gray-400", bgColor: "bg-gray-600/20", level: 70 },
+        { name: "TailwindCSS", icon: Palette, color: "text-teal-400", bgColor: "bg-teal-500/20", level: 85 },
+        { name: "Bootstrap", icon: Palette, color: "text-purple-500", bgColor: "bg-purple-600/20", level: 75 },
+      ]
+    },
+    {
+      title: "Tools & Technologies",
+      id: "tools",
+      skills: [
+        { name: "Git/GitHub", icon: GitBranch, color: "text-orange-500", bgColor: "bg-orange-600/20", level: 85 },
+        { name: "VS Code", icon: Code, color: "text-blue-600", bgColor: "bg-blue-700/20", level: 90 },
+        { name: "MongoDB", icon: Database, color: "text-green-600", bgColor: "bg-green-700/20", level: 70 },
+        { name: "Postman", icon: Wrench, color: "text-orange-400", bgColor: "bg-orange-500/20", level: 80 },
+        { name: "Figma", icon: Palette, color: "text-pink-400", bgColor: "bg-pink-500/20", level: 65 },
+        { name: "MySQL", icon: Database, color: "text-blue-500", bgColor: "bg-blue-600/20", level: 75 },
+      ]
+    },
+    {
+      title: "AI & Machine Learning",
+      id: "ai",
+      skills: [
+        { name: "TensorFlow", icon: Brain, color: "text-orange-500", bgColor: "bg-orange-600/20", level: 75 },
+        { name: "OpenCV", icon: Bot, color: "text-green-500", bgColor: "bg-green-600/20", level: 70 },
+        { name: "Pandas", icon: Database, color: "text-blue-400", bgColor: "bg-blue-500/20", level: 80 },
+        { name: "NumPy", icon: Target, color: "text-cyan-500", bgColor: "bg-cyan-600/20", level: 75 },
+        { name: "Matplotlib", icon: Target, color: "text-purple-500", bgColor: "bg-purple-600/20", level: 70 },
+        { name: "Neural Networks", icon: Brain, color: "text-pink-500", bgColor: "bg-pink-600/20", level: 75 },
+        { name: "Deep Learning", icon: Brain, color: "text-indigo-500", bgColor: "bg-indigo-600/20", level: 75 },
+        { name: "Computer Vision", icon: Bot, color: "text-teal-500", bgColor: "bg-teal-600/20", level: 70 },
+      ]
+    }
+  ];
 
   const education = [
     {
@@ -250,8 +288,8 @@ const Resume = () => {
 
   const tabContent = {
     skills: (
-      <div className="space-y-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="space-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {resumeHighlights.map((highlight, index) => (
             <motion.div
               key={highlight.title}
@@ -274,121 +312,33 @@ const Resume = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.4 }}
-          className="glass-panel p-6 rounded-lg"
-        >
-          <h3 className="text-xl font-semibold mb-6 flex items-center">
-            <Code className="w-5 h-5 mr-2 text-brand-purple" />
-            Programming Languages
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {skills.programming.map((skill) => (
-              <div key={skill.name}>
-                <div className="flex justify-between mb-1">
-                  <span className="font-medium">{skill.name}</span>
-                  <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                </div>
-                <div className="w-full h-2 bg-secondary rounded-full overflow-hidden">
-                  <motion.div
-                    className="h-full bg-brand-purple"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${skill.level}%` }}
-                    transition={{ duration: 1, delay: 0.1 }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.5 }}
           className="glass-panel p-6 rounded-lg"
         >
-          <h3 className="text-xl font-semibold mb-6 flex items-center">
-            <Globe className="w-5 h-5 mr-2 text-brand-purple" />
-            Frameworks & Libraries
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {skills.frameworks.map((skill) => (
-              <div key={skill.name}>
-                <div className="flex justify-between mb-1">
-                  <span className="font-medium">{skill.name}</span>
-                  <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                </div>
-                <div className="w-full h-2 bg-secondary rounded-full overflow-hidden">
-                  <motion.div
-                    className="h-full bg-brand-purple"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${skill.level}%` }}
-                    transition={{ duration: 1, delay: 0.1 }}
-                  />
-                </div>
-              </div>
-            ))}
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-2xl font-semibold flex items-center">
+              <Code className="w-6 h-6 mr-3 text-brand-purple" />
+              Technical Skills
+            </h3>
+            <motion.button
+              onClick={() => setActiveSkillCategories(skillCategories.map(cat => cat.id))}
+              className="text-sm text-brand-purple hover:text-brand-purple/80 transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Expand All
+            </motion.button>
           </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.6 }}
-          className="glass-panel p-6 rounded-lg"
-        >
-          <h3 className="text-xl font-semibold mb-6 flex items-center">
-            <GitBranch className="w-5 h-5 mr-2 text-brand-purple" />
-            Tools & Technologies
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {skills.tools.map((skill) => (
-              <div key={skill.name}>
-                <div className="flex justify-between mb-1">
-                  <span className="font-medium">{skill.name}</span>
-                  <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                </div>
-                <div className="w-full h-2 bg-secondary rounded-full overflow-hidden">
-                  <motion.div
-                    className="h-full bg-brand-purple"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${skill.level}%` }}
-                    transition={{ duration: 1, delay: 0.1 }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.7 }}
-          className="glass-panel p-6 rounded-lg"
-        >
-          <h3 className="text-xl font-semibold mb-6 flex items-center">
-            <Brain className="w-5 h-5 mr-2 text-brand-purple" />
-            Specialization Areas
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {skills.areas.map((skill) => (
-              <div key={skill.name}>
-                <div className="flex justify-between mb-1">
-                  <span className="font-medium">{skill.name}</span>
-                  <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                </div>
-                <div className="w-full h-2 bg-secondary rounded-full overflow-hidden">
-                  <motion.div
-                    className="h-full bg-brand-purple"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${skill.level}%` }}
-                    transition={{ duration: 1, delay: 0.1 }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+          
+          {skillCategories.map((category) => (
+            <SkillCategory
+              key={category.id}
+              title={category.title}
+              skills={category.skills}
+              isActive={activeSkillCategories.includes(category.id)}
+              onToggle={() => toggleSkillCategory(category.id)}
+            />
+          ))}
         </motion.div>
 
         <motion.div
