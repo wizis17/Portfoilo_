@@ -43,7 +43,7 @@ const Index = () => {
     { name: "JavaScript", proficiency: 85 },
     { name: "React.js", proficiency: 80 },
     { name: "Node.js", proficiency: 75 },
-    { name: "C++", proficiency: 70 },
+    { name: "Firebase", proficiency: 70 },
     { name: "Next.js", proficiency: 65 },
   ];
 

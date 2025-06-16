@@ -49,7 +49,7 @@ const ContactInfo = () => {
       transition={{ duration: 0.5, delay: 0.2 }}
       className="lg:col-span-2"
     >
-      <div className="glass-panel p-8 rounded-lg h-full">
+      <div className="glass-panel p-6 rounded-lg h-full">
         <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
         <p className="text-muted-foreground mb-8">
           I'd love to hear from you. Whether you have a question, proposal, or just want to say hi.

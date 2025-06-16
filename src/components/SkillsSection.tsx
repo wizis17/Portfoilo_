@@ -20,7 +20,6 @@ const SkillsSection = () => {
         { name: "Java", icon: Code, color: "text-red-400", bgColor: "bg-red-500/20", level: 80 },
         { name: "C#", icon: Code, color: "text-purple-400", bgColor: "bg-purple-500/20", level: 75 },
         { name: "C++", icon: Code, color: "text-blue-500", bgColor: "bg-blue-600/20", level: 70 },
-        { name: "SQL", icon: Database, color: "text-green-400", bgColor: "bg-green-500/20", level: 70 },
       ]
     },
     {
@@ -42,7 +41,6 @@ const SkillsSection = () => {
         { name: "Git/GitHub", icon: GitBranch, color: "text-orange-500", bgColor: "bg-orange-600/20", level: 85 },
         { name: "VS Code", icon: Code, color: "text-blue-600", bgColor: "bg-blue-700/20", level: 90 },
         { name: "MongoDB", icon: Database, color: "text-green-600", bgColor: "bg-green-700/20", level: 70 },
-        { name: "Postman", icon: Wrench, color: "text-orange-400", bgColor: "bg-orange-500/20", level: 80 },
         { name: "Figma", icon: Palette, color: "text-pink-400", bgColor: "bg-pink-500/20", level: 65 },
         { name: "MySQL", icon: Database, color: "text-blue-500", bgColor: "bg-blue-600/20", level: 75 },
       ]
@@ -52,9 +50,6 @@ const SkillsSection = () => {
       id: "ai",
       skills: [
         { name: "TensorFlow", icon: Brain, color: "text-orange-500", bgColor: "bg-orange-600/20", level: 75 },
-        { name: "OpenCV", icon: Bot, color: "text-green-500", bgColor: "bg-green-600/20", level: 70 },
-        { name: "Pandas", icon: Database, color: "text-blue-400", bgColor: "bg-blue-500/20", level: 80 },
-        { name: "NumPy", icon: Target, color: "text-cyan-500", bgColor: "bg-cyan-600/20", level: 75 },
         { name: "Matplotlib", icon: Target, color: "text-purple-500", bgColor: "bg-purple-600/20", level: 70 },
         { name: "Neural Networks", icon: Brain, color: "text-pink-500", bgColor: "bg-pink-600/20", level: 75 },
         { name: "Deep Learning", icon: Brain, color: "text-indigo-500", bgColor: "bg-indigo-600/20", level: 75 },

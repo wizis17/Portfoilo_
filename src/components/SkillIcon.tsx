@@ -14,111 +14,83 @@ const SkillIcon = ({ icon: Icon, name, color, bgColor, level }: SkillIconProps) 
   const getSkillIcon = () => {
     switch (name) {
       case "JavaScript":
+  return (
+    <div className="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center rounded-xl text-3xl">
+      <i className="devicon-javascript-plain colored"></i>
+    </div>
+  );
+       case "Python":
         return (
-          <div className="w-12 h-12 bg-yellow-400 rounded-xl flex items-center justify-center text-black font-bold text-lg">
-            JS
-          </div>
-        );
-      case "Python":
-        return (
-          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-yellow-400 rounded-xl flex items-center justify-center text-white font-bold text-lg">
-            Py
-          </div>
+          <i className="devicon-python-plain colored text-3xl"></i>
         );
       case "HTML":
         return (
-          <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-sm">
-            HTML
-          </div>
+          <i className="devicon-html5-plain colored text-3xl"></i>
         );
       case "CSS":
         return (
-          <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-white font-bold text-lg">
-            CSS
-          </div>
+          <i className="devicon-css3-plain colored text-3xl"></i>
         );
-      case "React.js":
+      case "Java":
         return (
-          <div className="w-12 h-12 bg-cyan-400 rounded-xl flex items-center justify-center text-white text-2xl">
-            ⚛️
-          </div>
+          <i className="devicon-java-plain colored text-3xl"></i>
         );
-      case "Node.js":
+      case "C#":
         return (
-          <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center text-white font-bold text-sm">
-            Node
-          </div>
+          <i className="devicon-csharp-plain colored text-3xl"></i>
         );
-      case "Next.js":
+      case "C++":
         return (
-          <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center text-white font-bold text-sm border border-white/20">
-            N
-          </div>
-        );
-      case "TailwindCSS":
-        return (
-          <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-xl flex items-center justify-center text-white font-bold text-lg">
-            T
-          </div>
-        );
-      case "Bootstrap":
-        return (
-          <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center text-white font-bold text-lg">
-            B
-          </div>
-        );
-      case "MongoDB":
-        return (
-          <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-white text-lg">
-            🍃
-          </div>
+          <i className="devicon-cplusplus-plain colored text-3xl"></i>
         );
       case "MySQL":
         return (
-          <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-sm">
-            SQL
-          </div>
+          <i className="devicon-mysql-plain colored text-3xl"></i>
+        );
+      case "React.js":
+        return (
+          <i className="devicon-react-original colored text-3xl"></i>
+        );
+      case "Node.js":
+        return (
+          <i className="devicon-nodejs-plain colored text-3xl"></i>
+        );
+      case "Next.js":
+        return (
+          <i className="devicon-nextjs-original text-white text-3xl"></i>
+        );
+      case "Express.js":
+        return (
+          <i className="devicon-express-original text-white text-3xl"></i>
+        );
+      case "TailwindCSS":
+        return (
+          <i className="devicon-tailwindcss-plain colored text-3xl"></i>
+        );
+      case "Bootstrap":
+        return (
+          <i className="devicon-bootstrap-plain colored text-3xl"></i>
+        );
+      case "MongoDB":
+        return (
+          <i className="devicon-mongodb-plain colored text-3xl"></i>
         );
       case "Git/GitHub":
         return (
-          <div className="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center text-white font-bold text-sm">
-            Git
-          </div>
+          <i className="devicon-github-original colored text-3xl"></i>
+        );
+      case "VS Code":
+        return (
+          <i className="devicon-vscode-plain colored text-3xl"></i>
         );
       case "TensorFlow":
         return (
-          <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-sm">
-            TF
-          </div>
-        );
-      case "OpenCV":
-        return (
-          <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center text-white font-bold text-sm">
-            CV
-          </div>
-        );
-      case "Figma":
-        return (
-          <div className="w-12 h-12 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-lg">
-            F
-          </div>
+          <i className="devicon-tensorflow-original colored text-3xl"></i>
         );
       case "Express.js":
         return (
           <div className="w-12 h-12 bg-gray-600 rounded-xl flex items-center justify-center text-white font-bold text-sm">
             EX
-          </div>
-        );
-      case "Pandas":
-        return (
-          <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-white font-bold text-sm">
-            🐼
-          </div>
-        );
-      case "NumPy":
-        return (
-          <div className="w-12 h-12 bg-blue-400 rounded-xl flex items-center justify-center text-white font-bold text-sm">
-            NP
           </div>
         );
       default:

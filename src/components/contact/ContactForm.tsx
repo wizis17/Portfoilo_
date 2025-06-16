@@ -109,7 +109,7 @@ const ContactForm = () => {
       transition={{ duration: 0.5, delay: 0.2 }}
       className="lg:col-span-3"
     >
-      <div className="glass-panel p-8 rounded-lg">
+      <div className="glass-panel p-6 rounded-lg">
         <h2 className="text-2xl font-bold mb-6">Send Me a Message</h2>
         <p className="text-muted-foreground mb-8">
           Let's start a conversation. Fill out the form below and I'll get back to you as soon as possible.
