@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, CheckCircle } from "lucide-react";
+import { Send, CheckCircle, User, Mail, FileText, MessageSquare} from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { contactService, ContactMessageInsert } from "@/services/contactService";
 
@@ -116,71 +116,83 @@ const ContactForm = () => {
         </p>
         
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <label htmlFor="name" className="block font-medium">Name</label>
-              <motion.input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                disabled={isSubmitting}
-                className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple disabled:opacity-50"
-                placeholder="John Doe"
-                whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
-              />
-            </div>
-            
-            <div className="space-y-2">
-              <label htmlFor="email" className="block font-medium">Email</label>
-              <motion.input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                disabled={isSubmitting}
-                className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple disabled:opacity-50"
-                placeholder="you@example.com"
-                whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
-              />
-            </div>
-          </div>
-          
-          <div className="space-y-2">
-            <label htmlFor="subject" className="block font-medium">Subject</label>
-            <motion.input
-              type="text"
-              id="subject"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              required
-              disabled={isSubmitting}
-              className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple disabled:opacity-50"
-              placeholder="Project Inquiry / Job opportunity / General Question"
-              whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="space-y-2">
+        <label htmlFor="name" className="block font-medium text-white">Name</label>
+        <div className="relative">
+        <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white w-5 h-5 pointer-events-none" />
+          <motion.input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            disabled={isSubmitting}
+            className="w-full pl-10 pr-4 py-3 bg-secondary text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple disabled:opacity-50"
+            placeholder="John Doe"
+            whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
             />
           </div>
+        </div>
+            
+            <div className="space-y-2">
+      <label htmlFor="email" className="block font-medium text-white">Email</label>
+      <div className="relative">
+        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white w-5 h-5 pointer-events-none" />
+        <motion.input
+          type="email"
+          id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          disabled={isSubmitting}
+          className="w-full pl-10 pr-4 py-3 bg-secondary text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple disabled:opacity-50"
+          placeholder="you@example.com"
+          whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
+        />
+      </div>
+    </div>
+  </div>
           
           <div className="space-y-2">
-            <label htmlFor="message" className="block font-medium">Message</label>
-            <motion.textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              disabled={isSubmitting}
-              rows={5}
-              className="w-full px-4 py-3 bg-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple resize-none disabled:opacity-50"
-              placeholder="Tell me about your project, idea, or question..."
-              whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
-            ></motion.textarea>
-          </div>
+  <label htmlFor="subject" className="block font-medium text-white">Subject</label>
+  <div className="relative">
+    <FileText className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white w-5 h-5 pointer-events-none" />
+    <motion.input
+      type="text"
+      id="subject"
+      name="subject"
+      value={formData.subject}
+      onChange={handleChange}
+      required
+      disabled={isSubmitting}
+      className="w-full pl-10 pr-4 py-3 bg-secondary text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple disabled:opacity-50"
+      placeholder="Project Inquiry / Job opportunity / General Question"
+      whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
+    />
+  </div>
+</div>
+          
+          <div className="space-y-2">
+    <label htmlFor="message" className="block font-medium text-white">Message</label>
+    <div className="relative">
+      <MessageSquare className="absolute left-3 top-4 text-white w-5 h-5 pointer-events-none" />
+      <motion.textarea
+        id="message"
+        name="message"
+        value={formData.message}
+        onChange={handleChange}
+        required
+        disabled={isSubmitting}
+        rows={5}
+        className="w-full pl-10 pr-4 py-3 bg-secondary text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple resize-none disabled:opacity-50"
+        placeholder="Tell me about your project, idea, or question"
+        whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
+      ></motion.textarea>
+    </div>
+  </div>
           
           <div>
             <motion.button
