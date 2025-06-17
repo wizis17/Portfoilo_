@@ -12,10 +12,10 @@ const Contact = () => {
 
   return (
     <Layout>
-      <section className="pt-32 pb-16">
-        <div className="container mx-auto px-4">
+      <section className="pt-24 pb-16 min-h-screen flex items-center">
+        <div className="container mx-auto px-4 max-w-6xl">
           <ContactHeader />
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <ContactInfo />
             <ContactForm />
           </div>
