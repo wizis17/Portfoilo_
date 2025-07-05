@@ -8,10 +8,10 @@ import ParticleBackground from "./ParticleBackground";
 import FloatingElements from "./FloatingElements";
 
 const phrases = [
-  "Full Stack Developer",
-  "AI & ML Enthusiast",
+  "Machine Learning",
+  "Software Engineer",
   "Web Developer",
-  "Data Analyst"
+  "AI/ML Enthusiast",
 ];
 
 const HeroSection = () => {
@@ -121,7 +121,7 @@ const HeroSection = () => {
                   backgroundSize: "200% 200%"
                 }}
               >
-                Uday G
+                ThenG
               </motion.span>
             </motion.h1>
             
@@ -143,8 +143,8 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              Passionate about programming and software development with expertise in Python, JavaScript, and C++.
-              Building modern web applications using Node.js, React.js, and Next.js. Freelancer specializing in AI-powered solutions.
+              Passionate about programming and software development .
+              Building modern web applications using Node.js, React.js, and Next.js in AI-powered solutions.
             </motion.p>
             
             <motion.div 

@@ -28,7 +28,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { name: "Academics", path: "/academics" },
+    { name: "Education", path: "/academics" },
     { name: "Projects", path: "/projects" },
     { name: "Resume", path: "/resume" },
     { name: "Contact", path: "/contact" },
@@ -85,7 +85,7 @@ const Navbar = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              UG.
+              Thz.
             </motion.span>
           </NavLink>
 

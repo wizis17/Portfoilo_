@@ -12,14 +12,12 @@ const About = () => {
 
   const skills = [
     { name: "Python", level: "Advanced" },
-    { name: "JavaScript", level: "Advanced" },
-    { name: "React.js", level: "Intermediate" },
-    { name: "Node.js", level: "Intermediate" },
+    { name: "JavaScript", level: "Elementary" },
+    { name: "Node.js", level: "Elementary" },
     { name: "Next.js", level: "Intermediate" },
     { name: "C++", level: "Intermediate" },
-    { name: "Machine Learning", level: "Intermediate" },
+    { name: "Machine Learning", level: "Beginner" },
     { name: "CSS", level: "Intermediate" },
-    { name: "Blockchain", level: "Beginner" },
     { name: "AI", level: "Intermediate" },
   ];
 
@@ -41,7 +39,7 @@ const About = () => {
             </h1>
             <div className="max-w-3xl mx-auto">
               <p className="text-lg text-muted-foreground">
-                I'm a Computer Science student passionate about creating innovative solutions through programming and technology.
+                I'm a IT Engineering student with a passionate about creating innovative solutions through programming and technology.
               </p>
             </div>
           </motion.div>
@@ -79,16 +77,16 @@ const About = () => {
                   I'm <motion.span 
                     className="text-brand-purple font-semibold"
                     whileHover={{ color: "#8B5CF6" }}
-                  >Uday G</motion.span>, a Computer Science student specializing in AI & Machine Learning at Presidency University, Bengaluru.
+                  >ThenG </motion.span>, a IT Engineering student specializing in Software Engineer at Royal University of Phnom Penh .
                 </p>
                 <p>
                   My journey in programming began with an interest in solving complex problems. This led me to explore various programming languages and technologies, with a focus on web development and artificial intelligence.
                 </p>
                 <p>
-                  I'm passionate about building web applications and software that is not only functional but also intuitive and user-friendly. I believe in continuous learning and staying updated with the latest technologies.
+                  I'm passionate about building user-frendly web applications and software. and I'm always exploring new tools and technologies to stay ahead.
                 </p>
                 <p>
-                  When I'm not coding, I enjoy exploring new technologies, solving algorithmic problems, contributing to open-source projects and playing video games.
+                  When I'm not coding, I enjoy exploring new technologies, contributing to open-source projects, Watch Movie and playing video games.
                 </p>
               </div>
             </motion.div>
@@ -101,9 +99,9 @@ const About = () => {
             className="mb-24"
           >
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-6">Professional Skills</h2>
+              <h2 className="text-3xl font-bold mb-6">Tech Skills</h2>
               <p className="text-muted-foreground max-w-3xl mx-auto">
-                These are the technologies and programming languages I've worked with and continue to develop expertise in.
+                These are the technologies and programming languages I've worked with & continue to develop expertise in.
               </p>
             </div>
 
@@ -149,7 +147,7 @@ const About = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <InfoCard icon={User} title="Personal Interests">
                 <ul className="space-y-2 text-muted-foreground">
-                  {["Exploring new technologies", "Solving algorithmic challenges", 
+                  {["Exploring new technologies", "Problem Solving", 
                     "Open-source contributions", "Web development projects"].map((interest, i) => (
                     <motion.li 
                       key={i} 
@@ -165,8 +163,8 @@ const About = () => {
 
               <InfoCard icon={Code} title="Coding Philosophy">
                 <ul className="space-y-2 text-muted-foreground">
-                  {["Clean and maintainable code", "Focus on user experience", 
-                    "Continuous learning and improvement", "Building with scalability in mind"].map((philosophy, i) => (
+                  {["Clean and maintainable code", "Problem Solving", 
+                    "Continuous learning and improvement", "Maintainability and Extensibility"].map((philosophy, i) => (
                     <motion.li 
                       key={i} 
                       className="flex items-center"
@@ -182,7 +180,7 @@ const About = () => {
               <InfoCard icon={GraduationCap} title="Education Journey">
                 <ul className="space-y-2 text-muted-foreground">
                   {["Computer Science fundamentals", "Data structures and algorithms", 
-                    "Machine learning and AI", "Self-taught web development"].map((journey, i) => (
+                    "Machine learning and AI", "Self-taught Software development"].map((journey, i) => (
                     <motion.li 
                       key={i} 
                       className="flex items-center"
@@ -198,7 +196,7 @@ const About = () => {
               <InfoCard icon={BookOpen} title="Future Goals">
                 <ul className="space-y-2 text-muted-foreground">
                   {["Mastering advanced AI techniques", "Building impactful web applications", 
-                    "Contributing to open-source projects", "Exploring blockchain development"].map((goal, i) => (
+                    "Contributing to open-source projects", "Exploring Software development"].map((goal, i) => (
                     <motion.li 
                       key={i} 
                       className="flex items-center"
