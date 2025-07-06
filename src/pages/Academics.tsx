@@ -15,40 +15,26 @@ const Academics = () => {
   const education = [
     {
       id: 1,
-      institution: "Presidency University, Bengaluru",
-      degree: "Bachelor of Technology (B.Tech)",
+      institution: "Royal University of Phnom Penh ",
+      degree: "Bachelor of Information Technology Engineering (ITE).",
       field: "Computer Science & Engineering (Specialization in AI & ML)",
-      duration: "2021 - Present",
-      location: "Bengaluru, Karnataka",
+      duration: "2024 - Present",
+      location: "Phnom Penh, Cambodia",
       cgpa: "In Progress",
       details: [
-        "Specializing in Artificial Intelligence and Machine Learning",
-        "Key courses include Data Structures, Algorithms, Machine Learning",
-        "Actively participating in research projects related to AI/ML"
-      ]
-    },
-    {
-      id: 2,
-      institution: "MES Kishora Kendra",
-      degree: "Pre-University College",
-      field: "Science Stream",
-      duration: "2019 - 2021",
-      location: "Bengaluru, Karnataka",
-      cgpa: "8.5",
-      details: [
-        "Major subjects included Physics, Mathematics, Chemistry, Computer Science",
-        "Highlights: Advanced Mathematics & Computer Science",
-        "Developed strong foundation in scientific principles and programming"
+        "Specializing in Software & Web Development",
+        "Key courses include Data Structures and Algorithms, Machine Learning",
+        "Actively participating in research projects related to Machine Learning and AI"
       ]
     },
     {
       id: 3,
-      institution: "Nelamangala, Bengaluru",
-      degree: "Secondary High School",
-      field: "NCERT-based Curriculum",
-      duration: "2012 - 2019",
-      location: "Bengaluru, Karnataka",
-      cgpa: "9.09",
+      institution: "Kompong Speu High School",
+      degree: "High School",
+      field: "Science",
+      duration: "2020 - 2023",
+      location: "Kompong Speu, Cambodia",
+      grade: "C",
       details: [
         "Strong foundation in Science",
         "Studied foundations of Mathematics"
@@ -60,31 +46,31 @@ const Academics = () => {
     {
       id: 1,
       name: "Python Programming",
-      issuer: "Coursera",
-      date: "2022",
-      description: "Comprehensive course covering advanced Python concepts and applications."
+      issuer: "IT Center",
+      date: "2024",
+      description: "Comprehensive course covering Coding & Programming by Python."
     },
     {
       id: 2,
-      name: "Web Development with JavaScript",
-      issuer: "Udemy",
-      date: "2022",
-      description: "In-depth training on building modern web applications using JavaScript."
+      name: "C & C++ Programming",
+      issuer: "Addbook",
+      date: "2024",
+      description: "In-depth course on C and C++ programming languages, focusing on concepts (OOP)."
     },
-    {
-      id: 3,
-      name: "Machine Learning Fundamentals",
-      issuer: "edX",
-      date: "2023",
-      description: "Introduction to machine learning algorithms and their implementation."
-    },
-    {
-      id: 4,
-      name: "React.js Development",
-      issuer: "freeCodeCamp",
-      date: "2023",
-      description: "Building interactive user interfaces with React.js framework."
-    }
+    // {
+    //   id: 3,
+    //   name: "Machine Learning Fundamentals",
+    //   issuer: "edX",
+    //   date: "2023",
+    //   description: "Introduction to machine learning algorithms and their implementation."
+    // },
+    // {
+    //   id: 4,
+    //   name: "React.js Development",
+    //   issuer: "freeCodeCamp",
+    //   date: "2023",
+    //   description: "Building interactive user interfaces with React.js framework."
+    // }
   ];
 
   const courseHighlights = [
@@ -96,8 +82,6 @@ const Academics = () => {
     "Operating Systems",
     "Web Technologies",
     "Software Engineering",
-    "Cloud Computing",
-    "Blockchain Technology"
   ];
 
   return (

@@ -30,20 +30,20 @@ const Resume = () => {
 
   const education = [
     {
-      institution: "Presidency University, Bengaluru",
-      degree: "Bachelor of Technology (B.Tech)",
-      field: "Computer Science & Engineering (AI & ML)",
-      duration: "2021 - 2025",
-      gpa: "3.0/4.0",
-      location: "Bengaluru, India",
+      institution: "Royal University of Phnom Penh",
+      degree: "Bachelor of Information Technology Engineer (ITE )",
+      field: "Software Engineering ",
+      duration: "2024 - 2027",
+      gpa: "in progress",
+      location: "Phnom Penh, Cambodia",
     },
     {
-      institution: "MES Kishora Kendra, Bengaluru",
-      degree: "Pre-University College",
-      field: "Science Stream",
-      duration: "2019 - 2021",
-      gpa: "85%",
-      location: "Bengaluru, India",
+      institution: "Kompong Speu High School",
+      degree: "High School Diploma",
+      field: "Science",
+      duration: "2021 - 2023",
+      gpa: "C",
+      location: "Kompong Speu, Cambodia", 
     },
   ];
 
@@ -60,130 +60,60 @@ const Resume = () => {
         "Integrated AI tools into development workflows for improved efficiency"
       ]
     },
-    {
-      position: "Web Developer Intern",
-      company: "SkillCraft Technologies",
-      duration: "November 2024 - December 2024",
-      description: "Developed and maintained web applications using React.js and Node.js. Collaborated with senior developers to implement new features and fix bugs.",
-      responsibilities: [
-        "Developed responsive front-end interfaces using React.js",
-        "Implemented RESTful APIs using Node.js and Express",
-        "Participated in code reviews and team meetings",
-        "Optimized applications for maximum speed and scalability"
-      ]
-    },
-    {
-      position: "Open Source Contributor",
-      company: "GitHub Community",
-      duration: "January 2022 - Present",
-      description: "Actively contributed to various open-source projects, focusing on web development and machine learning libraries.",
-      responsibilities: [
-        "Fixed bugs and implemented new features in popular repositories",
-        "Collaborated with developers worldwide through pull requests",
-        "Improved documentation for better user experience",
-        "Participated in code reviews and discussions"
-      ]
-    },
   ];
 
   const projects = [
     {
-      title: "Income Tax Fraud Detection",
-      description: "Developed an AI-powered system to detect fraudulent activities in income tax filings using machine learning algorithms and data pattern analysis.",
-      technologies: ["Python", "Machine Learning", "AI", "Data Analysis", "TensorFlow"],
-      duration: "03/2023 - 04/2023",
-      type: "Open-source",
-      accomplishments: [
-        "Created custom algorithms to identify suspicious patterns in tax filings",
-        "Implemented a dashboard to visualize fraud detection metrics",
-        "Achieved 92% accuracy in identifying fraudulent transactions"
-      ]
-    },
-    {
-      title: "Oral Cancer Detection",
-      description: "Built a deep learning model to detect and classify oral cancer stages from medical images, helping in early diagnosis and treatment planning.",
-      technologies: ["Python", "TensorFlow", "Neural Networks", "Computer Vision", "OpenCV"],
-      duration: "05/2023 - 08/2023",
+      title: "E-Commerce Website",
+      description: "a full-stack eCommerce web application designed to provide a seamless online shopping experience.",
+      technologies: ["React", "TypeScript", "PHP"],
+      duration: ".",
       type: "2nd Year Project",
       accomplishments: [
-        "Conducted data collection and preprocessing for oral cancer detection",
-        "Designed and implemented a machine learning model for image classification using CNNs",
-        "Achieved 89% accuracy in detecting early-stage oral cancer"
+        "Developed a fully functional eCommerce platform from scratch with both frontend and backend integration",
+        "Created Dynamic Product Management System",
+        "Handled Error States & Validation for better UX "
       ]
     },
     {
-      title: "Object Tracking using OpenCV",
-      description: "Developed an object detection and tracking system using OpenCV and KCF Tracker that can identify and follow objects in video streams.",
-      technologies: ["Python", "OpenCV", "Computer Vision", "AI"],
-      duration: "03/2023 - 04/2023",
-      type: "Open-source",
-      accomplishments: [
-        "Developed an open-source AI project for object detection using encoded data",
-        "Utilized compatible video sources to recognize objects seen through a camera",
-        "Implemented real-time tracking with minimal latency"
-      ]
-    },
-    {
-      title: "Credit Card Fraud Detection",
-      description: "Created a machine learning model to analyze whether credit card transactions are fraudulent by identifying unusual patterns and anomalies.",
-      technologies: ["Python", "Machine Learning", "Data Science", "Statistical Analysis"],
-      duration: "01/2023 - 03/2023",
+      title: "Convert Word File to PDF",
+      description: "A Python script that converts Word documents to PDF format using telegram-bot and pdfkit libraries.",
+      technologies: ["Python", "Telegram-bot", "PDF"],
+      duration: "02/2025 - 03/2025",
       type: "Personal Project",
       accomplishments: [
-        "Trained models on large datasets of transaction data",
-        "Implemented feature engineering to improve detection accuracy",
-        "Developed a real-time alert system for suspicious transactions"
+        "Created an interactive bot that responds to user commands and file uploads via Telegram",
+        " Verified that the bot works seamlessly on mobile and desktop Telegram clients"
       ]
     },
     {
-      title: "Contextualized Topic Modeling",
-      description: "Built a Python package to run contextualized topic modeling with BERT embeddings, enabling more accurate text analysis and categorization.",
-      technologies: ["Python", "NLP", "BERT", "Machine Learning"],
-      duration: "11/2022 - 01/2023",
-      type: "Research Project",
+      title: "Typing Speed Test",
+      description: "A modern, sleek typing test application inspired by MonkeyType. Test your typing speed and accuracy with a beautiful, responsive interface.",
+      technologies: ["html", "CSS", "JavaScript", "AI"],
+      duration: "03/2025 - 04/2025",
+      type: "Open-source",
       accomplishments: [
-        "Created a reusable library for topic modeling tasks",
-        "Implemented BERT embeddings for improved contextual understanding",
-        "Published package with documentation for community use"
+        "Developed an interactive web-based tool to test typing speed and accuracy",
+        "Learn to use Dynamic Text Generation",
+        "Implemented real-time Real-Time Feedback"
       ]
     },
   ];
 
   const certifications = [
     {
-      name: "API Prototyping Learning Path",
-      issuer: "Postman",
+      name: "Python Programming",
+      issuer: "IT Center",
       date: "December 2024",
-      skills: "API Prototyping, API Testing, API Documentation",
-      credential: "PST-APL-2024"
+      skills: "Python, Programming Fundamentals, Data Structures, Machine Learning",
+      credential: "ITC-PY-2024"
     },
     {
-      name: "Career Essentials in Generative AI",
-      issuer: "Microsoft and LinkedIn",
-      date: "November 2024",
-      skills: "Generative AI, Prompt Engineering, LLM Applications",
-      credential: "MSLI-GAI-2024"
-    },
-    {
-      name: "Learning Microsoft Power BI",
-      issuer: "Infosys Springboard",
-      date: "November 2024",
-      skills: "Microsoft Power BI, Data Visualization, Business Intelligence",
-      credential: "ISB-PBI-2024"
-    },
-    {
-      name: "Neural Networks and Deep Learning",
-      issuer: "Great Learning",
-      date: "January 2024",
-      skills: "Neural Networks, Deep Learning, AI Architecture",
-      credential: "GL-NNDL-2024"
-    },
-    {
-      name: "Real Life Machine Learning and Data Science Projects",
-      issuer: "Udemy",
-      date: "November 2022",
-      skills: "Machine Learning, Data Science, Practical Implementation",
-      credential: "UC-e1c70903-b810-4b6b-8749-eebd3345715"
+      name: "C & C++ Programming",
+      issuer: "Addbook",
+      date: "July 2024",
+      skills: "C & C++ , Object-Oriented Programming",
+      credential: ""
     },
   ];
 

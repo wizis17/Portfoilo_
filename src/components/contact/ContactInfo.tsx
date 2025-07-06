@@ -7,14 +7,14 @@ const ContactInfo = () => {
     {
       icon: <Mail className="h-5 w-5 text-brand-purple" />,
       title: "Email",
-      details: "ud4yg@yandex.com",
-      link: "mailto:ud4yg@yandex.com",
+      details: "tangkavtheng@gmail.com",
+      link: "mailto:tangkavtheng@gmail.com",
     },
     {
       icon: <MapPin className="h-5 w-5 text-brand-purple" />,
       title: "Location",
-      details: "Bengaluru, Karnataka, India",
-      link: "https://maps.google.com/?q=Bengaluru",
+      details: "Russey Keo, Phnom Penh, Cambodia",
+      link: "https://www.google.com/maps/place/Russei+Keo,+Phnom+Penh/",
     },
   ];
 
@@ -22,17 +22,12 @@ const ContactInfo = () => {
     {
       icon: <Github className="h-5 w-5" />,
       name: "GitHub",
-      url: "https://github.com/oxBinaryBrain/",
+      url: "https://github.com/wizis17/",
     },
     {
       icon: <Linkedin className="h-5 w-5" />,
       name: "LinkedIn",
-      url: "https://www.linkedin.com/in/uday-g-601ba9266/",
-    },
-    {
-      icon: <Twitter className="h-5 w-5" />,
-      name: "Twitter",
-      url: "https://x.com/UdayG6389896490",
+      url: "https://www.linkedin.com/in/tang-kavtheng-3a6b30362/",
     },
   ];
 
@@ -100,7 +95,7 @@ const ContactInfo = () => {
       <div className="glass-panel p-4 rounded-lg">
         <h3 className="font-medium mb-2 text-brand-purple">Response Time</h3>
         <p className="text-sm text-muted-foreground">
-          I typically reply within 24 hours during business days.
+          I typically reply within 24 hours .
         </p>
       </div>
     </motion.div>

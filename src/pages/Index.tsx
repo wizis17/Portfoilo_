@@ -39,10 +39,10 @@ const Index = () => {
   ];
 
   const techStack = [
-    { name: "Python", proficiency: 90 },
-    { name: "JavaScript", proficiency: 85 },
-    { name: "React.js", proficiency: 80 },
-    { name: "Node.js", proficiency: 75 },
+    { name: "Python", proficiency: 82 },
+    { name: "JavaScript", proficiency: 75 },
+    { name: "React.js", proficiency: 60 },
+    { name: "Node.js", proficiency: 70 },
     { name: "Firebase", proficiency: 70 },
     { name: "Next.js", proficiency: 65 },
   ];
@@ -66,7 +66,7 @@ const Index = () => {
             </span>
             <h2 className="text-4xl font-bold mb-6">Who I Am</h2>
             <p className="max-w-3xl mx-auto text-muted-foreground">
-              I'm a Computer Science student specializing in AI & ML. Passionate about programming, AI integration, and building innovative web applications.
+              I'm a IT Engineering student specializing Software development. Passionate about programming, AI integration, web applications.
             </p>
           </motion.div>
 
@@ -82,10 +82,10 @@ const Index = () => {
                 <Code className="w-8 h-8 text-teal-400" />
               </div>
               <h3 className="text-xl font-semibold mb-4 text-center">
-                Web Development
+                Backend Development
               </h3>
               <p className="text-muted-foreground text-center">
-                Experienced in building modern, responsive web applications using React.js, Next.js, and Node.js.
+                Experienced in building modern, responsive web applications-backend using Laravel & PHP.
               </p>
             </motion.div>
 
@@ -103,7 +103,7 @@ const Index = () => {
                 Computer Science
               </h3>
               <p className="text-muted-foreground text-center">
-                Strong foundation in algorithms, data structures, and programming principles.
+                Strong foundation in data structures and algorithms, and programming principles.
               </p>
             </motion.div>
 
@@ -294,7 +294,7 @@ const Index = () => {
             </div>
             <h2 className="text-3xl font-bold mb-4">Let's Work Together</h2>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              I'm currently available for freelance work and open to new opportunities.
+              I'm currently available for freelance work and find internship .
               If you have a project in mind or want to collaborate, let's connect!
             </p>
             <Link
