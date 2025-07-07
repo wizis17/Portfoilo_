@@ -13,29 +13,29 @@ const Index = () => {
 
   const featuredProjects = [
     {
-      title: "Income Tax Fraud Detection",
-      description: "A system to detect fraudulent activities in income tax filings using AI and machine learning.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
-      tags: ["Python", "Machine Learning", "AI"],
+      title: "E-commerce",
+      description: "a full-stack eCommerce web application designed to provide a seamless online shopping experience.",
+      image: "/uploads/project_1.jpg",
+      tags: ["React", "TypeScript", "PHP"],
       link: "/projects",
-      code: "https://github.com/oxBinaryBrain/An_Income_Tax_Fraud_Detection_Using_AI-ML"
+      code: "https://github.com/wizis17/twelve_AM"
     },
     {
-      title: "Oral Cancer Classification using Neural Networks",
-      description: "Machine learning model to detect and classify oral cancer levels from images.",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
-      tags: ["Python", "TensorFlow", "Neural Networks"],
+      title: "Convert word-file to PDF",
+      description: "A Python script that converts Word documents to PDF format using telegram-bot and pdfkit libraries.",
+      image: "/uploads/project_2.png",
+      tags: ["Python", "Telegram Bot", "PDF"],
       link: "/projects",
-      code: "https://github.com/oxBinaryBrain/Oral_Cancer_Classification"
+      code: "https://github.com/wizis17/CONVERTED_PDF"
     },
     {
-      title: "Credit Card Fraud Detection",
-      description: "Machine learning model to analyze whether a credit card transaction is fraudulent or not.",
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
-      tags: ["Python", "ML", "Data Science"],
+      title: "Typing Speed Test",
+      description: "A modern, sleek typing test application inspired by MonkeyType. Test your typing speed and accuracy with a beautiful, responsive interface.",
+      image: "/uploads/project_3.png",
+      tags: ["html", "CSS", "JavaScript"],
       link: "/projects",
-      code: "https://github.com/oxBinaryBrain/CC-Fraud-Detection"
-    },
+      code: "https://github.com/wizis17/Metro-Typing"
+    }
   ];
 
   const techStack = [

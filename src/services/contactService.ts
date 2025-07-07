@@ -12,6 +12,7 @@ import {
   Timestamp 
 } from 'firebase/firestore';
 import { db } from '@/firebase/config';
+import emailjs from '@emailjs/browser';
 
 export interface ContactMessage {
   id: string;
@@ -27,6 +28,46 @@ export interface ContactMessage {
 export type ContactMessageInsert = Omit<ContactMessage, 'id' | 'created_at' | 'is_read'>;
 
 const COLLECTION_NAME = 'contact_messages';
+
+// Initialize EmailJS 
+const EMAILJS_CONFIG = {
+  SERVICE_ID: 'service_ro222ub',
+  TEMPLATE_ID: 'template_edcau89',
+  PUBLIC_KEY: 'NnRXcI5FTaTvVkFWb',
+  TO_EMAIL: 'tangkavtheng@gmail.com'
+}
+
+// Email sending function
+const sendEmailNotification = async (messageData: ContactMessageInsert): Promise<void> => {
+  try {
+    console.log("=== SENDING EMAIL NOTIFICATION ===");
+    console.log("Sending to:", EMAILJS_CONFIG.TO_EMAIL);
+    
+    const emailParams = {
+      from_name: messageData.name,
+      from_email: messageData.email,
+      subject: messageData.subject,
+      message: messageData.message,
+      to_email: EMAILJS_CONFIG.TO_EMAIL,
+      reply_to: messageData.email,
+      timestamp: new Date().toLocaleString()
+    };
+
+    console.log("Email parameters:", emailParams);
+
+    const result = await emailjs.send(
+      EMAILJS_CONFIG.SERVICE_ID,
+      EMAILJS_CONFIG.TEMPLATE_ID,
+      emailParams,
+      EMAILJS_CONFIG.PUBLIC_KEY
+    );
+
+    console.log("✅ Email sent successfully:", result.status, result.text);
+  } catch (error) {
+    console.error("❌ Failed to send email:", error);
+    // Don't throw error - we don't want email failure to break form submission
+  }
+};
 
 export const contactService = {
   async getAllMessages(): Promise<{ data: ContactMessage[] | null; error: Error | null }> {
