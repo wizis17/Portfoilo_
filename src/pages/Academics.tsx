@@ -57,13 +57,13 @@ const Academics = () => {
       date: "2024",
       description: "In-depth course on C and C++ programming languages, focusing on concepts (OOP)."
     },
-    // {
-    //   id: 3,
-    //   name: "Machine Learning Fundamentals",
-    //   issuer: "edX",
-    //   date: "2023",
-    //   description: "Introduction to machine learning algorithms and their implementation."
-    // },
+    {
+      id: 3,
+      name: "ASEAN Data Science Explorers",
+      issuer: "ASEAN Foundation",
+      date: "2025",
+      description: "Enablement Session - SAP Analytics Cloud training Session ."
+    },
     // {
     //   id: 4,
     //   name: "React.js Development",
