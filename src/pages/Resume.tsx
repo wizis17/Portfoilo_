@@ -42,24 +42,24 @@ const Resume = () => {
       degree: "High School Diploma",
       field: "Science",
       duration: "2021 - 2023",
-      gpa: "C",
+      gpa: "Grade-C",
       location: "Kompong Speu, Cambodia", 
     },
   ];
 
   const experience = [
-    {
-      position: "Freelance Developer",
-      company: "Self-employed",
-      duration: "January 2023 - Present",
-      description: "Working as a freelance developer on various projects, specializing in web development and AI solutions.",
-      responsibilities: [
-        "Developed full-stack web applications for clients using React, Node.js, and MongoDB",
-        "Created AI-powered solutions for data analysis and automation",
-        "Managed project timelines and client communication",
-        "Integrated AI tools into development workflows for improved efficiency"
-      ]
-    },
+    // {
+    //   position: "Freelance Developer",
+    //   company: "Self-employed",
+    //   duration: "January 2023 - Present",
+    //   description: "Working as a freelance developer on various projects, specializing in web development and AI solutions.",
+    //   responsibilities: [
+    //     "Developed full-stack web applications for clients using React, Node.js, and MongoDB",
+    //     "Created AI-powered solutions for data analysis and automation",
+    //     "Managed project timelines and client communication",
+    //     "Integrated AI tools into development workflows for improved efficiency"
+    //   ]
+    // },
   ];
 
   const projects = [
@@ -113,6 +113,13 @@ const Resume = () => {
       issuer: "Addbook",
       date: "July 2024",
       skills: "C & C++ , Object-Oriented Programming",
+      credential: ""
+    },
+    {
+      name: "ASEAN Data Science Explorers",
+      issuer: "ASEAN Foundation",
+      date: "May 2025",
+      skills: "Data Analysis",
       credential: ""
     },
   ];
@@ -231,15 +238,15 @@ const Resume = () => {
             <div className="mt-4 pl-4 border-l-2 border-brand-purple/30">
               <h4 className="font-medium mb-2">Key Courses:</h4>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                {edu.institution.includes("Presidency") ? (
+                {edu.institution.includes("Royal University of Phnom Penh") ? (
                   <>
                     <li className="text-sm flex items-center">
                       <span className="h-1.5 w-1.5 bg-brand-purple rounded-full mr-2"></span>
-                      Artificial Intelligence & Machine Learning
+                      Softwere Engineering
                     </li>
                     <li className="text-sm flex items-center">
                       <span className="h-1.5 w-1.5 bg-brand-purple rounded-full mr-2"></span>
-                      Data Structures & Algorithms
+                      Data Structures & Algorithms 
                     </li>
                     <li className="text-sm flex items-center">
                       <span className="h-1.5 w-1.5 bg-brand-purple rounded-full mr-2"></span>
@@ -255,7 +262,7 @@ const Resume = () => {
                     </li>
                     <li className="text-sm flex items-center">
                       <span className="h-1.5 w-1.5 bg-brand-purple rounded-full mr-2"></span>
-                      Deep Learning
+                      Artificial Intelligence & Machine Learning
                     </li>
                   </>
                 ) : (
@@ -449,7 +456,7 @@ const Resume = () => {
             </h1>
             <div className="max-w-3xl mx-auto">
               <p className="text-lg text-muted-foreground">
-                I'm an aspiring developer specializing in web development, AI, and machine learning.
+                I'm software developer specializing in web development, AI, and machine learning.
                 My goal is to leverage these technologies to create innovative solutions for real-world problems.
               </p>
             </div>
