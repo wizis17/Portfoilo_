@@ -106,7 +106,7 @@ const Resume = () => {
       issuer: "IT Center",
       date: "December 2024",
       skills: "Python, Programming Fundamentals, Data Structures, Machine Learning",
-      credential: "ITC-PY-2024"
+      credential: ""
     },
     {
       name: "C & C++ Programming",
