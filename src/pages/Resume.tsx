@@ -456,8 +456,8 @@ const Resume = () => {
             </h1>
             <div className="max-w-3xl mx-auto">
               <p className="text-lg text-muted-foreground">
-                I'm software developer specializing in web development, AI, and machine learning.
-                My goal is to leverage these technologies to create innovative solutions for real-world problems.
+                I'm IT Engineer specializing in Software Engineer, AI, and machine learning.
+                My goal is to leverage these technologies to create innovative solutions for real-world problems .
               </p>
             </div>
           </motion.div>
