@@ -51,15 +51,15 @@ const Projects = () => {
       code: "https://github.com/wizis17/Metro-Typing",
       category: "web"
     },
-    // {
-    //   id: 4,
-    //   title: "Contextualized Topic Modeling",
-    //   description: "A python package to run contextualized topic modeling. CTMs combine contextualized embeddings (e.g., BERT) with topic models to get coherent topics and document classification.",
-    //   image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8",
-    //   tags: ["Python", "NLP", "Machine Learning"],
-    //   code: "https://github.com/oxBinaryBrain/contextualized-topic-models",
-    //   category: "ai"
-    // },
+    {
+      id: 4,
+      title: "ChatBot",
+      description: "A chatbot built using Python and Gradio, integrated with the Gemini API for advanced conversational AI.",
+      image: "/uploads/project_4.png",
+      tags: ["Python", "Gradio", "Gemini API"],
+      code: "https://github.com/wizis17/ai_chatbot",
+      category: "ai"
+    },
   ];
 
   const getIcon = (category: string) => {

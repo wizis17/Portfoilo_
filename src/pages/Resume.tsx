@@ -98,6 +98,18 @@ const Resume = () => {
         "Implemented real-time Real-Time Feedback"
       ]
     },
+    {
+      title: "ChatBot",
+      description: "A chatbot built using Python and Gradio, integrated with the Gemini API for advanced conversational AI.",
+      technologies: ["Python", "Gradio", "Gemini API"],
+      duration: "06/2025 - 07/2025",
+      type: "Open-source",
+      accomplishments: [
+        "Developed an AI-powered chatbot using Python and Gradio",
+        "Integrated the Gemini API to enhance conversational capabilities",
+        "Designed a user-friendly interface for seamless interactions"
+      ]
+    },
   ];
 
   const certifications = [
