@@ -3,8 +3,8 @@
 ## 📝 Overview
 A modern, responsive personal portfolio website designed to showcase my professional skills, projects, and experience. Built with **React** and **TypeScript** to provide a seamless, interactive user experience.
 
-🌐 **Live Demo**:
-(demo.png)](https://www.theng.studio/)
+🌐 **Live Demo**
+[![Open in Spaces](demo.png)](https://www.theng.studio/)
 
 ## 🛠 Technologies Stack
 - **Frontend Framework**: React 18
