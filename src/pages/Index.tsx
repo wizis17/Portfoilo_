@@ -21,12 +21,12 @@ const Index = () => {
       code: "https://github.com/wizis17/twelve_AM"
     },
     {
-      title: "Convert word-file to PDF",
-      description: "A Python script that converts Word documents to PDF format using telegram-bot and pdfkit libraries.",
-      image: "/uploads/project_2.png",
-      tags: ["Python", "Telegram Bot", "PDF"],
+      title: "ChatBot",
+      description: "A chatbot built using Python and Gradio, integrated with the Gemini API for advanced conversational AI.",
+      image: "/uploads/project_4.png",
+      tags: ["Python", "Gradio", "Gemini API"],
       link: "/projects",
-      code: "https://github.com/wizis17/CONVERTED_PDF"
+      code: "https://github.com/wizis17/ai_chatbot"
     },
     {
       title: "Typing Speed Test",

@@ -66,7 +66,7 @@ const Resume = () => {
     {
       title: "E-Commerce Website",
       description: "a full-stack eCommerce web application designed to provide a seamless online shopping experience.",
-      technologies: ["React", "TypeScript", "PHP"],
+      technologies: ["React", "TypeScript", "PostgreSQL"],
       duration: ".",
       type: "2nd Year Project",
       accomplishments: [

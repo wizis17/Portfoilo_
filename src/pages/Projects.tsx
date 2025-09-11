@@ -29,8 +29,8 @@ const Projects = () => {
       title: "E-commerce ",
       description: "a full-stack eCommerce web application designed to provide a seamless online shopping experience.",
       image: "/uploads/project_1.jpg",
-      tags: ["React", "TypeScript", "PHP"],
-      code: "https://github.com/wizis17/twelve_AM",
+      tags: ["React", "TypeScript", "PostgreSQL"],
+      code: "https://github.com/wizis17/TwelveAM",
       category: "Web"
     },
     {
