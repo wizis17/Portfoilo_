@@ -3,7 +3,9 @@
 ## 📝 Overview
 A modern, responsive personal portfolio website designed to showcase my professional skills, projects, and experience. Built with **React** and **TypeScript** to provide a seamless, interactive user experience.
 
-🌐 **Live Demo**: [ThenG.site](https://www.theng.studio/)
+🌐 **Live Demo**
+[![Open in Spaces](./public/uploads/demo.png)](https://www.theng.studio/)
+
 
 ## 🛠 Technologies Stack
 - **Frontend Framework**: React 18
