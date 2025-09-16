@@ -55,7 +55,7 @@ const About = () => {
                 <div className="relative w-full h-80 rounded-lg mb-8 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/20 to-blue-500/20"></div>
                   <img 
-                    src="/uploads/me.png" 
+                    src="/uploads/me.jpg" 
                     alt="Profile" 
                     className="w-full h-full object-cover rounded-lg"
                   />
