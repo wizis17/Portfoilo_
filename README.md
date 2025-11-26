@@ -5,7 +5,7 @@ A modern, responsive personal portfolio website designed to showcase my professi
 
 🌐 **Live Demo**
 
-[![Open in Spaces](./public/uploads/demo.png)](https://www.theng.studio/)
+[![Open in Spaces](./public/uploads/demo.png)](https://personal-portfoilo.theng.studio/)
 
 
 ## 🛠 Technologies Stack
