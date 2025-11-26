@@ -31,7 +31,7 @@ const Projects = () => {
       image: "/uploads/project_1.jpg",
       tags: ["React", "TypeScript", "PostgreSQL"],
       code: "https://github.com/wizis17/TwelveAM",
-      category: "Web"
+      category: "web"
     },
     {
       id: 2,
@@ -59,6 +59,24 @@ const Projects = () => {
       tags: ["Python", "Gradio", "Gemini API"],
       code: "https://github.com/wizis17/ai_chatbot",
       category: "ai"
+    },
+    {
+      id: 5,
+      title: "Remove Background from Image",
+      description: "This is a high-performance web application built with Gradio that uses the BiRefNet model for high-resolution, precise image segmentation and background removal.",
+      image: "/uploads/project_5.png",
+      tags: ["Python", "BiRefNet", "Gradio"],
+      code: "https://github.com/wizis17/Remove-bg-image",
+      category: "web"
+    },
+    {
+      id: 6,
+      title: "Chinese Quote-Today",
+      description: "A modern web application for collecting and exploring Chinese quotes with beautiful UI and powerful features. Built with React, TypeScript, and Supabase.",
+      image: "/uploads/project_6.png",
+      tags: ["React", "TypeScript", "Supabase"],
+      code: "https://github.com/wizis17/diary_quote",
+      category: "web"
     },
   ];
 

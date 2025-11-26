@@ -65,7 +65,9 @@ export const Layout = ({ children }: LayoutProps) => {
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
-              <div className="text-2xl font-bold text-brand-purple mb-2">Thz.</div>
+              <img 
+              width={100}
+              src="/uploads/logo_name.png" alt="logo" />
               <p className="text-muted-foreground text-sm max-w-md">
                 Building innovative digital solutions with a focus on clean, efficient code and exceptional user experiences.
               </p>

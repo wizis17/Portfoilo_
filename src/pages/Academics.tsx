@@ -64,13 +64,13 @@ const Academics = () => {
       date: "2025",
       description: "Enablement Session - SAP Analytics Cloud training Session ."
     },
-    // {
-    //   id: 4,
-    //   name: "React.js Development",
-    //   issuer: "freeCodeCamp",
-    //   date: "2023",
-    //   description: "Building interactive user interfaces with React.js framework."
-    // }
+    {
+      id: 4,
+      name: "Cambodia Robotics Olympiad 2025",
+      issuer: "STEM",
+      date: "2025",
+      description: "Volunteer as Logistic Team for Event - (CRO 2025)."
+    }
   ];
 
   const courseHighlights = [
