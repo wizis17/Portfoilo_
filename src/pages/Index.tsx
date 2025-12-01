@@ -23,7 +23,7 @@ const Index = () => {
     {
       title: "Bobbie-Classroom",
       description: "A comprehensive classroom management platform that empowers educators and students with intuitive tools for teaching, learning, and collaboration. Built with React, TypeScript, Tailwind CSS, and Supabase.",
-      image: "/uploads/project_4.png",
+      image: "/uploads/project_7.png",
       tags: ["React", "TypeScript", "Tailwind CSS", "Supabase"],
       link: "/projects",
       code: "https://github.com/wizis17/Bobbie-Classroom"
