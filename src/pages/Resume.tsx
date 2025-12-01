@@ -76,14 +76,15 @@ const Resume = () => {
       ]
     },
     {
-      title: "Convert Word File to PDF",
-      description: "A Python script that converts Word documents to PDF format using telegram-bot and pdfkit libraries.",
-      technologies: ["Python", "Telegram-bot", "PDF"],
-      duration: "02/2025 - 03/2025",
-      type: "Personal Project",
+      title: "Bobbie-Classroom",
+      description: "A comprehensive classroom management platform that empowers educators and students with intuitive tools for teaching, learning, and collaboration. Built with React, TypeScript, Tailwind CSS, and Supabase.",
+      technologies: ["React", "TypeScript", "Tailwind CSS", "Supabase"],
+      duration: "11/2025 - 12/2025",
+      type: "Group Project",
       accomplishments: [
-        "Created an interactive bot that responds to user commands and file uploads via Telegram",
-        " Verified that the bot works seamlessly on mobile and desktop Telegram clients"
+        "Implemented the complete frontend-to-backend workflow for teachers to submit assignment and update grades",
+        "Enabled real-time grade updates so students instantly see feedback and status changes",
+        "Integrated secure Supabase routes to store scores, feedback, and grading timestamps"
       ]
     },
     {

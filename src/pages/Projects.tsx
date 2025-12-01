@@ -78,6 +78,15 @@ const Projects = () => {
       code: "https://github.com/wizis17/diary_quote",
       category: "web"
     },
+    {
+      id: 7,
+      title: "Bobbie-Classroom",
+      description: "A comprehensive classroom management platform that empowers educators and students with intuitive tools for teaching, learning, and collaboration. Built with React, TypeScript, Tailwind CSS, and Supabase.",
+      image: "/uploads/project_7.png",
+      tags: ["React", "TypeScript", "Supabase"],
+      code: "https://github.com/wizis17/Bobbie-Classroom",
+      category: "web"
+    },
   ];
 
   const getIcon = (category: string) => {

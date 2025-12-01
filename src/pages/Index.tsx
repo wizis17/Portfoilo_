@@ -21,12 +21,12 @@ const Index = () => {
       code: "https://github.com/wizis17/twelve_AM"
     },
     {
-      title: "ChatBot",
-      description: "A chatbot built using Python and Gradio, integrated with the Gemini API for advanced conversational AI.",
+      title: "Bobbie-Classroom",
+      description: "A comprehensive classroom management platform that empowers educators and students with intuitive tools for teaching, learning, and collaboration. Built with React, TypeScript, Tailwind CSS, and Supabase.",
       image: "/uploads/project_4.png",
-      tags: ["Python", "Gradio", "Gemini API"],
+      tags: ["React", "TypeScript", "Tailwind CSS", "Supabase"],
       link: "/projects",
-      code: "https://github.com/wizis17/ai_chatbot"
+      code: "https://github.com/wizis17/Bobbie-Classroom"
     },
     {
       title: "Typing Speed Test",
