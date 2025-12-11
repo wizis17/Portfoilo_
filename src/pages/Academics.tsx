@@ -1,5 +1,5 @@
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 import { AnimatedText } from "@/components/AnimatedText";
@@ -8,6 +8,8 @@ import EducationCard from "@/components/EducationCard";
 import CertificationCard from "@/components/CertificationCard";
 
 const Academics = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -48,30 +50,40 @@ const Academics = () => {
       name: "Python Programming",
       issuer: "IT Center",
       date: "2024",
-      description: "Comprehensive course covering Coding & Programming by Python."
+      description: "Comprehensive course covering Coding & Programming by Python.",
+      category: "Course"
     },
     {
       id: 2,
       name: "C & C++ Programming",
       issuer: "Addbook",
       date: "2024",
-      description: "In-depth course on C and C++ programming languages, focusing on concepts (OOP)."
+      description: "In-depth course on C and C++ programming languages, focusing on concepts (OOP).",
+      category: "Course"
     },
     {
       id: 3,
       name: "ASEAN Data Science Explorers",
       issuer: "ASEAN Foundation",
       date: "2025",
-      description: "Enablement Session - SAP Analytics Cloud training Session ."
+      description: "Enablement Session - SAP Analytics Cloud training Session .",
+      category: "Course"
     },
     {
       id: 4,
       name: "Cambodia Robotics Olympiad 2025",
       issuer: "STEM",
       date: "2025",
-      description: "Volunteer as Logistic Team for Event - (CRO 2025)."
+      description: "Volunteer as Logistic Team for Event - (CRO 2025).",
+      category: "Volunteer"
     }
   ];
+
+  const categories = ["All", "Course", "Job", "Volunteer"];
+
+  const filteredCertifications = selectedCategory === "All" 
+    ? certifications 
+    : certifications.filter(cert => cert.category === selectedCategory);
 
   const courseHighlights = [
     "Data Structures and Algorithms",
@@ -180,10 +192,31 @@ const Academics = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.9 }}
           >
-            <h2 className="text-3xl font-bold mb-12 text-center">Certifications</h2>
+            <h2 className="text-3xl font-bold mb-8 text-center">Certifications</h2>
+            
+            {/* Filter Buttons */}
+            <div className="flex justify-center mb-12">
+              <div className="inline-flex flex-wrap gap-3 bg-secondary/30 p-2 rounded-lg">
+                {categories.map((category) => (
+                  <motion.button
+                    key={category}
+                    onClick={() => setSelectedCategory(category)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${
+                      selectedCategory === category
+                        ? "bg-brand-purple text-white shadow-lg"
+                        : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                    }`}
+                  >
+                    {category}
+                  </motion.button>
+                ))}
+              </div>
+            </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {certifications.map((cert, index) => (
+              {filteredCertifications.map((cert, index) => (
                 <CertificationCard 
                   key={cert.id}
                   name={cert.name}
@@ -194,6 +227,16 @@ const Academics = () => {
                 />
               ))}
             </div>
+            
+            {filteredCertifications.length === 0 && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-center py-12 text-muted-foreground"
+              >
+                No certifications found in this category.
+              </motion.div>
+            )}
           </motion.div>
         </div>
       </section>
