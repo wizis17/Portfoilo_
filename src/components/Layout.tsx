@@ -2,7 +2,7 @@ import { ReactNode, useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, Send } from "lucide-react";
 import ScrollToTop from "./ScrollToTop";
 import ParticleBackground from "./ParticleBackground";
 
@@ -85,6 +85,17 @@ export const Layout = ({ children }: LayoutProps) => {
                   aria-label="GitHub"
                 >
                   <Github className="h-5 w-5" />
+                </motion.a>
+                <motion.a
+                  href="https://t.me/xiaochen_17"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-brand-purple transition-colors bg-secondary p-3 rounded-full"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label="Telegram"
+                >
+                  <Send className="h-5 w-5" />
                 </motion.a>
                 <motion.a
                   href="https://www.linkedin.com/in/tang-kavtheng-3a6b30362/"

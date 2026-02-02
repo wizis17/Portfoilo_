@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Mail, MapPin, Linkedin, Github, Twitter } from "lucide-react";
+import { Mail, MapPin, Linkedin, Github, Twitter, Send } from "lucide-react";
 
 const ContactInfo = () => {
   const contactInfo = [
@@ -23,6 +23,11 @@ const ContactInfo = () => {
       icon: <Github className="h-5 w-5" />,
       name: "GitHub",
       url: "https://github.com/wizis17/",
+    },
+    {
+      icon: <Send className="h-5 w-5" />,
+      name: "Telegram",
+      url: "https://t.me/xiaochen_17",
     },
     {
       icon: <Linkedin className="h-5 w-5" />,

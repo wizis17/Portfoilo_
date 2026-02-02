@@ -35,11 +35,11 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: "Convert word-file to PDF",
-      description: "A Python script that converts Word documents to PDF format using telegram-bot and pdfkit libraries.",
-      image: "/uploads/project_2.png",
-      tags: ["Python", "Telegram Bot", "PDF"],
-      code: "https://github.com/wizis17/CONVERTED_PDF",
+      title: "Browser File Converter",
+      description: "A privacy-first, browser-based file converter that allows users to convert images, audio, video, and documents entirely on their local device.",
+      image: "/uploads/project_8.png",
+      tags: ["React", "TypeScript", "FFmpeg"],
+      code: "https://github.com/wizis17/Converter",
       category: "ai"
     },
     {
@@ -86,6 +86,15 @@ const Projects = () => {
       tags: ["React", "TypeScript", "Supabase"],
       code: "https://github.com/wizis17/Bobbie-Classroom",
       category: "web"
+    },
+    {
+      id: 8,
+      title: "Convert word-file to PDF",
+      description: "A Python script that converts Word documents to PDF format using telegram-bot and pdfkit libraries.",
+      image: "/uploads/project_2.png",
+      tags: ["Python", "Telegram Bot", "PDF"],
+      code: "https://github.com/wizis17/CONVERTED_PDF",
+      category: "ai"
     },
   ];
 
