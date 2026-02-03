@@ -147,45 +147,6 @@ const Academics = () => {
             </div>
           </div>
 
-          {/* Key Courses */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.7 }}
-            whileHover={{ boxShadow: "0 20px 25px -5px rgba(155, 135, 245, 0.1)" }}
-            className="mb-24"
-          >
-            <h2 className="text-3xl font-bold mb-12 text-center">Key Courses</h2>
-            
-            <div className="glass-panel p-10 rounded-lg">
-              <div className="flex items-center justify-center mb-8">
-                <div className="bg-teal-500/10 p-4 rounded-full">
-                  <BookOpen className="h-8 w-8 text-teal-400" />
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {courseHighlights.map((course, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.8 + index * 0.05 }}
-                    whileHover={{ 
-                      scale: 1.05, 
-                      backgroundColor: "rgba(155, 135, 245, 0.2)", 
-                      color: "#9b87f5"
-                    }}
-                    className="flex items-center p-4 bg-secondary/50 rounded-lg"
-                  >
-                    <div className="h-2 w-2 rounded-full bg-teal-400 mr-3" />
-                    <span>{course}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-
           {/* Certifications */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}

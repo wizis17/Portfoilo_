@@ -2,23 +2,27 @@ import { useEffect } from "react";
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 import { AnimatedText } from "@/components/AnimatedText";
-import { Code, GraduationCap, BookOpen, Coffee, User, Heart } from "lucide-react";
+import { Code, GraduationCap, BookOpen, Coffee, User, Heart, Github, Send, Linkedin } from "lucide-react";
 import InfoCard from "@/components/InfoCard";
+import LogoLoop from "@/components/LogoLoop";
 
 const About = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const skills = [
-    { name: "Python", level: "Advanced" },
-    { name: "JavaScript", level: "Elementary" },
-    { name: "Node.js", level: "Elementary" },
-    { name: "Next.js", level: "Intermediate" },
-    { name: "C++", level: "Intermediate" },
-    { name: "Machine Learning", level: "Beginner" },
-    { name: "CSS", level: "Intermediate" },
-    { name: "AI", level: "Intermediate" },
+  const techLogos = [
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", alt: "Python" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", alt: "JavaScript" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", alt: "React" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", alt: "Node.js" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", alt: "Next.js" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", alt: "TypeScript" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg", alt: "C++" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", alt: "CSS" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg", alt: "Firebase" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", alt: "Git" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg", alt: "Tailwind CSS" },
   ];
 
   return (
@@ -29,112 +33,89 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <span className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-brand-purple/10 text-brand-purple mb-4">
+            <span className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-teal-500/10 text-teal-400 mb-4">
               About Me
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-3xl md:text-4xl font-bold mb-6">
               <AnimatedText text="Know Who I Am" once />
             </h1>
-            <div className="max-w-3xl mx-auto">
-              <p className="text-lg text-muted-foreground">
-                I'm a IT Engineering student with a passionate about creating innovative solutions through programming and technology.
-              </p>
-            </div>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              I'm a IT Engineering student with a passionate about creating innovative solutions through programming and technology.
+            </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              whileHover={{ boxShadow: "0 20px 25px -5px rgba(155, 135, 245, 0.15)" }}
-            >
-              <div className="glass-panel h-full p-8 rounded-lg">
-                <div className="relative w-full h-80 rounded-lg mb-8 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/20 to-blue-500/20"></div>
-                  <img 
-                    src="/uploads/me.jpg" 
-                    alt="Profile" 
-                    className="w-full h-full object-cover rounded-lg"
-                  />
+          <div className="relative mb-24 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="relative z-10"
+              >
+                <div className="glass-panel p-4 rounded-3xl shadow-2xl">
+                  <div className="rounded-3xl overflow-hidden shadow-xl border-4 border-teal-500/20">
+                    <img 
+                      src="/uploads/me.jpg" 
+                      alt="Profile" 
+                      className="w-full h-full object-cover aspect-[3/4]"
+                    />
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col justify-center"
-            >
-              <h2 className="text-3xl font-bold mb-6">
-                <AnimatedText text="Who am I?" once />
-              </h2>
-              <div className="space-y-4 text-muted-foreground">
-                <p>
-                  I'm <motion.span 
-                    className="text-brand-purple font-semibold"
-                    whileHover={{ color: "#8B5CF6" }}
-                  >ThenG </motion.span>, a IT Engineering student specializing in Software Engineer at Royal University of Phnom Penh .
-                </p>
-                <p>
-                  My journey in programming began with an interest in solving complex problems. This led me to explore various programming languages and technologies, with a focus on web development and artificial intelligence.
-                </p>
-                <p>
-                  I'm passionate about building user-friendly web applications and software. and I'm always exploring new tools and technologies to stay ahead.
-                </p>
-                <p>
-                  When I'm not coding, I enjoy exploring new technologies, contributing to open-source projects, Watch Movie and playing video games.
-                </p>
-              </div>
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="relative lg:-ml-32 z-20"
+              >
+                <div className="glass-panel p-10 rounded-3xl bg-gray-900/95 backdrop-blur-md">
+                  <h2 className="text-3xl md:text-4xl font-bold mb-3">
+                    Tang KavThenG
+                  </h2>
+                  <p className="text-gray-400 text-lg mb-6">
+                    IT Engineering Student, Software Developer
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed mb-8">
+                    I'm a IT Engineering student specializing in Software Engineer at Royal University of Phnom Penh. My journey in programming began with an interest in solving complex problems, leading me to explore various programming languages and technologies.
+                  </p>
+                  
+                  {/* Social Icons */}
+                  <div className="flex gap-4">
+                    <a
+                      href="https://github.com/wizis17/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors"
+                      aria-label="GitHub"
+                    >
+                      <Github className="w-6 h-6 text-gray-900" />
+                    </a>
+                    <a
+                      href="https://t.me/xiaochen_17"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors"
+                      aria-label="Telegram"
+                    >
+                      <Send className="w-6 h-6 text-gray-900" />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/tang-kavtheng-3a6b30362/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors"
+                      aria-label="LinkedIn"
+                    >
+                      <Linkedin className="w-6 h-6 text-gray-900" />
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="mb-24"
-          >
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-6">Tech Skills</h2>
-              <p className="text-muted-foreground max-w-3xl mx-auto">
-                These are the technologies and programming languages I've worked with & continue to develop expertise in.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-              {skills.map((skill, index) => (
-                <motion.div
-                  key={skill.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.1 * index }}
-                  whileHover={{ 
-                    scale: 1.05, 
-                    boxShadow: "0 10px 25px -5px rgba(155, 135, 245, 0.2)",
-                    y: -5
-                  }}
-                  className="glass-panel p-6 rounded-lg text-center"
-                >
-                  <motion.h3 
-                    className="font-semibold mb-2"
-                    whileHover={{ color: "#9b87f5" }}
-                  >{skill.name}</motion.h3>
-                  <span className={`text-xs py-1 px-3 rounded-full ${
-                    skill.level === 'Advanced' ? 'bg-brand-purple/20 text-brand-purple' :
-                    skill.level === 'Intermediate' ? 'bg-blue-500/20 text-blue-400' :
-                    'bg-green-500/20 text-green-400'
-                  }`}>
-                    {skill.level}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -208,6 +189,33 @@ const About = () => {
                   ))}
                 </ul>
               </InfoCard>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="mt-24"
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-6">Technologies I Work With</h2>
+              <p className="text-muted-foreground max-w-3xl mx-auto">
+                A collection of programming languages and tools I use to build modern applications
+              </p>
+            </div>
+
+            <div className="max-w-5xl mx-auto">
+              <LogoLoop 
+                logos={techLogos}
+                speed={50}
+                direction="right"
+                logoHeight={64}
+                gap={48}
+                pauseOnHover={true}
+                fadeOut={false}
+                scaleOnHover={true}
+              />
             </div>
           </motion.div>
         </div>
