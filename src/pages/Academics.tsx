@@ -76,6 +76,14 @@ const Academics = () => {
       date: "2025",
       description: "Volunteer as Logistic Team for Event - (CRO 2025).",
       category: "Volunteer"
+    },
+    {
+      id: 5,
+      name: "Prompt Engineering Guide",
+      issuer: "OpenAI",
+      date: "2025",
+      description: "The Prompt Engineering Guide is a project by DAIR.AI. It aims to educate researchers and practitioners about prompt engineering, context engineering, RAG, and AI Agents.",
+      category: "Course"
     }
   ];
 
