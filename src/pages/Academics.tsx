@@ -117,8 +117,9 @@ const Academics = () => {
             <span className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-teal-500/10 text-teal-400 mb-4">
               Academics
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              <AnimatedText text="Educational Background" once />
+            <h1 className="text-3xl md:text-4xl font-bold mb-8 leading-relaxed">
+              Education{""}
+              <span className="inline-block bg-cyan-600 text-white px-3 py-1 rounded -rotate-1">Background</span>{" "}
             </h1>
             <div className="max-w-3xl mx-auto">
               <p className="text-lg text-muted-foreground">

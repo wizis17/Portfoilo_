@@ -55,7 +55,9 @@ const Index = () => {
             <span className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-teal-500/10 text-teal-400 mb-4">
               About Me
             </span>
-            <h2 className="text-4xl font-bold mb-6">Who I Am</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-relaxed">
+              <span className="inline-block bg-cyan-600 text-white px-3 py-1 rounded -rotate-1">Who I Am</span>{" "}
+            </h2>
             <p className="max-w-3xl mx-auto text-muted-foreground">
               I'm a IT Engineering student specializing Software development. Passionate about programming, AI integration, web applications.
             </p>
@@ -148,7 +150,10 @@ const Index = () => {
             <span className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-teal-500/10 text-teal-400 mb-4">
               Portfolio
             </span>
-            <h2 className="text-4xl font-bold mb-6">Featured Projects</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-relaxed">
+              Featured {" "}
+              <span className="inline-block bg-blue-400 text-gray-900 px-3 py-1 rounded -rotate-1">Projects</span>{" "}
+            </h2>
             <p className="max-w-3xl mx-auto text-muted-foreground">
               A selection of my recent web development and programming projects.
             </p>
@@ -232,13 +237,15 @@ const Index = () => {
             viewport={{ once: true }}
             className="glass-panel p-12 rounded-lg max-w-4xl mx-auto text-center"
           >
-            <div className="flex items-center justify-center w-16 h-16 bg-teal-500/10 rounded-full mb-6 mx-auto">
-              <Star className="w-8 h-8 text-teal-400" />
-            </div>
-            <h2 className="text-3xl font-bold mb-4">Let's Work Together</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-relaxed">
+              <span className="inline-block bg-yellow-400 text-gray-900 px-3 py-1 rounded -rotate-1">Thank you</span>{" "}
+              for visiting and I hope{" "}
+              <span className="inline-block bg-pink-500 text-white px-3 py-1 rounded rotate-1">to connect soon</span>{" "}
+              for a future{" "}
+              <span className="inline-block bg-white text-gray-900 px-3 py-1 rounded -rotate-1">collaboration</span>
+            </h2>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              I'm currently available for freelance work and find internship .
-              If you have a project in mind or want to collaborate, let's connect!
+              I'm currently available for freelance work and internship opportunities.
             </p>
             <Link
               to="/contact"
