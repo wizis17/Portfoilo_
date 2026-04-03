@@ -30,17 +30,17 @@ const EducationCard = ({
       transition={{ duration: 0.5, delay: 0.3 + index * 0.2 }}
     >
       <motion.div
-        whileHover={{ scale: 1.03, y: -8, boxShadow: "0 15px 30px -5px rgba(155, 135, 245, 0.2)" }}
+        whileHover={{ scale: 1.02, y: -8, boxShadow: "0 15px 30px -5px rgba(0, 255, 136, 0.2)" }}
         transition={{ type: "spring", stiffness: 300 }}
-        className="glass-panel p-8 rounded-lg h-full"
+        className="glass-panel p-8 h-full"
       >
         <div className="flex items-center mb-4">
-          <div className="bg-teal-500/10 p-3 rounded-lg mr-4">
-            <GraduationCap className="h-6 w-6 text-teal-400" />
+          <div className="bg-[#00ff88]/10 p-3 border border-[#00ff88]/35 mr-4">
+            <GraduationCap className="h-6 w-6 text-[#00ff88]" />
           </div>
           <motion.h3 
             className="text-xl font-semibold"
-            whileHover={{ color: "#9b87f5" }}
+            whileHover={{ color: "#00ff88" }}
           >{degree}</motion.h3>
         </div>
         

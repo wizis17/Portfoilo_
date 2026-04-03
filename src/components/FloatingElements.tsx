@@ -10,7 +10,7 @@ const FloatingElements = () => {
       {icons.map((Icon, index) => (
         <motion.div
           key={index}
-          className="absolute text-brand-purple/10"
+          className="absolute text-[#00ff88]/10"
           initial={{
             x: Math.random() * window.innerWidth,
             y: Math.random() * window.innerHeight,

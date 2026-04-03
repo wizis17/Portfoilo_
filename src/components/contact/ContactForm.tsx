@@ -86,7 +86,7 @@ const ContactForm = () => {
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5, delay: 0.2 }}
     >
-      <div className="glass-panel p-6 rounded-lg">
+      <div className="glass-panel p-6">
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-1">
@@ -101,9 +101,9 @@ const ContactForm = () => {
                   onChange={handleChange}
                   required
                   disabled={isSubmitting}
-                  className="w-full pl-10 pr-4 py-2.5 bg-secondary text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple disabled:opacity-50 text-sm"
+                  className="hud-input w-full pl-10 pr-4 py-2.5 disabled:opacity-50 text-sm"
                   placeholder="John Doe"
-                  whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
+                  whileFocus={{ boxShadow: "0 0 0 2px rgba(0, 255, 136, 0.25)" }}
                 />
               </div>
             </div>
@@ -120,9 +120,9 @@ const ContactForm = () => {
                   onChange={handleChange}
                   required
                   disabled={isSubmitting}
-                  className="w-full pl-10 pr-4 py-2.5 bg-secondary text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple disabled:opacity-50 text-sm"
+                  className="hud-input w-full pl-10 pr-4 py-2.5 disabled:opacity-50 text-sm"
                   placeholder="you@example.com"
-                  whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
+                  whileFocus={{ boxShadow: "0 0 0 2px rgba(0, 255, 136, 0.25)" }}
                 />
               </div>
             </div>
@@ -140,9 +140,9 @@ const ContactForm = () => {
                 onChange={handleChange}
                 required
                 disabled={isSubmitting}
-                className="w-full pl-10 pr-4 py-2.5 bg-secondary text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple disabled:opacity-50 text-sm"
+                className="hud-input w-full pl-10 pr-4 py-2.5 disabled:opacity-50 text-sm"
                 placeholder="Project inquiry / Job opportunity / Collaboration..."
-                whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
+                whileFocus={{ boxShadow: "0 0 0 2px rgba(0, 255, 136, 0.25)" }}
               />
             </div>
           </div>
@@ -159,9 +159,9 @@ const ContactForm = () => {
                 required
                 disabled={isSubmitting}
                 rows={4}
-                className="w-full pl-10 pr-4 py-2.5 bg-secondary text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-purple resize-none disabled:opacity-50 text-sm"
+                className="hud-input w-full pl-10 pr-4 py-2.5 resize-none disabled:opacity-50 text-sm"
                 placeholder="Tell me more about your project, your timeline, and what you're looking to achieve..."
-                whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
+                whileFocus={{ boxShadow: "0 0 0 2px rgba(0, 255, 136, 0.25)" }}
               />
             </div>
           </div>
@@ -172,12 +172,12 @@ const ContactForm = () => {
               disabled={isSubmitting || isSubmitted}
               whileHover={{ scale: isSubmitting || isSubmitted ? 1 : 1.02 }}
               whileTap={{ scale: isSubmitting || isSubmitted ? 1 : 0.98 }}
-              className={`flex items-center justify-center w-full px-6 py-3 rounded-lg font-medium transition-colors ${
+              className={`flex items-center justify-center w-full px-6 py-3 font-medium transition-colors [clip-path:polygon(0_8px,8px_0,calc(100%_-_8px)_0,100%_8px,100%_calc(100%_-_8px),calc(100%_-_8px)_100%,8px_100%,0_calc(100%_-_8px))] ${
                 isSubmitted 
                   ? "bg-green-600 text-white cursor-not-allowed" 
                   : isSubmitting
-                  ? "bg-brand-purple/70 text-white cursor-not-allowed"
-                  : "bg-brand-purple text-white hover:bg-brand-purple/90"
+                  ? "bg-[#00ff88]/70 text-[#04100d] cursor-not-allowed"
+                  : "bg-[linear-gradient(90deg,#00ff88,#2dffc5)] text-[#04100d] hover:brightness-110"
               }`}
             >
               {isSubmitting ? (

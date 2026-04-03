@@ -64,8 +64,8 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				brand: {
-					purple: '#9b87f5',
-					dark: '#080E21',
+					purple: '#00ff88',
+					dark: '#04070d',
 					light: '#f8f9fa'
 				}
 			},
@@ -75,7 +75,7 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			fontFamily: {
-				sans: ['Inter', 'system-ui', 'sans-serif'],
+				sans: ['Share Tech Mono', 'JetBrains Mono', 'monospace'],
 				mono: ['JetBrains Mono', 'monospace'],
 			},
 			keyframes: {

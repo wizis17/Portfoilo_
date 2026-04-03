@@ -77,7 +77,7 @@ const Auth = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <span className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-brand-purple/10 text-brand-purple mb-4">
+            <span className="hud-badge mb-4">
               Account Access
             </span>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -98,7 +98,7 @@ const Auth = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <div className="glass-panel p-8 rounded-lg">
+              <div className="glass-panel p-8">
                 <Tabs defaultValue="login" value={activeTab} onValueChange={setActiveTab}>
                   <TabsList className="grid grid-cols-2 mb-8">
                     <TabsTrigger value="login">Login</TabsTrigger>
@@ -120,7 +120,7 @@ const Auth = () => {
                           required
                           value={loginData.email}
                           onChange={handleLoginChange}
-                          className="bg-secondary/50"
+                          className="hud-input"
                         />
                       </div>
                       
@@ -137,13 +137,13 @@ const Auth = () => {
                           required
                           value={loginData.password}
                           onChange={handleLoginChange}
-                          className="bg-secondary/50"
+                          className="hud-input"
                         />
                       </div>
                       
                       <Button
                         type="submit"
-                        className="w-full bg-brand-purple hover:bg-brand-purple/90"
+                        className="w-full"
                         disabled={isLoading}
                       >
                         {isLoading ? (
@@ -173,7 +173,7 @@ const Auth = () => {
                           required
                           value={signupData.fullName}
                           onChange={handleSignupChange}
-                          className="bg-secondary/50"
+                          className="hud-input"
                         />
                       </div>
                       
@@ -190,7 +190,7 @@ const Auth = () => {
                           required
                           value={signupData.email}
                           onChange={handleSignupChange}
-                          className="bg-secondary/50"
+                          className="hud-input"
                         />
                       </div>
                       
@@ -207,13 +207,13 @@ const Auth = () => {
                           required
                           value={signupData.password}
                           onChange={handleSignupChange}
-                          className="bg-secondary/50"
+                          className="hud-input"
                         />
                       </div>
                       
                       <Button
                         type="submit"
-                        className="w-full bg-brand-purple hover:bg-brand-purple/90"
+                        className="w-full"
                         disabled={isLoading}
                       >
                         {isLoading ? (

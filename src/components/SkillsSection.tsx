@@ -83,11 +83,11 @@ const SkillsSection = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: 0.5 }}
-      className="glass-panel p-8 rounded-xl backdrop-blur-md border border-white/10"
+      className="glass-panel p-8"
     >
       <div className="flex items-center justify-between mb-8">
-        <h3 className="text-2xl font-semibold flex items-center text-white">
-          <Code className="w-6 h-6 mr-3 text-brand-purple" />
+        <h3 className="text-2xl font-semibold flex items-center text-white tracking-[0.08em]">
+          <Code className="w-6 h-6 mr-3 text-[#00ff88]" />
           Technical Skills
         </h3>
       </div>
@@ -100,10 +100,10 @@ const SkillsSection = () => {
             onClick={() => setActiveFilter(category)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 backdrop-blur-sm border ${
+            className={`px-4 py-2 text-sm font-medium uppercase tracking-[0.1em] [font-family:'Share_Tech_Mono',monospace] transition-all duration-300 border [clip-path:polygon(0_6px,6px_0,calc(100%_-_6px)_0,100%_6px,100%_calc(100%_-_6px),calc(100%_-_6px)_100%,6px_100%,0_calc(100%_-_6px))] ${
               activeFilter === category
-                ? "bg-brand-purple text-white border-brand-purple/50"
-                : "bg-gray-800/30 text-gray-300 border-white/10 hover:bg-gray-800/50 hover:border-brand-purple/30"
+                ? "bg-[#00ff88]/16 text-[#00ff88] border-[#00ff88]/55"
+                : "bg-[#071321] text-gray-300 border-[#385070] hover:bg-[#0b1a2d] hover:border-[#00d4ff]/40"
             }`}
           >
             {category}
@@ -138,16 +138,16 @@ const SkillsSection = () => {
             className="flex flex-col items-center group cursor-pointer"
           >
             <motion.div
-              className={`relative w-16 h-16 ${skill.bgColor} rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/10 group-hover:border-brand-purple/50 transition-all duration-300`}
+              className={`relative w-16 h-16 ${skill.bgColor} flex items-center justify-center backdrop-blur-sm border border-[#385070] group-hover:border-[#00ff88]/50 transition-all duration-300 [clip-path:polygon(0_10px,10px_0,calc(100%_-_10px)_0,100%_10px,100%_calc(100%_-_10px),calc(100%_-_10px)_100%,10px_100%,0_calc(100%_-_10px))]`}
               whileHover={{ 
-                boxShadow: "0 10px 30px -5px rgba(155, 135, 245, 0.4)",
+                boxShadow: "0 10px 30px -5px rgba(0, 255, 136, 0.35)",
               }}
             >
               <i className={`${getSkillIcon(skill.name)} text-3xl`} style={{ color: skill.color }}></i>
               
               {/* Shine effect on hover */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100"
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100"
                 transition={{ duration: 0.3 }}
               />
             </motion.div>

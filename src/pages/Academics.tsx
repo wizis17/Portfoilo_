@@ -114,12 +114,12 @@ const Academics = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <span className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-teal-500/10 text-teal-400 mb-4">
+            <span className="hud-badge mb-4">
               Academics
             </span>
             <h1 className="text-3xl md:text-4xl font-bold mb-8 leading-relaxed">
               Education{""}
-              <span className="inline-block bg-cyan-600 text-white px-3 py-1 rounded -rotate-1">Background</span>{" "}
+              <span className="inline-block border border-[#00d4ff]/55 bg-[#041321] text-[#00d4ff] px-3 py-1">Background</span>{" "}
             </h1>
             <div className="max-w-3xl mx-auto">
               <p className="text-lg text-muted-foreground">
@@ -166,17 +166,17 @@ const Academics = () => {
             
             {/* Filter Buttons */}
             <div className="flex justify-center mb-12">
-              <div className="inline-flex flex-wrap gap-3 bg-secondary/30 p-2 rounded-lg">
+              <div className="inline-flex flex-wrap gap-3 bg-[#071220]/80 border border-[#00d4ff]/35 p-2">
                 {categories.map((category) => (
                   <motion.button
                     key={category}
                     onClick={() => setSelectedCategory(category)}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${
+                    className={`px-6 py-2 text-sm font-medium uppercase tracking-[0.1em] [font-family:'Share_Tech_Mono',monospace] transition-all [clip-path:polygon(0_7px,7px_0,calc(100%_-_7px)_0,100%_7px,100%_calc(100%_-_7px),calc(100%_-_7px)_100%,7px_100%,0_calc(100%_-_7px))] ${
                       selectedCategory === category
-                        ? "bg-brand-purple text-white shadow-lg"
-                        : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                        ? "bg-[#00ff88]/16 text-[#00ff88] border border-[#00ff88]/55"
+                        : "text-muted-foreground border border-[#385070] hover:text-foreground hover:border-[#00d4ff]/50 hover:bg-[#0a1a2d]"
                     }`}
                   >
                     {category}

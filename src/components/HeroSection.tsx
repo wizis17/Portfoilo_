@@ -1,17 +1,13 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { ArrowRight, Code, Database, FileCode, Server, Terminal, GitBranch, Globe, Tv } from "lucide-react";
-import AnimatedText from "./AnimatedText";
+import { ArrowRight, Command, Cpu, Globe2 } from "lucide-react";
 import { Link } from "react-router-dom";
-import SkillCard from "./SkillCard";
-import ParticleBackground from "./ParticleBackground";
-import FloatingElements from "./FloatingElements";
 
 const phrases = [
-  "Machine Learning",
-  "Software Engineer",
-  "Web Developer",
-  "AI/ML Enthusiast",
+  "FULL-STACK PROJECTS",
+  "AI-POWERED BUILDS",
+  "PROBLEM SOLVING",
+  "CONTINUOUS LEARNING",
 ];
 
 const HeroSection = () => {
@@ -20,298 +16,157 @@ const HeroSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % phrases.length);
-    }, 3000);
+    }, 2500);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Particle Background */}
-      <ParticleBackground />
-      
-      {/* Floating Elements */}
-      <FloatingElements />
+    <section className="relative min-h-screen overflow-hidden pt-24 pb-16">
+      <div className="absolute inset-0 cyber-grid" />
+      <div className="absolute inset-0 cyber-scanlines pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_15%,rgba(0,255,136,0.14),transparent_40%),radial-gradient(circle_at_80%_75%,rgba(0,212,255,0.12),transparent_45%),radial-gradient(circle_at_65%_20%,rgba(255,0,255,0.10),transparent_35%)]" />
 
-      {/* Enhanced Background animated elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div 
-          className="absolute -top-20 -right-20 w-72 h-72 bg-teal-500/20 rounded-full filter blur-3xl opacity-30"
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
-        <motion.div 
-          className="absolute top-1/3 -left-20 w-72 h-72 bg-amber-500/20 rounded-full filter blur-3xl opacity-30"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            rotate: [360, 180, 0],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "linear",
-            delay: 2
-          }}
-        />
-        <motion.div 
-          className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 w-72 h-72 bg-rose-500/20 rounded-full filter blur-3xl opacity-30"
-          animate={{
-            scale: [1, 1.3, 1],
-            rotate: [0, -180, -360],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "linear",
-            delay: 4
-          }}
-        />
-      </div>
-      
-      <div className="container mx-auto px-4 z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
+      <div className="container relative z-10 mx-auto px-4">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-5">
+          <div className="lg:col-span-3">
+            <motion.span
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="mb-4"
+              transition={{ duration: 0.3 }}
+              className="mb-5 inline-flex border border-[#00ff88]/70 bg-[#02140f]/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#00ff88] [font-family:'Share_Tech_Mono',monospace]"
             >
-              <motion.span 
-                className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-teal-500/10 text-teal-400 mb-4"
-                animate={{
-                  boxShadow: [
-                    "0 0 0 0 rgba(20, 184, 166, 0.7)",
-                    "0 0 0 10px rgba(20, 184, 166, 0)",
-                  ],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                }}
-              >
-                Welcome to my portfolio
-              </motion.span>
-            </motion.div>
-            
-            <motion.h1 
-              className="text-5xl md:text-6xl font-bold mb-4"
-              initial={{ opacity: 0, y: 20 }}
+              Portfolio_Status: Online
+            </motion.span>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.45, delay: 0.1 }}
+              className="leading-[0.9]"
             >
-              <span className="block">Hi, I'm </span>
-              <motion.span 
-                className="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-amber-400"
-                animate={{
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-                style={{
-                  backgroundSize: "200% 200%"
-                }}
+              <span
+                className="cyber-glitch block text-5xl font-black uppercase tracking-tight text-white sm:text-6xl md:text-7xl xl:text-8xl [font-family:'Orbitron',monospace]"
+                data-text="BUILDING"
               >
-                ThenG
-              </motion.span>
+                BUILDING
+              </span>
+              <span className="block text-5xl font-black uppercase tracking-tight text-[#00ff88] sm:text-6xl md:text-7xl xl:text-8xl [font-family:'Orbitron',monospace]">
+                MODERN WEB
+              </span>
+              <span className="block bg-gradient-to-r from-[#ff00ff] via-[#c281ff] to-[#00d4ff] bg-clip-text text-5xl font-black uppercase tracking-tight text-transparent sm:text-6xl md:text-7xl xl:text-8xl [font-family:'Orbitron',monospace]">
+                AI-AGENTs
+              </span>
+              <span className="block bg-gradient-to-r from-[#c8a6ff] via-[#73b7ff] to-[#00d4ff] bg-clip-text text-5xl font-black uppercase tracking-tight text-transparent sm:text-6xl md:text-7xl xl:text-8xl [font-family:'Orbitron',monospace]">
+                SYSTEMS
+              </span>
             </motion.h1>
-            
-            <motion.div 
-              className="h-12 mb-6"
-              initial={{ opacity: 0, y: 20 }}
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className="mt-8 max-w-2xl border-l-2 border-[#00ff88]/90 pl-5"
             >
-              <AnimatedText 
-                text={phrases[index]} 
-                className="text-2xl md:text-3xl font-medium text-muted-foreground"
-              />
+              <p className="text-lg uppercase tracking-[0.16em] text-[#00d4ff] [font-family:'Share_Tech_Mono',monospace]">
+                &gt; {phrases[index]}
+                <span className="cyber-cursor">_</span>
+              </p>
+              <p className="mt-4 text-base leading-8 text-[#9ba3b7] [font-family:'JetBrains_Mono',monospace] md:text-[1.08rem]">
+                &gt; IT Engineering student focused on software development, web applications, and AI integration.
+                I build practical projects with clean code, strong fundamentals, and real-world impact.
+              </p>
             </motion.div>
-            
-            <motion.p 
-              className="text-lg text-muted-foreground mb-8 max-w-lg"
-              initial={{ opacity: 0, y: 20 }}
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+              className="mt-10 flex flex-wrap gap-4"
             >
-              Passionate about programming and software development .
-              Building modern web applications using Node.js, React.js, and Next.js in AI-powered solutions.
-            </motion.p>
-            
-            <motion.div 
-              className="flex flex-wrap gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-            >
-              <motion.div
-                whileHover={{ 
-                  scale: 1.05, 
-                  backgroundColor: "#7E69AB",
-                  boxShadow: "0 0 20px rgba(20, 184, 166, 0.5)"
-                }}
-                whileTap={{ scale: 0.95 }}
+              <Link
+                to="/projects"
+                className="cyber-btn-primary inline-flex min-h-11 items-center px-7 py-3 text-sm font-bold uppercase tracking-[0.18em] [font-family:'Share_Tech_Mono',monospace]"
               >
-                <Link to="/contact" className="inline-flex items-center bg-teal-500 text-white px-6 py-3 rounded-lg font-medium transition-all">
-                  Get in Touch
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </motion.div>
-              
-              <motion.div
-                whileHover={{ 
-                  scale: 1.05, 
-                  backgroundColor: "rgba(255, 255, 255, 0.1)",
-                  boxShadow: "0 0 20px rgba(155, 135, 245, 0.3)"
-                }}
-                whileTap={{ scale: 0.95 }}
+                View Projects
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+              <Link
+                to="/contact"
+                className="cyber-btn-outline inline-flex min-h-11 items-center px-7 py-3 text-sm font-bold uppercase tracking-[0.18em] [font-family:'Share_Tech_Mono',monospace]"
               >
-                <Link to="/projects" className="inline-flex items-center bg-secondary text-foreground px-6 py-3 rounded-lg font-medium transition-all">
-                  View Projects
-                </Link>
-              </motion.div>
+                Contact Me
+              </Link>
             </motion.div>
           </div>
-          
-          <motion.div 
-            className="relative hidden lg:block"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.35 }}
+            className="relative lg:col-span-2"
           >
-            <motion.div 
-              className="relative w-full h-[500px] rounded-lg overflow-hidden glass-panel p-6"
-              animate={{
-                boxShadow: [
-                  "0 0 20px rgba(20, 184, 166, 0.2)",
-                  "0 0 40px rgba(245, 158, 11, 0.2)",
-                  "0 0 20px rgba(20, 184, 166, 0.2)",
-                ],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-teal-500/20 to-transparent"></div>
-              <div className="relative h-full w-full grid grid-cols-6 grid-rows-6 gap-4">
-                
-                {/* Skills grid */}
-                <SkillCard 
-                  icon={Code}
-                  title="Python"
-                  description="Expert level proficiency"
-                  className="col-span-3 row-span-2"
-                />
-                
-                <SkillCard 
-                  icon={FileCode}
-                  title="JavaScript"
-                  description="Frontend & backend development"
-                  className="col-span-3 row-span-2"
-                />
-                
-                <SkillCard 
-                  icon={Globe}
-                  title="React.js"
-                  description="UI Library"
-                  className="col-span-2 row-span-2"
-                />
-                
-                <SkillCard 
-                  icon={Database}
-                  title="SQL"
-                  description="Database"
-                  className="col-span-2 row-span-2"
-                />
-                
-                <SkillCard 
-                  icon={Terminal}
-                  title="C++"
-                  description="Systems programming"
-                  className="col-span-2 row-span-2"
-                />
-                
-                <SkillCard 
-                  icon={Server}
-                  title="Node.js"
-                  description="Backend development"
-                  className="col-span-3 row-span-2"
-                />
-                
-                <SkillCard 
-                  icon={Tv}
-                  title="UI/UX Design"
-                  description="Interface design & prototyping"
-                  className="col-span-3 row-span-2"
-                />
-                
-                <SkillCard 
-                  icon={GitBranch}
-                  title="AI & Machine Learning"
-                  description="Model development & deployment"
-                  className="col-span-3 row-span-2"
-                />
-                
-                <SkillCard 
-                  icon={Code}
-                  title="Next.js"
-                  description="React framework"
-                  className="col-span-3 row-span-2"
-                />
+            <div className="cyber-panel p-6 sm:p-8">
+              <div className="mb-8 flex items-center justify-between border-b border-[#00ff88]/30 pb-4">
+                <p className="text-xs uppercase tracking-[0.22em] text-[#00ff88] [font-family:'Share_Tech_Mono',monospace]">
+                  Portfolio_V2
+                </p>
+                <div className="flex gap-2">
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#ff4d6d]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#ffd166]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#00ff88]" />
+                </div>
               </div>
-            </motion.div>
+
+              <div className="grid grid-cols-5 gap-4">
+                <div className="cyber-subpanel col-span-3 flex min-h-28 items-center justify-center">
+                  <Command className="h-11 w-11 text-[#00ff88] drop-shadow-[0_0_8px_rgba(0,255,136,0.7)]" strokeWidth={1.7} />
+                </div>
+
+                <div className="cyber-subpanel col-span-2 flex min-h-28 flex-col items-center justify-center">
+                  <p className="text-4xl font-black text-[#ff3fff] [font-family:'Orbitron',monospace]">08</p>
+                  <p className="text-[11px] uppercase tracking-[0.28em] text-[#ff3fff] [font-family:'Share_Tech_Mono',monospace]">
+                    Projects
+                  </p>
+                </div>
+
+                <div className="cyber-subpanel col-span-5 flex min-h-28 items-center gap-3 px-5">
+                  <Globe2 className="h-8 w-8 text-[#00d4ff] drop-shadow-[0_0_8px_rgba(0,212,255,0.8)]" strokeWidth={1.6} />
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.22em] text-[#00d4ff] [font-family:'Share_Tech_Mono',monospace]">
+                      Core_Stack
+                    </p>
+                    <p className="mt-1 text-sm text-[#96a0b2] [font-family:'JetBrains_Mono',monospace]">
+                      React, TypeScript, Python, Firebase.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="cyber-subpanel col-span-5 flex min-h-24 items-center justify-between px-5">
+                  <div className="flex items-center gap-3">
+                    <Cpu className="h-7 w-7 text-[#00ff88]" strokeWidth={1.6} />
+                    <p className="text-xs uppercase tracking-[0.22em] text-[#00ff88] [font-family:'Share_Tech_Mono',monospace]">
+                      Availability
+                    </p>
+                  </div>
+                  <span className="text-base font-bold text-white [font-family:'Orbitron',monospace]">OPEN TO WORK</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
-      
-      {/* Enhanced scroll indicator */}
-      <motion.div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ 
-          duration: 0.5, 
-          delay: 1,
-          repeat: Infinity,
-          repeatType: "reverse",
-          repeatDelay: 0.5
-        }}
+
+      <motion.div
+        className="absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 md:block"
+        animate={{ opacity: [0.45, 1, 0.45] }}
+        transition={{ duration: 1.2, repeat: Infinity }}
       >
-        <motion.div 
-          className="w-6 h-10 border-2 border-muted-foreground rounded-full flex justify-center"
-          animate={{
-            borderColor: ["#94a3b8", "#14b8a6", "#94a3b8"],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
-          <motion.div 
-            className="w-1.5 h-1.5 bg-muted-foreground rounded-full mt-2"
-            animate={{ 
-              y: [0, 12, 0],
-              backgroundColor: ["#94a3b8", "#14b8a6", "#94a3b8"],
-            }}
-            transition={{ 
-              duration: 1.5, 
-              repeat: Infinity,
-              repeatType: "loop"
-            }}
-          />
-        </motion.div>
+        <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-[#00ff88] [font-family:'Share_Tech_Mono',monospace]">
+          <span>Scroll</span>
+          <span className="inline-flex h-5 w-5 items-center justify-center border border-[#00ff88]/60">
+            <ArrowRight className="h-3 w-3 rotate-90" />
+          </span>
+        </div>
       </motion.div>
     </section>
   );

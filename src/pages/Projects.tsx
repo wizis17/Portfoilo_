@@ -141,7 +141,7 @@ const Projects = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <span className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-brand-purple/10 text-brand-purple mb-4">
+            <span className="hud-badge mb-4">
               Portfolio
             </span>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -159,10 +159,10 @@ const Projects = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            whileHover={{ boxShadow: "0 10px 25px -5px rgba(155, 135, 245, 0.1)" }}
+            whileHover={{ boxShadow: "0 10px 25px -5px rgba(0, 255, 136, 0.14)" }}
             className="mb-12"
           >
-            <div className="flex flex-col md:flex-row gap-6 items-center justify-between glass-panel p-6 rounded-lg">
+            <div className="flex flex-col md:flex-row gap-6 items-center justify-between glass-panel p-6">
               {/* Category Filter */}
               <div className="flex items-center">
                 <Filter className="mr-2 h-5 w-5 text-muted-foreground" />
@@ -174,10 +174,10 @@ const Projects = () => {
                       onClick={() => setFilter(category.id)}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
+                      className={`px-3 py-1.5 text-xs font-medium uppercase tracking-[0.08em] [font-family:'Share_Tech_Mono',monospace] transition-colors [clip-path:polygon(0_6px,6px_0,calc(100%_-_6px)_0,100%_6px,100%_calc(100%_-_6px),calc(100%_-_6px)_100%,6px_100%,0_calc(100%_-_6px))] ${
                         filter === category.id 
-                          ? "bg-brand-purple text-white" 
-                          : "bg-secondary hover:bg-secondary/80 text-muted-foreground"
+                            ? "bg-[#00ff88]/16 text-[#00ff88] border border-[#00ff88]/55" 
+                            : "bg-[#081320] border border-[#385070] hover:border-[#00d4ff]/50 text-muted-foreground"
                       }`}
                     >
                       {category.name}
@@ -193,11 +193,11 @@ const Projects = () => {
                 </div>
                 <motion.input
                   type="text"
-                  className="w-full py-2 pl-10 pr-4 bg-secondary rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple"
+                  className="hud-input w-full py-2 pl-10 pr-4 text-sm focus:outline-none"
                   placeholder="Search projects..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  whileFocus={{ boxShadow: "0 0 0 3px rgba(155, 135, 245, 0.3)" }}
+                  whileFocus={{ boxShadow: "0 0 0 2px rgba(0, 255, 136, 0.24)" }}
                 />
               </div>
             </div>
@@ -222,7 +222,7 @@ const Projects = () => {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="col-span-1 md:col-span-2 lg:col-span-3 text-center py-16 glass-panel rounded-lg"
+                className="col-span-1 md:col-span-2 lg:col-span-3 text-center py-16 glass-panel"
               >
                 <p className="text-xl text-muted-foreground">No projects found matching your criteria.</p>
                 <motion.button
@@ -230,9 +230,9 @@ const Projects = () => {
                     setFilter("all");
                     setSearchTerm("");
                   }}
-                  whileHover={{ scale: 1.05, backgroundColor: "#8B5CF6" }}
+                  whileHover={{ scale: 1.05, backgroundColor: "#00ff88" }}
                   whileTap={{ scale: 0.95 }}
-                  className="mt-4 inline-flex items-center px-4 py-2 bg-brand-purple text-white rounded-lg text-sm font-medium hover:bg-opacity-90 transition-all"
+                  className="mt-4 cyber-btn-primary inline-flex items-center px-4 py-2 text-sm font-medium"
                 >
                   Clear Filters
                 </motion.button>

@@ -3,7 +3,6 @@ import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 import { AnimatedText } from "@/components/AnimatedText";
 import PrintableResume from "@/components/PrintableResume";
-import SkillsSection from "@/components/SkillsSection";
 import { 
   Briefcase, 
   GraduationCap, 
@@ -150,22 +149,22 @@ const Resume = () => {
     { 
       title: "AI & ML Specialist", 
       description: "Specialized in machine learning algorithms and AI applications with practical implementation experience",
-      icon: <Brain className="h-8 w-8 text-brand-purple" />
+      icon: <Brain className="h-8 w-8 text-[#00ff88]" />
     },
     { 
       title: "Full-Stack Developer", 
       description: "Proficient in both front-end and back-end technologies, creating complete web solutions",
-      icon: <Code className="h-8 w-8 text-brand-purple" />
+      icon: <Code className="h-8 w-8 text-[#00d4ff]" />
     },
     { 
       title: "Web Developer", 
       description: "Experienced in building web applications using react framework and plain HTML and CSS",
-      icon: <Cpu className="h-8 w-8 text-brand-purple" />
+      icon: <Cpu className="h-8 w-8 text-[#ff3fff]" />
     },
     { 
       title: "Data Analyst", 
       description: "Skilled in data analysis, visualization, and extracting actionable insights",
-      icon: <Database className="h-8 w-8 text-brand-purple" />
+      icon: <Database className="h-8 w-8 text-[#00ff88]" />
     },
   ];
 
@@ -179,9 +178,9 @@ const Resume = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="glass-panel p-6 rounded-lg flex items-start backdrop-blur-md border border-white/10"
+              className="glass-panel p-6 flex items-start"
             >
-              <div className="mr-4 bg-brand-purple/10 p-3 rounded-full">
+              <div className="mr-4 bg-[#00ff88]/10 p-3 border border-[#00ff88]/35">
                 {highlight.icon}
               </div>
               <div>
@@ -192,18 +191,16 @@ const Resume = () => {
           ))}
         </div>
 
-        <SkillsSection />
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.8 }}
-          className="glass-panel p-6 rounded-lg backdrop-blur-md border border-white/10"
+          className="glass-panel p-6"
         >
           <h3 className="text-xl font-semibold mb-6 text-white">Soft Skills</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {softSkills.map((item, index) => (
-              <div key={index} className="bg-secondary/50 p-4 rounded-lg">
+              <div key={index} className="bg-[#081422]/70 border border-[#385070] p-4">
                 <h4 className="font-medium text-lg mb-1">{item.skill}</h4>
                 <p className="text-sm text-muted-foreground">{item.description}</p>
               </div>
@@ -225,13 +222,13 @@ const Resume = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
-            className="glass-panel p-6 rounded-lg"
+            className="glass-panel p-6"
           >
             <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-4">
               <div className="flex-1">
                 <div className="flex items-start">
-                  <div className="bg-brand-purple/10 p-2 rounded-full mr-4 hidden md:block">
-                    <GraduationCap className="h-6 w-6 text-brand-purple" />
+                  <div className="bg-[#00ff88]/10 p-2 border border-[#00ff88]/35 mr-4 hidden md:block">
+                    <GraduationCap className="h-6 w-6 text-[#00ff88]" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold">{edu.degree}</h3>
@@ -241,59 +238,59 @@ const Resume = () => {
                 </div>
               </div>
               <div className="flex flex-col items-start md:items-end text-right">
-                <div className="px-3 py-1 rounded-full text-sm bg-brand-purple/10 text-brand-purple">
+                <div className="hud-pill text-sm">
                   {edu.gpa}
                 </div>
                 <div className="text-sm text-muted-foreground mt-2">{edu.duration}</div>
                 <div className="text-sm text-muted-foreground mt-1">{edu.location}</div>
               </div>
             </div>
-            <div className="mt-4 pl-4 border-l-2 border-brand-purple/30">
+            <div className="mt-4 pl-4 border-l-2 border-[#00ff88]/35">
               <h4 className="font-medium mb-2">Key Courses:</h4>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {edu.institution.includes("Royal University of Phnom Penh") ? (
                   <>
                     <li className="text-sm flex items-center">
-                      <span className="h-1.5 w-1.5 bg-brand-purple rounded-full mr-2"></span>
+                      <span className="h-1.5 w-1.5 bg-[#00ff88] mr-2"></span>
                       Softwere Engineering
                     </li>
                     <li className="text-sm flex items-center">
-                      <span className="h-1.5 w-1.5 bg-brand-purple rounded-full mr-2"></span>
+                      <span className="h-1.5 w-1.5 bg-[#00d4ff] mr-2"></span>
                       Data Structures & Algorithms 
                     </li>
                     <li className="text-sm flex items-center">
-                      <span className="h-1.5 w-1.5 bg-brand-purple rounded-full mr-2"></span>
+                      <span className="h-1.5 w-1.5 bg-[#ff3fff] mr-2"></span>
                       Computer Vision Systems
                     </li>
                     <li className="text-sm flex items-center">
-                      <span className="h-1.5 w-1.5 bg-brand-purple rounded-full mr-2"></span>
+                      <span className="h-1.5 w-1.5 bg-[#00ff88] mr-2"></span>
                       Web Development
                     </li>
                     <li className="text-sm flex items-center">
-                      <span className="h-1.5 w-1.5 bg-brand-purple rounded-full mr-2"></span>
+                      <span className="h-1.5 w-1.5 bg-[#00d4ff] mr-2"></span>
                       Database Management Systems
                     </li>
                     <li className="text-sm flex items-center">
-                      <span className="h-1.5 w-1.5 bg-brand-purple rounded-full mr-2"></span>
+                      <span className="h-1.5 w-1.5 bg-[#ff3fff] mr-2"></span>
                       Artificial Intelligence & Machine Learning
                     </li>
                   </>
                 ) : (
                   <>
                     <li className="text-sm flex items-center">
-                      <span className="h-1.5 w-1.5 bg-brand-purple rounded-full mr-2"></span>
+                      <span className="h-1.5 w-1.5 bg-[#00ff88] mr-2"></span>
                       Physics
                     </li>
                     <li className="text-sm flex items-center">
-                      <span className="h-1.5 w-1.5 bg-brand-purple rounded-full mr-2"></span>
+                      <span className="h-1.5 w-1.5 bg-[#00d4ff] mr-2"></span>
                       Chemistry
                     </li>
                     <li className="text-sm flex items-center">
-                      <span className="h-1.5 w-1.5 bg-brand-purple rounded-full mr-2"></span>
+                      <span className="h-1.5 w-1.5 bg-[#ff3fff] mr-2"></span>
                       Mathematics
                     </li>
                     <li className="text-sm flex items-center">
-                      <span className="h-1.5 w-1.5 bg-brand-purple rounded-full mr-2"></span>
+                      <span className="h-1.5 w-1.5 bg-[#00ff88] mr-2"></span>
                       Computer Science
                     </li>
                   </>
@@ -317,13 +314,13 @@ const Resume = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
-            className="glass-panel p-6 rounded-lg"
+            className="glass-panel p-6"
           >
             <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-4">
               <div className="flex-1">
                 <div className="flex items-start">
-                  <div className="bg-brand-purple/10 p-2 rounded-full mr-4 hidden md:block">
-                    <Briefcase className="h-6 w-6 text-brand-purple" />
+                  <div className="bg-[#00d4ff]/10 p-2 border border-[#00d4ff]/35 mr-4 hidden md:block">
+                    <Briefcase className="h-6 w-6 text-[#00d4ff]" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold">{exp.position}</h3>
@@ -341,7 +338,7 @@ const Resume = () => {
               <ul className="space-y-2">
                 {exp.responsibilities.map((resp, i) => (
                   <li key={i} className="flex items-start">
-                    <CheckCircle2 className="h-5 w-5 text-brand-purple mr-2 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-5 w-5 text-[#00d4ff] mr-2 flex-shrink-0 mt-0.5" />
                     <span className="text-muted-foreground">{resp}</span>
                   </li>
                 ))}
@@ -364,14 +361,14 @@ const Resume = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
-            className="glass-panel p-6 rounded-lg"
+            className="glass-panel p-6"
           >
             <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-4">
               <div className="flex-1">
                 <h3 className="text-xl font-semibold">{project.title}</h3>
               </div>
               <div className="flex flex-wrap gap-2 items-center">
-                <span className="text-xs py-1 px-3 bg-brand-purple/10 text-brand-purple rounded-full">
+                <span className="hud-pill">
                   {project.type}
                 </span>
                 <span className="text-xs text-muted-foreground">
@@ -386,7 +383,7 @@ const Resume = () => {
               <ul className="space-y-2">
                 {project.accomplishments.map((item, i) => (
                   <li key={i} className="flex items-start">
-                    <CheckCircle2 className="h-5 w-5 text-brand-purple mr-2 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-5 w-5 text-[#00ff88] mr-2 flex-shrink-0 mt-0.5" />
                     <span className="text-muted-foreground">{item}</span>
                   </li>
                 ))}
@@ -397,7 +394,7 @@ const Resume = () => {
               {project.technologies.map((tech) => (
                 <span 
                   key={tech} 
-                  className="text-xs py-1 px-3 bg-secondary rounded-full"
+                  className="hud-pill"
                 >
                   {tech}
                 </span>
@@ -420,11 +417,11 @@ const Resume = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
-            className="glass-panel p-6 rounded-lg"
+            className="glass-panel p-6"
           >
             <div className="flex items-start">
-              <div className="bg-brand-purple/10 p-2 rounded-full mr-4 flex-shrink-0">
-                <Award className="h-5 w-5 text-brand-purple" />
+              <div className="bg-[#00d4ff]/10 p-2 border border-[#00d4ff]/35 mr-4 flex-shrink-0">
+                <Award className="h-5 w-5 text-[#00d4ff]" />
               </div>
               <div>
                 <h3 className="font-semibold">{cert.name}</h3>
@@ -433,7 +430,7 @@ const Resume = () => {
                 </div>
                 <div className="flex flex-wrap gap-2 mb-2">
                   {cert.skills.split(', ').map((skill) => (
-                    <span key={skill} className="text-xs px-2 py-1 bg-secondary inline-block rounded-full">
+                    <span key={skill} className="hud-pill">
                       {skill}
                     </span>
                   ))}
@@ -461,7 +458,7 @@ const Resume = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <span className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-brand-purple/10 text-brand-purple mb-4 backdrop-blur-sm border border-brand-purple/20">
+            <span className="hud-badge mb-4">
               Resume
             </span>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
@@ -498,10 +495,10 @@ const Resume = () => {
                   onClick={() => setActiveTab(tab.id)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`flex items-center px-4 py-2 rounded-lg font-medium transition-colors backdrop-blur-sm border ${
+                  className={`flex items-center px-4 py-2 font-medium uppercase tracking-[0.1em] [font-family:'Share_Tech_Mono',monospace] transition-colors border [clip-path:polygon(0_7px,7px_0,calc(100%_-_7px)_0,100%_7px,100%_calc(100%_-_7px),calc(100%_-_7px)_100%,7px_100%,0_calc(100%_-_7px))] ${
                     activeTab === tab.id
-                      ? "bg-brand-purple text-white border-brand-purple/50"
-                      : "bg-secondary/20 text-muted-foreground hover:bg-secondary/40 border-white/10"
+                      ? "bg-[#00ff88]/16 text-[#00ff88] border-[#00ff88]/55"
+                      : "bg-[#071321] text-muted-foreground hover:bg-[#0b1a2d] border-[#385070]"
                   }`}
                 >
                   {tab.icon}

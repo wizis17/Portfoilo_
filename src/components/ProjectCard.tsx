@@ -21,12 +21,12 @@ const ProjectCard = ({ title, description, image, tags, code, category, icon: Ic
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -10, boxShadow: "0 20px 25px -5px rgba(155, 135, 245, 0.3)" }}
+      whileHover={{ y: -8, boxShadow: "0 20px 26px -6px rgba(0, 255, 136, 0.22)" }}
       transition={{ duration: 0.4 }}
-      className="glass-panel rounded-lg overflow-hidden flex flex-col"
+      className="glass-panel overflow-hidden flex flex-col"
     >
       <div className="relative h-48 overflow-hidden">
-        <div className="absolute top-3 left-3 bg-secondary/80 backdrop-blur-sm px-3 py-1 rounded-full flex items-center text-xs font-medium z-10">
+        <div className="absolute top-3 left-3 bg-[#03131f]/90 border border-[#00d4ff]/45 px-3 py-1 flex items-center text-xs font-medium z-10 [font-family:'Share_Tech_Mono',monospace] uppercase tracking-[0.08em]">
           <Icon className="w-5 h-5" />
           <span className="ml-1.5 capitalize">{getCategoryName(category)}</span>
         </div>
@@ -40,7 +40,7 @@ const ProjectCard = ({ title, description, image, tags, code, category, icon: Ic
       <div className="p-6 flex-grow">
         <motion.h3 
           className="text-xl font-semibold mb-2"
-          whileHover={{ color: "#9b87f5" }}
+          whileHover={{ color: "#00ff88" }}
         >
           {title}
         </motion.h3>
@@ -50,8 +50,8 @@ const ProjectCard = ({ title, description, image, tags, code, category, icon: Ic
           {tags.map(tag => (
             <motion.span 
               key={tag} 
-              className="text-xs py-1 px-3 bg-secondary rounded-full"
-              whileHover={{ backgroundColor: "rgba(155, 135, 245, 0.2)", color: "#9b87f5" }}
+              className="hud-pill"
+              whileHover={{ backgroundColor: "rgba(0, 212, 255, 0.14)", color: "#00d4ff" }}
             >
               {tag}
             </motion.span>
@@ -63,8 +63,8 @@ const ProjectCard = ({ title, description, image, tags, code, category, icon: Ic
             href={code}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center text-muted-foreground hover:text-brand-purple transition-colors"
-            whileHover={{ scale: 1.05, color: "#9b87f5" }}
+            className="inline-flex items-center text-muted-foreground hover:text-[#00ff88] transition-colors"
+            whileHover={{ scale: 1.05, color: "#00ff88" }}
             whileTap={{ scale: 0.95 }}
           >
             <Github className="mr-1.5 h-4 w-4" />

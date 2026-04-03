@@ -18,7 +18,7 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-brand-dark p-4">
-      <div className="glass-panel p-8 md:p-12 rounded-lg text-center max-w-md w-full">
+      <div className="glass-panel p-8 md:p-12 text-center max-w-md w-full">
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -28,7 +28,7 @@ const NotFound = () => {
             stiffness: 120 
           }}
         >
-          <h1 className="text-8xl md:text-9xl font-bold text-brand-purple mb-4">404</h1>
+          <h1 className="text-8xl md:text-9xl font-bold text-[#00ff88] mb-4">404</h1>
           <h2 className="text-xl md:text-2xl font-bold mb-6">Page Not Found</h2>
           <p className="text-muted-foreground mb-8">
             The page you are looking for doesn't exist or has been moved.
@@ -41,7 +41,7 @@ const NotFound = () => {
             >
               <Link
                 to="/"
-                className="inline-flex items-center bg-brand-purple text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition-all"
+                className="cyber-btn-primary inline-flex items-center px-6 py-3 text-sm font-bold"
               >
                 <Home className="mr-2 h-5 w-5" />
                 Back to Home
@@ -54,7 +54,7 @@ const NotFound = () => {
             >
               <Link
                 to={(location.state as any)?.from || "/"}
-                className="inline-flex items-center bg-secondary text-foreground px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition-all"
+                className="cyber-btn-outline inline-flex items-center px-6 py-3 text-sm font-bold"
               >
                 <ArrowLeft className="mr-2 h-5 w-5" />
                 Go Back
@@ -67,7 +67,7 @@ const NotFound = () => {
               <HoverCardTrigger asChild>
                 <motion.div 
                   className="inline-flex items-center cursor-help"
-                  whileHover={{ color: "#9b87f5" }}
+                  whileHover={{ color: "#00d4ff" }}
                 >
                   <Info className="h-4 w-4 mr-1" />
                   <span>Why am I seeing this page?</span>

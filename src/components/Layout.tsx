@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import { Github, Linkedin, Mail, Send } from "lucide-react";
 import ScrollToTop from "./ScrollToTop";
 import ParticleBackground from "./ParticleBackground";
+import BrandMark from "./BrandMark";
 
 interface LayoutProps {
   children: ReactNode;
@@ -34,12 +35,12 @@ export const Layout = ({ children }: LayoutProps) => {
           <div className="flex items-center justify-center h-screen relative z-20">
             <div className="relative w-24 h-24">
               <motion.div
-                className="absolute top-0 left-0 w-full h-full rounded-full border-4 border-t-brand-purple border-r-transparent border-b-transparent border-l-transparent"
+                className="absolute top-0 left-0 w-full h-full rounded-full border-4 border-t-[#00ff88] border-r-transparent border-b-transparent border-l-transparent"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
               />
               <motion.div
-                className="absolute top-2 left-2 w-20 h-20 rounded-full border-4 border-l-teal-500 border-r-transparent border-t-transparent border-b-transparent"
+                className="absolute top-2 left-2 w-20 h-20 rounded-full border-4 border-l-[#00d4ff] border-r-transparent border-t-transparent border-b-transparent"
                 animate={{ rotate: -360 }}
                 transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
               />
@@ -61,25 +62,23 @@ export const Layout = ({ children }: LayoutProps) => {
         )}
       </main>
       
-      <footer className="w-full py-8 border-t border-muted relative z-10 backdrop-blur-md bg-black/20">
+      <footer className="w-full py-8 border-t border-[#00ff88]/30 relative z-10 backdrop-blur-md bg-[#060b14]/80">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
-              <img 
-              width={100}
-              src="/uploads/logo_name.png" alt="logo" />
-              <p className="text-muted-foreground text-sm max-w-md">
+              <BrandMark className="mb-2" />
+              <p className="text-muted-foreground text-sm max-w-md font-mono">
                 Building innovative digital solutions with a focus on clean, efficient code and exceptional user experiences.
               </p>
             </div>
             <div className="flex flex-col items-center md:items-end">
-              <p className="text-foreground font-medium mb-3">Connect with me</p>
+              <p className="text-foreground font-medium mb-3 tracking-[0.18em] uppercase [font-family:'Share_Tech_Mono',monospace]">Connect with me</p>
               <div className="flex space-x-4">
                 <motion.a
                   href="https://github.com/wizis17/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-brand-purple transition-colors bg-secondary p-3 rounded-full"
+                  className="text-muted-foreground hover:text-[#00ff88] transition-colors bg-secondary p-3 border border-[#00ff88]/35"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label="GitHub"
@@ -90,7 +89,7 @@ export const Layout = ({ children }: LayoutProps) => {
                   href="https://t.me/xiaochen_17"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-brand-purple transition-colors bg-secondary p-3 rounded-full"
+                  className="text-muted-foreground hover:text-[#00d4ff] transition-colors bg-secondary p-3 border border-[#00d4ff]/35"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label="Telegram"
@@ -101,7 +100,7 @@ export const Layout = ({ children }: LayoutProps) => {
                   href="https://www.linkedin.com/in/tang-kavtheng-3a6b30362/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-brand-purple transition-colors bg-secondary p-3 rounded-full"
+                  className="text-muted-foreground hover:text-[#ff3fff] transition-colors bg-secondary p-3 border border-[#ff3fff]/35"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label="LinkedIn"
@@ -110,7 +109,7 @@ export const Layout = ({ children }: LayoutProps) => {
                 </motion.a>
                 <motion.a
                   href="mailto:tangkavtheng@gmail.com"
-                  className="text-muted-foreground hover:text-brand-purple transition-colors bg-secondary p-3 rounded-full"
+                  className="text-muted-foreground hover:text-[#00ff88] transition-colors bg-secondary p-3 border border-[#00ff88]/35"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label="Email"
@@ -120,7 +119,7 @@ export const Layout = ({ children }: LayoutProps) => {
               </div>
             </div>
           </div>
-          <div className="text-muted-foreground text-sm text-center mt-8">
+          <div className="text-muted-foreground text-xs text-center mt-8 tracking-[0.14em] uppercase [font-family:'Share_Tech_Mono',monospace]">
             © {new Date().getFullYear()} ThenG. All rights reserved.
           </div>
         </div>

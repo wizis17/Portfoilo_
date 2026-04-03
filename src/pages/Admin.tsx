@@ -66,7 +66,7 @@ const Admin = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <span className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-brand-purple/10 text-brand-purple mb-4">
+            <span className="hud-badge mb-4">
               Admin Panel
             </span>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -81,12 +81,12 @@ const Admin = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">
-              <div className="glass-panel p-6 rounded-lg overflow-hidden">
+              <div className="glass-panel p-6 overflow-hidden">
                 <h2 className="text-xl font-bold mb-4">All Messages</h2>
                 
                 {loading ? (
-                  <div className="flex justify-center items-center py-10">
-                    <div className="animate-spin h-8 w-8 border-2 border-brand-purple border-t-transparent rounded-full"></div>
+                    <div className="flex justify-center items-center py-10">
+                    <div className="animate-spin h-8 w-8 border-2 border-[#00ff88] border-t-transparent rounded-full"></div>
                   </div>
                 ) : error ? (
                   <div className="text-center py-10 text-red-500">
@@ -112,7 +112,7 @@ const Admin = () => {
                         {messages.map((message) => (
                           <TableRow 
                             key={message.id}
-                            className={message.is_read ? "" : "bg-secondary/50 font-medium"}
+                            className={message.is_read ? "" : "bg-[#061423] font-medium"}
                           >
                             <TableCell>
                               {message.is_read ? (
@@ -150,7 +150,7 @@ const Admin = () => {
             </div>
             
             <div className="lg:col-span-1">
-              <div className="glass-panel p-6 rounded-lg sticky top-24">
+              <div className="glass-panel p-6 sticky top-24">
                 <h2 className="text-xl font-bold mb-4">Message Details</h2>
                 
                 {selectedMessage ? (
@@ -172,7 +172,7 @@ const Admin = () => {
                     
                     <div>
                       <p className="text-sm text-muted-foreground">Message</p>
-                      <div className="p-4 bg-secondary/50 rounded-md mt-1">
+                      <div className="p-4 bg-[#081422]/70 border border-[#385070] mt-1">
                         <p>{selectedMessage.message}</p>
                       </div>
                     </div>

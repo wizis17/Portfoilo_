@@ -3,13 +3,12 @@ import { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Home, User, GraduationCap, FolderGit2, FileText, Mail } from "lucide-react";
-import { useTheme } from "./ThemeProvider";
+import BrandMark from "./BrandMark";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const { theme } = useTheme();
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -100,9 +99,9 @@ const Navbar = () => {
     open: { opacity: 1 },
   };
 
-  const bgClass = theme === "dark" 
-    ? (isScrolled ? "py-3 bg-brand-dark/90 backdrop-blur-md shadow-md" : "py-5") 
-    : (isScrolled ? "py-3 bg-white/90 backdrop-blur-md shadow-md" : "py-5");
+  const bgClass = isScrolled
+    ? "py-3 bg-[#030912]/85 backdrop-blur-md border-b border-[#00ff88]/30"
+    : "py-5";
 
   return (
     <header>
@@ -115,14 +114,12 @@ const Navbar = () => {
         <div className="container mx-auto px-4 lg:px-8 flex justify-between items-center">
           <NavLink to="/" className="flex items-center">
             <motion.span
-              className="text-2xl font-bold text-brand-purple"
+              className="text-2xl font-bold text-[#00ff88]"
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              <img 
-              width={100}
-              src="/uploads/logo_name.png" alt="logo" />
+              <BrandMark compact />
             </motion.span>
           </NavLink>
 
@@ -154,7 +151,7 @@ const Navbar = () => {
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Menu"
-              className="p-2 text-foreground"
+              className="p-2 text-foreground border border-[#00ff88]/45 bg-[#06111d]/70"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </motion.button>
@@ -177,7 +174,7 @@ const Navbar = () => {
 
               {/* Mobile Menu Panel */}
               <motion.div
-                className="fixed inset-y-0 right-0 w-[85%] max-w-sm bg-background/95 backdrop-blur-xl border-l border-border shadow-2xl lg:hidden z-50 overflow-hidden"
+                className="fixed inset-y-0 right-0 w-[85%] max-w-sm bg-[#040b15]/95 backdrop-blur-xl border-l border-[#00ff88]/35 shadow-2xl lg:hidden z-50 overflow-hidden"
                 initial="closed"
                 animate="open"
                 exit="closed"
@@ -185,12 +182,12 @@ const Navbar = () => {
               >
                 <div className="flex flex-col h-full">
                   {/* Header */}
-                  <div className="flex items-center justify-between p-6 border-b border-border bg-background/80 backdrop-blur-sm">
-                    <span className="text-xl font-bold text-brand-purple">Menu</span>
+                  <div className="flex items-center justify-between p-6 border-b border-[#00ff88]/35 bg-[#040b15]/80 backdrop-blur-sm">
+                    <span className="text-xl font-bold text-[#00ff88] tracking-[0.16em] uppercase [font-family:'Share_Tech_Mono',monospace]">Menu</span>
                     <motion.button
                       whileTap={{ scale: 0.9 }}
                       onClick={() => setIsOpen(false)}
-                      className="p-2 rounded-lg hover:bg-muted transition-colors"
+                      className="p-2 border border-[#00d4ff]/45 hover:bg-[#041523] transition-colors"
                       aria-label="Close menu"
                     >
                       <X className="w-6 h-6" />
@@ -215,13 +212,13 @@ const Navbar = () => {
                               className={({ isActive }) =>
                                 `flex items-center gap-4 px-4 py-4 rounded-lg transition-all duration-200 ${
                                   isActive
-                                    ? "bg-brand-purple text-white shadow-md"
-                                    : "text-foreground hover:bg-muted active:scale-95"
+                                    ? "bg-[#00ff88]/18 text-[#00ff88] border border-[#00ff88]/50"
+                                    : "text-foreground border border-transparent hover:border-[#00d4ff]/45 hover:bg-[#071320] active:scale-95"
                                 }`
                               }
                             >
                               <Icon className="w-5 h-5 flex-shrink-0" />
-                              <span className="text-base font-medium">{link.name}</span>
+                              <span className="text-base font-medium uppercase tracking-[0.08em] [font-family:'Share_Tech_Mono',monospace]">{link.name}</span>
                             </NavLink>
                           </motion.div>
                         );
@@ -230,8 +227,8 @@ const Navbar = () => {
                   </nav>
 
                   {/* Footer Info */}
-                  <div className="p-6 border-t border-border">
-                    <p className="text-sm text-muted-foreground text-center">
+                  <div className="p-6 border-t border-[#00ff88]/35">
+                    <p className="text-xs text-muted-foreground text-center uppercase tracking-[0.14em] [font-family:'Share_Tech_Mono',monospace]">
                       © 2026 Portfolio
                     </p>
                   </div>

@@ -52,11 +52,11 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-teal-500/10 text-teal-400 mb-4">
+            <span className="hud-badge mb-4">
               About Me
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-relaxed">
-              <span className="inline-block bg-cyan-600 text-white px-3 py-1 rounded -rotate-1">Who I Am</span>{" "}
+              <span className="inline-block border border-[#00d4ff]/55 bg-[#041321] text-[#00d4ff] px-3 py-1">Who I Am</span>{" "}
             </h2>
             <p className="max-w-3xl mx-auto text-muted-foreground">
               I'm a IT Engineering student specializing Software development. Passionate about programming, AI integration, web applications.
@@ -69,10 +69,10 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
-              className="glass-panel p-8 rounded-lg"
+              className="glass-panel p-8"
             >
-              <div className="flex items-center justify-center w-16 h-16 bg-teal-500/10 rounded-lg mb-6 mx-auto">
-                <Globe className="w-8 h-8 text-teal-400" />
+              <div className="flex items-center justify-center w-16 h-16 bg-[#00ff88]/10 border border-[#00ff88]/35 mb-6 mx-auto">
+                <Globe className="w-8 h-8 text-[#00ff88]" />
               </div>
               <h3 className="text-xl font-semibold mb-4 text-center">
                 Web Development
@@ -87,10 +87,10 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="glass-panel p-8 rounded-lg"
+              className="glass-panel p-8"
             >
-              <div className="flex items-center justify-center w-16 h-16 bg-teal-500/10 rounded-lg mb-6 mx-auto">
-                <GraduationCap className="w-8 h-8 text-teal-400" />
+              <div className="flex items-center justify-center w-16 h-16 bg-[#00d4ff]/10 border border-[#00d4ff]/35 mb-6 mx-auto">
+                <GraduationCap className="w-8 h-8 text-[#00d4ff]" />
               </div>
               <h3 className="text-xl font-semibold mb-4 text-center">
                 Computer Science
@@ -105,10 +105,10 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="glass-panel p-8 rounded-lg"
+              className="glass-panel p-8"
             >
-              <div className="flex items-center justify-center w-16 h-16 bg-teal-500/10 rounded-lg mb-6 mx-auto">
-                <Code className="w-8 h-8 text-teal-400" />
+              <div className="flex items-center justify-center w-16 h-16 bg-[#ff3fff]/10 border border-[#ff3fff]/35 mb-6 mx-auto">
+                <Code className="w-8 h-8 text-[#ff3fff]" />
               </div>
               <h3 className="text-xl font-semibold mb-4 text-center">
                 Backend Development
@@ -128,7 +128,7 @@ const Index = () => {
           >
             <Link
               to="/about"
-              className="inline-flex items-center px-6 py-3 bg-teal-500 text-white rounded-lg font-medium hover:bg-opacity-90 transition-all"
+              className="cyber-btn-primary inline-flex items-center px-6 py-3 text-sm font-bold"
             >
               More About Me
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -147,12 +147,12 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-teal-500/10 text-teal-400 mb-4">
+            <span className="hud-badge mb-4">
               Portfolio
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-relaxed">
               Featured {" "}
-              <span className="inline-block bg-blue-400 text-gray-900 px-3 py-1 rounded -rotate-1">Projects</span>{" "}
+              <span className="inline-block border border-[#00ff88]/55 bg-[#04181a] text-[#00ff88] px-3 py-1">Projects</span>{" "}
             </h2>
             <p className="max-w-3xl mx-auto text-muted-foreground">
               A selection of my recent web development and programming projects.
@@ -167,7 +167,7 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="glass-panel rounded-lg overflow-hidden"
+                className="glass-panel overflow-hidden"
               >
                 <div className="h-48 overflow-hidden">
                   <img 
@@ -181,7 +181,7 @@ const Index = () => {
                   <p className="text-muted-foreground mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.tags.map((tag) => (
-                      <span key={tag} className="text-xs py-1 px-3 bg-secondary rounded-full">
+                      <span key={tag} className="hud-pill">
                         {tag}
                       </span>
                     ))}
@@ -189,14 +189,14 @@ const Index = () => {
                   <div className="flex justify-between items-center">
                     <Link
                       to={project.link}
-                      className="inline-flex items-center text-teal-400 hover:text-teal-300 transition-colors font-medium text-sm"
+                      className="inline-flex items-center text-[#00ff88] hover:text-[#2dffc5] transition-colors font-medium text-sm"
                     >
                       View Details
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                     <a
                       href={project.code}
-                      className="inline-flex items-center text-gray-400 hover:text-teal-400 transition-colors font-medium text-sm"
+                      className="inline-flex items-center text-gray-400 hover:text-[#00d4ff] transition-colors font-medium text-sm"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -218,7 +218,7 @@ const Index = () => {
           >
             <Link
               to="/projects"
-              className="inline-flex items-center px-6 py-3 bg-teal-500 text-white rounded-lg font-medium hover:bg-opacity-90 transition-all group"
+              className="cyber-btn-outline inline-flex items-center px-6 py-3 text-sm font-bold group"
             >
               View All Projects
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -235,21 +235,21 @@ const Index = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="glass-panel p-12 rounded-lg max-w-4xl mx-auto text-center"
+            className="glass-panel p-12 max-w-4xl mx-auto text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-relaxed">
-              <span className="inline-block bg-yellow-400 text-gray-900 px-3 py-1 rounded -rotate-1">Thank you</span>{" "}
+              <span className="inline-block border border-[#00ff88]/55 bg-[#031711] text-[#00ff88] px-3 py-1">Thank you</span>{" "}
               for visiting and I hope{" "}
-              <span className="inline-block bg-pink-500 text-white px-3 py-1 rounded rotate-1">to connect soon</span>{" "}
+              <span className="inline-block border border-[#ff3fff]/55 bg-[#18051a] text-[#ff85ff] px-3 py-1">to connect soon</span>{" "}
               for a future{" "}
-              <span className="inline-block bg-white text-gray-900 px-3 py-1 rounded -rotate-1">collaboration</span>
+              <span className="inline-block border border-[#00d4ff]/55 bg-[#04111a] text-[#8fe6ff] px-3 py-1">collaboration</span>
             </h2>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
               I'm currently available for freelance work and internship opportunities.
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center px-8 py-4 bg-teal-500 text-white rounded-lg font-medium hover:bg-opacity-90 transition-all"
+              className="cyber-btn-primary inline-flex items-center px-8 py-4 text-sm font-bold"
             >
               Get in Touch
               <ArrowRight className="ml-2 h-4 w-4" />

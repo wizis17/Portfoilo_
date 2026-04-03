@@ -35,7 +35,7 @@ const About = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-20"
           >
-            <span className="inline-block py-1 px-3 rounded-full text-xs font-medium bg-teal-500/10 text-teal-400 mb-4">
+            <span className="hud-badge mb-4">
               About Me
             </span>
             <h1 className="text-3xl md:text-4xl font-bold mb-6">
@@ -54,8 +54,8 @@ const About = () => {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="relative z-10"
               >
-                <div className="glass-panel p-4 rounded-3xl shadow-2xl">
-                  <div className="rounded-3xl overflow-hidden shadow-xl border-4 border-teal-500/20">
+                <div className="glass-panel p-4 shadow-2xl">
+                  <div className="overflow-hidden shadow-xl border border-[#00ff88]/35">
                     <img 
                       src="/uploads/me.jpg" 
                       alt="Profile" 
@@ -71,7 +71,7 @@ const About = () => {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="relative lg:-ml-32 z-20"
               >
-                <div className="glass-panel p-10 rounded-3xl bg-gray-900/95 backdrop-blur-md">
+                <div className="glass-panel p-10 bg-gray-900/95 backdrop-blur-md">
                   <h2 className="text-3xl md:text-4xl font-bold mb-3">
                     Tang KavThenG
                   </h2>
@@ -88,28 +88,28 @@ const About = () => {
                       href="https://github.com/wizis17/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors"
+                      className="w-12 h-12 bg-[#081422] border border-[#00ff88]/45 flex items-center justify-center hover:border-[#00ff88] transition-colors"
                       aria-label="GitHub"
                     >
-                      <Github className="w-6 h-6 text-gray-900" />
+                      <Github className="w-6 h-6 text-[#00ff88]" />
                     </a>
                     <a
                       href="https://t.me/xiaochen_17"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors"
+                      className="w-12 h-12 bg-[#081422] border border-[#00d4ff]/45 flex items-center justify-center hover:border-[#00d4ff] transition-colors"
                       aria-label="Telegram"
                     >
-                      <Send className="w-6 h-6 text-gray-900" />
+                      <Send className="w-6 h-6 text-[#00d4ff]" />
                     </a>
                     <a
                       href="https://www.linkedin.com/in/tang-kavtheng-3a6b30362/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors"
+                      className="w-12 h-12 bg-[#081422] border border-[#ff3fff]/45 flex items-center justify-center hover:border-[#ff3fff] transition-colors"
                       aria-label="LinkedIn"
                     >
-                      <Linkedin className="w-6 h-6 text-gray-900" />
+                      <Linkedin className="w-6 h-6 text-[#ff3fff]" />
                     </a>
                   </div>
                 </div>
@@ -133,9 +133,9 @@ const About = () => {
                     <motion.li 
                       key={i} 
                       className="flex items-center"
-                      whileHover={{ x: 5, color: "#9b87f5" }}
+                      whileHover={{ x: 5, color: "#00ff88" }}
                     >
-                      <Heart className="h-4 w-4 text-brand-purple mr-2" />
+                      <Heart className="h-4 w-4 text-[#00ff88] mr-2" />
                       {interest}
                     </motion.li>
                   ))}
@@ -149,9 +149,9 @@ const About = () => {
                     <motion.li 
                       key={i} 
                       className="flex items-center"
-                      whileHover={{ x: 5, color: "#9b87f5" }}
+                      whileHover={{ x: 5, color: "#00d4ff" }}
                     >
-                      <Coffee className="h-4 w-4 text-brand-purple mr-2" />
+                      <Coffee className="h-4 w-4 text-[#00d4ff] mr-2" />
                       {philosophy}
                     </motion.li>
                   ))}
@@ -165,9 +165,9 @@ const About = () => {
                     <motion.li 
                       key={i} 
                       className="flex items-center"
-                      whileHover={{ x: 5, color: "#9b87f5" }}
+                      whileHover={{ x: 5, color: "#ff3fff" }}
                     >
-                      <BookOpen className="h-4 w-4 text-brand-purple mr-2" />
+                      <BookOpen className="h-4 w-4 text-[#ff3fff] mr-2" />
                       {journey}
                     </motion.li>
                   ))}
@@ -181,9 +181,9 @@ const About = () => {
                     <motion.li 
                       key={i} 
                       className="flex items-center"
-                      whileHover={{ x: 5, color: "#9b87f5" }}
+                      whileHover={{ x: 5, color: "#00ff88" }}
                     >
-                      <GraduationCap className="h-4 w-4 text-brand-purple mr-2" />
+                      <GraduationCap className="h-4 w-4 text-[#00ff88] mr-2" />
                       {goal}
                     </motion.li>
                   ))}
